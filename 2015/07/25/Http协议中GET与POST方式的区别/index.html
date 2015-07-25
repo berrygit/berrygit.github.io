@@ -12,18 +12,18 @@
 
     
     <meta name="description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;		userna">
+具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Http协议中GET与POST方式的区别">
 <meta property="og:url" content="http://yoursite.com/2015/07/25/Http协议中GET与POST方式的区别/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;		userna">
-<meta property="og:updated_time" content="2015-07-25T06:23:22.000Z">
+具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
+<meta property="og:updated_time" content="2015-07-25T06:28:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http协议中GET与POST方式的区别">
 <meta name="twitter:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;		userna">
+具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -104,19 +104,25 @@
 		</div>
 		
 		<h2 id="概念">概念</h2><p>Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
-<h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">		username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">		password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">			<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">			value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">	username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">	password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">		<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">		value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <h3 id="GET方式">GET方式</h3><p>当以get方式提交时，观察浏览器页面的地址栏中URL为</p>
 <blockquote>
 <p><a href="http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456" target="_blank" rel="external">http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456</a></p>
 </blockquote>
-<p>抓包后，可以看到报文<br>&gt;<br>GET /test/HeroLogin?username=berry&amp;password=123456 HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 05:13:13 GMT</p>
+<p>抓包后，可以看到报文</p>
+<blockquote>
+<p>GET /test/HeroLogin?username=berry&amp;password=123456 HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 05:13:13 GMT</p>
+</blockquote>
 <p>可以看到GET方式请求信息是通过URL提交的。</p>
 <h3 id="POST方式">POST方式</h3><p>观察到以post方式提交，浏览器地址栏URL中没有页面的信息。</p>
 <blockquote>
 <p><a href="http://localhost:8080/test/HeroLogin" target="_blank" rel="external">http://localhost:8080/test/HeroLogin</a></p>
 </blockquote>
-<p>抓包后可以看到<br>&gt;<br>POST /test/HeroLogin HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 30<br>username=berry&amp;password=654321<br>4gQ@<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 06:15:43 GMT</p>
-<p>此时，页面信息时在报文体中的。</p>
+<p>抓包后可以看到</p>
+<blockquote>
+<p>POST /test/HeroLogin HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 30<br>username=berry&amp;password=654321<br>4gQ@<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 06:15:43 GMT</p>
+</blockquote>
+<p>此时，页面信息是在报文体中的。</p>
 <hr>
   
 	</div>
