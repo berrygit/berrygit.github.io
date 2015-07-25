@@ -11,16 +11,19 @@
     
 
     
-    <meta name="description">
+    <meta name="description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
+具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;		userna">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Http协议中GET与POST方式的区别">
 <meta property="og:url" content="http://yoursite.com/2015/07/25/Http协议中GET与POST方式的区别/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-07-25T04:46:44.000Z">
+<meta property="og:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
+具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;		userna">
+<meta property="og:updated_time" content="2015-07-25T06:18:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http协议中GET与POST方式的区别">
-<meta name="twitter:description">
+<meta name="twitter:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
+具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;		userna">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -96,15 +99,40 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		  
+		<h2 id="概念">概念</h2><p>Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
+<h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">		username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">		password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">			<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">			value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="GET方式">GET方式</h3><p>当以get方式提交时，观察浏览器页面的地址栏中URL为</p>
+<blockquote>
+<p><a href="http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456" target="_blank" rel="external">http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456</a></p>
+</blockquote>
+<p>抓包后，可以看到报文<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="request">GET <span class="string">/test/HeroLogin?username=berry&amp;password=123456</span> HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span>: <span class="string">localhost:8080</span></span><br><span class="line"><span class="attribute">User-Agent</span>: <span class="string">Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0</span></span><br><span class="line"><span class="attribute">Accept</span>: <span class="string">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span></span><br><span class="line"><span class="attribute">Accept-Language</span>: <span class="string">zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3</span></span><br><span class="line"><span class="attribute">Accept-Encoding</span>: <span class="string">gzip, deflate</span></span><br><span class="line"><span class="attribute">Referer</span>: <span class="string">http://localhost:8080/</span></span><br><span class="line"><span class="attribute">Connection</span>: <span class="string">keep-alive</span></span><br><span class="line"><span class="status">HTTP/1.1 <span class="number">200</span> OK</span></span><br><span class="line"><span class="attribute">Server</span>: <span class="string">Apache-Coyote/1.1</span></span><br><span class="line"><span class="attribute">Content-Length</span>: <span class="string">0</span></span><br><span class="line"><span class="attribute">Date</span>: <span class="string">Sat, 25 Jul 2015 05:13:13 GMT</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到GET方式请求信息是通过URL提交的。</p>
+<h3 id="POST方式">POST方式</h3><p>观察到以post方式提交，浏览器地址栏URL中没有页面的信息。</p>
+<blockquote>
+<p><a href="http://localhost:8080/test/HeroLogin" target="_blank" rel="external">http://localhost:8080/test/HeroLogin</a></p>
+</blockquote>
+<p>抓包后可以看到<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">POST <span class="regexp">/test/</span>HeroLogin HTTP/<span class="number">1.1</span></span><br><span class="line"><span class="string">Host:</span> <span class="string">localhost:</span><span class="number">8080</span></span><br><span class="line">User-<span class="string">Agent:</span> Mozilla<span class="regexp">/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/</span><span class="number">20100101</span> Firefox/<span class="number">39.0</span></span><br><span class="line"><span class="string">Accept:</span> text<span class="regexp">/html,application/</span>xhtml+xml,application<span class="regexp">/xml;q=0.9,*/</span>*;q=<span class="number">0.8</span></span><br><span class="line">Accept-<span class="string">Language:</span> zh-CN,zh;q=<span class="number">0.8</span>,en-US;q=<span class="number">0.5</span>,en;q=<span class="number">0.3</span></span><br><span class="line">Accept-<span class="string">Encoding:</span> gzip, deflate</span><br><span class="line"><span class="string">Referer:</span> <span class="string">http:</span><span class="comment">//localhost:8080/</span></span><br><span class="line"><span class="string">Connection:</span> keep-alive</span><br><span class="line">Content-<span class="string">Type:</span> application/x-www-form-urlencoded</span><br><span class="line">Content-<span class="string">Length:</span> <span class="number">30</span></span><br><span class="line">username=berry&amp;password=<span class="number">654321</span></span><br><span class="line"><span class="number">4</span>gQ@</span><br><span class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="string">Server:</span> Apache-Coyote/<span class="number">1.1</span></span><br><span class="line">Content-<span class="string">Length:</span> <span class="number">0</span></span><br><span class="line"><span class="string">Date:</span> Sat, <span class="number">25</span> Jul <span class="number">2015</span> <span class="number">06</span>:<span class="number">15</span>:<span class="number">43</span> GMT</span><br></pre></td></tr></table></figure></p>
+<p>此时，页面信息时在报文体中的。</p>
+<hr>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/网络/">网络</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/GET/">GET</a><a href="/tags/Http/">Http</a><a href="/tags/POST/">POST</a>
+  </div>
 
 </div>
 
@@ -134,14 +162,6 @@
 </div>
 
 
-<div class="next">
-<a href="/2015/07/24/J2EE的几个基本概念(filter,servlet,listener)/"  title="J2EE的几个基本概念(filter,servlet,listener)">
- <strong>下一篇：</strong><br/> 
- <span>J2EE的几个基本概念(filter,servlet,listener)
-</span>
-</a>
-</div>
-
 </nav>
 
 	
@@ -152,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
  
   </div>
 
@@ -166,7 +186,15 @@
 		<ul>
 		
 		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>1</sup></a></li>
+		  
+		
+		  
 			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/网络/" title="网络">网络<sup>1</sup></a></li>
 		  
 		
 		</ul>
@@ -177,6 +205,18 @@
 <div class="tagslist">
 	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Http/" title="Http">Http<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
+			
 		
 			
 				<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
