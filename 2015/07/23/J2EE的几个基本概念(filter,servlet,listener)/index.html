@@ -34,7 +34,7 @@ listener
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201301/29/1359428942_1310.png">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201301/29/1359428988_1436.png">
 <meta property="og:image" content="http://images.cnitblog.com/blog/150046/201501/072114581714750.png">
-<meta property="og:updated_time" content="2015-07-25T06:32:12.000Z">
+<meta property="og:updated_time" content="2015-07-26T08:50:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="J2EE的几个基本概念(filter,servlet,listener)">
 <meta name="twitter:description" content="基本概念filter
@@ -152,7 +152,7 @@ listener
 <hr>
 <h2 id="生命周期">生命周期</h2><h3 id="filter-2">filter</h3><p>filter类在web服务器启动初始化时即被加载,实例化时会执行<code>init</code>方法.在web服务器关闭时,会执行<code>destroy</code>方法.</p>
 <h3 id="servlet-2">servlet</h3><p><img src="http://images.cnitblog.com/blog/150046/201501/072114581714750.png" alt="servlet生命周期"></p>
-<p>如果已配置自动装入选项，则在启动服务器时自动装入;否则在匹配的请求进来时才会加载.实例化时执行init方法.</p>
+<p>如果配置为自动装入，则在启动服务器时自动装入；否则在有匹配的请求进来时才会懒加载，实例化时会执行<code>init</code>方法。实例化后，该servlet实例便一直在服务器容器中，每次请求进来直接通过<code>service</code>方法处理，不需再初始化。当服务器程序关闭，会调用<code>destroy</code>方法，之后该servlet被垃圾回收。<br>servlet是多线程单实例的，之所以为单实例是为了节省内存，试想每个servlet请求进来都要new 一个实例，将要占用多少空间。多线程是为提高servlet的响应性能。</p>
 <p>总体,初始化顺序:context-param &gt; Listener &gt; Filter &gt; Servlet </p>
 <hr>
 <p>参考文献:</p>
@@ -194,10 +194,10 @@ listener
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/07/25/Http协议中GET与POST方式的区别/" title="Http协议中GET与POST方式的区别">
+ <a href="/2015/07/24/Servlet浅析及使用/" title="Servlet浅析及使用">
   <strong>上一篇：</strong><br/>
   <span>
-  Http协议中GET与POST方式的区别</span>
+  Servlet浅析及使用</span>
 </a>
 </div>
 
@@ -226,7 +226,7 @@ listener
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>1</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
 		  
 		
 		  
@@ -247,11 +247,11 @@ listener
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Http/" title="Http">Http<sup>1</sup></a></li>
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
 			
 		
 			
@@ -271,11 +271,23 @@ listener
 			
 		
 			
-				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/servlet/" title="servlet">servlet<sup>1</sup></a></li>
+				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Http/" title="Http">Http<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
 			
 		
 			

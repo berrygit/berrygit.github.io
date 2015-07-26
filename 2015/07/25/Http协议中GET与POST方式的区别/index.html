@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
 具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
-<meta property="og:updated_time" content="2015-07-25T06:31:34.000Z">
+<meta property="og:updated_time" content="2015-07-25T13:28:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Http协议中GET与POST方式的区别">
 <meta name="twitter:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
@@ -105,6 +105,12 @@
 		
 		<h2 id="概念">概念</h2><p>Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
 <h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">	username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">	password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">		<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">		value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>即</p>
+<blockquote>
+<p>登陆系统</p>
+<form action="/test/HeroLogin" method="get"><br>    username: <input type="text" name="username"><br><br>    password: <input type="password" name="password"><br> <input type="submit" value="submit"> <input type="reset" value="reset"><br></form>
+
+</blockquote>
 <h3 id="GET方式">GET方式</h3><p>当以get方式提交时，观察浏览器页面的地址栏中URL为</p>
 <blockquote>
 <p><a href="http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456" target="_blank" rel="external">http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456</a></p>
@@ -169,9 +175,9 @@
 
 
 <div class="next">
-<a href="/2015/07/23/J2EE的几个基本概念(filter,servlet,listener)/"  title="J2EE的几个基本概念(filter,servlet,listener)">
+<a href="/2015/07/24/Servlet浅析及使用/"  title="Servlet浅析及使用">
  <strong>下一篇：</strong><br/> 
- <span>J2EE的几个基本概念(filter,servlet,listener)
+ <span>Servlet浅析及使用
 </span>
 </a>
 </div>
@@ -200,7 +206,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>1</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
 		  
 		
 		  
@@ -221,11 +227,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Http/" title="Http">Http<sup>1</sup></a></li>
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
 			
 		
 			
@@ -245,11 +251,23 @@
 			
 		
 			
-				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/servlet/" title="servlet">servlet<sup>1</sup></a></li>
+				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Http/" title="Http">Http<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
 			
 		
 			
