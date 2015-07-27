@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Url中的encode与decode问题 | Hexo</title>
+    <title>URL中的encode与decode问题 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
@@ -12,18 +12,18 @@
 
     
     <meta name="description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
-像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+两位该字符的16进制码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的">
+像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特殊符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+该字符的16进制编码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Url中的encode与decode问题">
+<meta property="og:title" content="URL中的encode与decode问题">
 <meta property="og:url" content="http://yoursite.com/2015/07/27/Url中的encode与decode问题/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
-像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+两位该字符的16进制码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的">
-<meta property="og:updated_time" content="2015-07-27T09:24:41.000Z">
+像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特殊符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+该字符的16进制编码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指">
+<meta property="og:updated_time" content="2015-07-27T10:47:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Url中的encode与decode问题">
+<meta name="twitter:title" content="URL中的encode与decode问题">
 <meta name="twitter:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
-像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+两位该字符的16进制码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的">
+像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特殊符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+该字符的16进制编码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -83,7 +83,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/27/Url中的encode与decode问题/" title="Url中的encode与decode问题" itemprop="url">Url中的encode与decode问题</a>
+      <a href="/2015/07/27/Url中的encode与decode问题/" title="URL中的encode与decode问题" itemprop="url">URL中的encode与decode问题</a>
   </h1>
   <p class="article-author">By
        
@@ -104,11 +104,12 @@
 		</div>
 		
 		<h2 id="原理">原理</h2><p><code>http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode</code></p>
-<p>像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成<code>%+两位该字符的16进制码</code>的形式。<br>那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指定：</p>
+<p>像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特殊符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成<code>%+该字符的16进制编码</code>的形式。<br>那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指定：</p>
 <blockquote>
-<p>Content-Type: application/x-www-form-urlencoded<br>原来在HTTP协议的url规范中，像中文等字符是不符合上述规范的。用HTTP协议传输前必须把不符合规范的特殊字符转换成上面的规范，所以就有了这么多%。</p>
+<p>Content-Type: application/x-www-form-urlencoded</p>
 </blockquote>
-<h2 id="处理">处理</h2><p>java的JDK中提供了现成的方法用来处理URL的encode和decode，分别时类<code>java.net.URLEncoder</code>和类<code>java.net.URLDecoder</code>。<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="string">"http<span class="variable">%CE</span><span class="variable">%AA</span><span class="variable">%CA</span><span class="variable">%B2</span><span class="variable">%C3</span><span class="variable">%B4</span><span class="variable">%D2</span><span class="variable">%AAdecode</span><span class="variable">%20</span><span class="variable">%D3</span><span class="variable">%EBencode</span>"</span>;</span><br><span class="line">System.out.println(URLDecoder.decode(url, <span class="string">"GB2312"</span>));</span><br></pre></td></tr></table></figure></p>
+<p>原来在HTTP协议的url规范中，像中文等字符是不符合上述规范<code>application/x-www-form-urlencoded</code>的。用HTTP协议传输前必须把不符合规范的特殊字符转换成上面的规范，所以就有了这么多%。</p>
+<h2 id="处理">处理</h2><p>java的JDK中提供了现成的类来处理URL的encode和decode，分别时类<code>java.net.URLEncoder</code>和类<code>java.net.URLDecoder</code>。<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="string">"http<span class="variable">%CE</span><span class="variable">%AA</span><span class="variable">%CA</span><span class="variable">%B2</span><span class="variable">%C3</span><span class="variable">%B4</span><span class="variable">%D2</span><span class="variable">%AAdecode</span><span class="variable">%20</span><span class="variable">%D3</span><span class="variable">%EBencode</span>"</span>;</span><br><span class="line">System.out.println(URLDecoder.decode(url, <span class="string">"GB2312"</span>));</span><br></pre></td></tr></table></figure></p>
 <p>运行结果为</p>
 <blockquote>
 <p>http为什么要decode 与encode</p>
@@ -130,7 +131,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/27/Url中的encode与decode问题/" data-title="Url中的encode与decode问题 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/27/Url中的encode与decode问题/" data-title="URL中的encode与decode问题 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
