@@ -4,26 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Http协议中GET与POST方式的区别 | Hexo</title>
+    <title>Url中的encode与decode问题 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
+    <meta name="description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
+像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+两位该字符的16进制码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Http协议中GET与POST方式的区别">
-<meta property="og:url" content="http://yoursite.com/2015/07/25/Http协议中GET与POST方式的区别/index.html">
+<meta property="og:title" content="Url中的encode与decode问题">
+<meta property="og:url" content="http://yoursite.com/2015/07/27/Url中的encode与decode问题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
-<meta property="og:updated_time" content="2015-07-25T13:28:15.000Z">
+<meta property="og:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
+像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+两位该字符的16进制码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的">
+<meta property="og:updated_time" content="2015-07-27T09:24:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Http协议中GET与POST方式的区别">
-<meta name="twitter:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
+<meta name="twitter:title" content="Url中的encode与decode问题">
+<meta name="twitter:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
+像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+两位该字符的16进制码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/25/Http协议中GET与POST方式的区别/" title="Http协议中GET与POST方式的区别" itemprop="url">Http协议中GET与POST方式的区别</a>
+      <a href="/2015/07/27/Url中的encode与decode问题/" title="Url中的encode与decode问题" itemprop="url">Url中的encode与decode问题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-25T04:46:44.000Z" itemprop="datePublished"> 發表於 2015-07-25</time>
+    <time datetime="2015-07-27T08:46:04.000Z" itemprop="datePublished"> 發表於 2015-07-27</time>
     
   </p>
 </header>
@@ -99,37 +99,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理"><span class="toc-number">2.</span> <span class="toc-text">处理</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
-<h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">	username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">	password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">		<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">		value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p>即</p>
+		<h2 id="原理">原理</h2><p><code>http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode</code></p>
+<p>像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特俗符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成<code>%+两位该字符的16进制码</code>的形式。<br>那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指定：</p>
 <blockquote>
-<p>登陆系统</p>
-<form action="/test/HeroLogin" method="get"><br>    username: <input type="text" name="username"><br><br>    password: <input type="password" name="password"><br> <input type="submit" value="submit"> <input type="reset" value="reset"><br></form>
-
+<p>Content-Type: application/x-www-form-urlencoded<br>原来在HTTP协议的url规范中，像中文等字符是不符合上述规范的。用HTTP协议传输前必须把不符合规范的特殊字符转换成上面的规范，所以就有了这么多%。</p>
 </blockquote>
-<h3 id="GET方式">GET方式</h3><p>当以get方式提交时，观察浏览器页面的地址栏中URL为</p>
+<h2 id="处理">处理</h2><p>java的JDK中提供了现成的方法用来处理URL的encode和decode，分别时类<code>java.net.URLEncoder</code>和类<code>java.net.URLDecoder</code>。<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="string">"http<span class="variable">%CE</span><span class="variable">%AA</span><span class="variable">%CA</span><span class="variable">%B2</span><span class="variable">%C3</span><span class="variable">%B4</span><span class="variable">%D2</span><span class="variable">%AAdecode</span><span class="variable">%20</span><span class="variable">%D3</span><span class="variable">%EBencode</span>"</span>;</span><br><span class="line">System.out.println(URLDecoder.decode(url, <span class="string">"GB2312"</span>));</span><br></pre></td></tr></table></figure></p>
+<p>运行结果为</p>
 <blockquote>
-<p><a href="http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456" target="_blank" rel="external">http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456</a></p>
+<p>http为什么要decode 与encode</p>
 </blockquote>
-<p>抓包后，可以看到报文</p>
-<blockquote>
-<p>GET /test/HeroLogin?username=berry&amp;password=123456 HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 05:13:13 GMT</p>
-</blockquote>
-<p>可以看到GET方式请求信息是通过URL提交的。</p>
-<h3 id="POST方式">POST方式</h3><p>观察到以post方式提交，浏览器地址栏URL中没有页面的信息。</p>
-<blockquote>
-<p><a href="http://localhost:8080/test/HeroLogin" target="_blank" rel="external">http://localhost:8080/test/HeroLogin</a></p>
-</blockquote>
-<p>抓包后可以看到</p>
-<blockquote>
-<p>POST /test/HeroLogin HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 30<br>username=berry&amp;password=654321<br>4gQ@<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 06:15:43 GMT</p>
-</blockquote>
-<p>此时，页面信息是在报文体中的。</p>
-<hr>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -137,14 +120,9 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/网络/">网络</a>
+  <a class="article-category-link" href="/categories/J2EE/">J2EE</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/GET/">GET</a><a href="/tags/Http/">Http</a><a href="/tags/POST/">POST</a>
-  </div>
 
 </div>
 
@@ -152,7 +130,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/25/Http协议中GET与POST方式的区别/" data-title="Http协议中GET与POST方式的区别 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/27/Url中的encode与decode问题/" data-title="Url中的encode与decode问题 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -165,19 +143,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/25/用tcpdump命令抓包/" title="用tcpdump命令抓包">
-  <strong>上一篇：</strong><br/>
-  <span>
-  用tcpdump命令抓包</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/24/Servlet浅析及使用/"  title="Servlet浅析及使用">
+<a href="/2015/07/25/struts2的集成配置与简单使用/"  title="struts2的集成配置与简单使用">
  <strong>下一篇：</strong><br/> 
- <span>Servlet浅析及使用
+ <span>struts2的集成配置与简单使用
 </span>
 </a>
 </div>
@@ -192,7 +162,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#处理"><span class="toc-number">2.</span> <span class="toc-text">处理</span></a></li></ol>
  
   </div>
 
