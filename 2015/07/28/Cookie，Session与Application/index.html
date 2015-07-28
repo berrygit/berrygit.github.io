@@ -4,29 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>用tcpdump命令抓包 | Hexo</title>
+    <title>Cookie，Session与Application | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念linux系统提供tcpdump抓包命令，这在与网络有关的软件调试时，提供了很大的方便，我们可以根据抓包情况，判定服务的报文是否发送，发送的报文的实际内容是什么。
-命令抓取本机指定端口的报文抓取本机报文，需要用-i参数指定网卡为lo。本机指定端口，命令如下：1sudo tcpdump -i lo port 8080
-如果报文太长不方便查看，可以使用-w参数，后接文件名，将报文保存在文件中。如：">
+    <meta name="description" content="概念WEB开发中经常遇到cookie，session和application的概念，那么这几个名称到底意味着什么呢？故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用tcpdump命令抓包">
-<meta property="og:url" content="http://yoursite.com/2015/07/25/用tcpdump命令抓包/index.html">
+<meta property="og:title" content="Cookie，Session与Application">
+<meta property="og:url" content="http://yoursite.com/2015/07/28/Cookie，Session与Application/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念linux系统提供tcpdump抓包命令，这在与网络有关的软件调试时，提供了很大的方便，我们可以根据抓包情况，判定服务的报文是否发送，发送的报文的实际内容是什么。
-命令抓取本机指定端口的报文抓取本机报文，需要用-i参数指定网卡为lo。本机指定端口，命令如下：1sudo tcpdump -i lo port 8080
-如果报文太长不方便查看，可以使用-w参数，后接文件名，将报文保存在文件中。如：">
-<meta property="og:updated_time" content="2015-07-25T06:56:34.000Z">
+<meta property="og:description" content="概念WEB开发中经常遇到cookie，session和application的概念，那么这几个名称到底意味着什么呢？故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请">
+<meta property="og:updated_time" content="2015-07-28T06:49:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用tcpdump命令抓包">
-<meta name="twitter:description" content="概念linux系统提供tcpdump抓包命令，这在与网络有关的软件调试时，提供了很大的方便，我们可以根据抓包情况，判定服务的报文是否发送，发送的报文的实际内容是什么。
-命令抓取本机指定端口的报文抓取本机报文，需要用-i参数指定网卡为lo。本机指定端口，命令如下：1sudo tcpdump -i lo port 8080
-如果报文太长不方便查看，可以使用-w参数，后接文件名，将报文保存在文件中。如：">
+<meta name="twitter:title" content="Cookie，Session与Application">
+<meta name="twitter:description" content="概念WEB开发中经常遇到cookie，session和application的概念，那么这几个名称到底意味着什么呢？故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -86,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/25/用tcpdump命令抓包/" title="用tcpdump命令抓包" itemprop="url">用tcpdump命令抓包</a>
+      <a href="/2015/07/28/Cookie，Session与Application/" title="Cookie，Session与Application" itemprop="url">Cookie，Session与Application</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-25T04:47:16.000Z" itemprop="datePublished"> 發表於 2015-07-25</time>
+    <time datetime="2015-07-28T06:23:04.000Z" itemprop="datePublished"> 發表於 2015-07-28</time>
     
   </p>
 </header>
@@ -102,20 +96,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">2.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抓取本机指定端口的报文"><span class="toc-number">2.1.</span> <span class="toc-text">抓取本机指定端口的报文</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>linux系统提供tcpdump抓包命令，这在与网络有关的软件调试时，提供了很大的方便，我们可以根据抓包情况，判定服务的报文是否发送，发送的报文的实际内容是什么。</p>
-<h2 id="命令">命令</h2><h3 id="抓取本机指定端口的报文">抓取本机指定端口的报文</h3><p>抓取本机报文，需要用<code>-i</code>参数指定网卡为<code>lo</code>。本机指定端口，命令如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -<span class="tag">i</span> lo port <span class="number">8080</span></span><br></pre></td></tr></table></figure></p>
-<p>如果报文太长不方便查看，可以使用<code>-w</code>参数，后接文件名，将报文保存在文件中。如：</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tcpdump -w tempfile -<span class="tag">i</span> lo port <span class="number">8080</span></span><br></pre></td></tr></table></figure>
-<p>抓包结束，用<code>Ctrl+c</code>停止，当前目录下会出现文件tempfile。用<code>strings</code>命令查看：<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">strings </span>tempfile</span><br></pre></td></tr></table></figure></p>
-<p>这期间该端口如果有http请求，将会被抓取，可以看到报文：</p>
-<blockquote>
-<p>GET /test/HeroLogin?username=berry&amp;password=123456 HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 05:13:13 GMT</p>
-</blockquote>
-<hr>
+		<h2 id="概念">概念</h2><p>WEB开发中经常遇到cookie，session和application的概念，那么这几个名称到底意味着什么呢？<br>故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请求的事件后，再与服务器连接，然后请求一个你想得到的页面过来。正是这种机制，使得计算机网路可以高效的传输数据。<br>那么问题就来了，既然用户每次请求都是独立的，那么下一个页面如何知道你是谁或者上一个页面你做了哪些操作呢？比如你登陆了某个网站，再做一些操作时，之后的页面中网站是如何知道你已经登陆了，而不让你重新登陆呢？</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,14 +108,9 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/linux/">linux</a>
+  <a class="article-category-link" href="/categories/J2EE/">J2EE</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/linux/">linux</a><a href="/tags/tcpdump/">tcpdump</a><a href="/tags/抓包/">抓包</a>
-  </div>
 
 </div>
 
@@ -138,7 +118,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/25/用tcpdump命令抓包/" data-title="用tcpdump命令抓包 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/28/Cookie，Session与Application/" data-title="Cookie，Session与Application | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -151,19 +131,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/25/struts2的集成配置与简单使用/" title="struts2的集成配置与简单使用">
-  <strong>上一篇：</strong><br/>
-  <span>
-  struts2的集成配置与简单使用</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/25/Http协议中GET与POST方式的区别/"  title="Http协议中GET与POST方式的区别">
+<a href="/2015/07/27/URL中的encode与decode问题/"  title="URL中的encode与decode问题">
  <strong>下一篇：</strong><br/> 
- <span>Http协议中GET与POST方式的区别
+ <span>URL中的encode与decode问题
 </span>
 </a>
 </div>
@@ -178,7 +150,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令"><span class="toc-number">2.</span> <span class="toc-text">命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抓取本机指定端口的报文"><span class="toc-number">2.1.</span> <span class="toc-text">抓取本机指定端口的报文</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li></ol>
  
   </div>
 

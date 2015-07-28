@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
 像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特殊符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+该字符的16进制编码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指">
-<meta property="og:updated_time" content="2015-07-28T05:15:05.000Z">
+<meta property="og:updated_time" content="2015-07-28T05:26:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="URL中的encode与decode问题">
 <meta name="twitter:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
@@ -115,7 +115,7 @@
 <p>http为什么要decode 与encode</p>
 </blockquote>
 <h3 id="tomcat等web服务器中">tomcat等web服务器中</h3><p>一般浏览器提交时，会自动将url部分做<code>utf-8</code>格式的encode，tomcat接受请求后，在调用<code>getParameter</code>方法时也会自动做decode，但需要指定字符集编码，如果没指定，默认是<code>ISO-8859-1</code>的。如果需要自定义，则在过滤器里设置一下就可以了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,</span><br><span class="line">		FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException</span><br><span class="line"></span>&#123;</span><br><span class="line">	String encoding = getEncoding();</span><br><span class="line">	<span class="keyword">if</span> (encoding == <span class="keyword">null</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		encoding = <span class="string">"utf-8"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 在请求里设置上指定的编码</span></span><br><span class="line">	request.setCharacterEncoding(encoding);</span><br><span class="line">	chain.doFilter(request, response);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,</span><br><span class="line">		FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException</span><br><span class="line"></span>&#123;</span><br><span class="line">	String encoding = getEncoding();</span><br><span class="line">	<span class="keyword">if</span> (encoding == <span class="keyword">null</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		encoding = <span class="string">"utf-8"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 在请求里设置上指定的编码</span></span><br><span class="line">	request.setCharacterEncoding(encoding);</span><br><span class="line">	chain.doFilter(request, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -146,6 +146,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/07/28/Cookie，Session与Application/" title="Cookie，Session与Application">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Cookie，Session与Application</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/07/25/struts2的集成配置与简单使用/"  title="struts2的集成配置与简单使用">
@@ -179,7 +187,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>4</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>5</sup></a></li>
 		  
 		
 		  
@@ -204,11 +212,19 @@
 			
 		
 			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
+				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
 			
 		
 			
@@ -220,15 +236,11 @@
 			
 		
 			
-				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
+				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
 			
 		
 			
@@ -236,15 +248,11 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
+				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
 			
 		
 		</ul>
