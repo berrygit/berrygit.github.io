@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/07/29/网页中文乱码问题/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概念网页开发中，经常会遇到网页中文乱码的问题。那么为什么会有这种问题，又要怎么解决呢？首先，还要从字符集开始说起。我们知道计算机图形界面显示的文本，在存储到硬盘或者内存中时，对应的是一串0和1的二进制串。那么，什么样的二进制编码，对应着什么样的字符，就需要一个约定好的标准，这样计算机上的软件程序才能正确识别出来。在最开始的时候，计算机还没有互联网化，不同国家或地区有着自己的标准，这就导致用一种编码">
-<meta property="og:updated_time" content="2015-07-29T06:21:57.000Z">
+<meta property="og:updated_time" content="2015-07-29T11:33:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网页中文乱码问题">
 <meta name="twitter:description" content="概念网页开发中，经常会遇到网页中文乱码的问题。那么为什么会有这种问题，又要怎么解决呢？首先，还要从字符集开始说起。我们知道计算机图形界面显示的文本，在存储到硬盘或者内存中时，对应的是一串0和1的二进制串。那么，什么样的二进制编码，对应着什么样的字符，就需要一个约定好的标准，这样计算机上的软件程序才能正确识别出来。在最开始的时候，计算机还没有互联网化，不同国家或地区有着自己的标准，这就导致用一种编码">
@@ -96,15 +96,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器网页乱码"><span class="toc-number">2.1.</span> <span class="toc-text">浏览器网页乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端解析乱码"><span class="toc-number">2.2.</span> <span class="toc-text">服务端解析乱码</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<h2 id="概念">概念</h2><p>网页开发中，经常会遇到网页中文乱码的问题。那么为什么会有这种问题，又要怎么解决呢？<br>首先，还要从字符集开始说起。我们知道计算机图形界面显示的文本，在存储到硬盘或者内存中时，对应的是一串0和1的二进制串。那么，什么样的二进制编码，对应着什么样的字符，就需要一个约定好的标准，这样计算机上的软件程序才能正确识别出来。在最开始的时候，计算机还没有互联网化，不同国家或地区有着自己的标准，这就导致用一种编码的编辑器去打开另一种编码写的文本时无法正常识别，也就是我们看到的乱码（由于计算机由西方发展出来，英文的编码是最先定好的，其它国家沿用了这些字母的编码，在此基础上添加自己的编码，所以很少看到英文乱码）。</p>
 <h2 id="解决">解决</h2><p>概念清楚了，那么在网页开发中怎么解决呢？</p>
-<p>一般浏览器的默认的字符编码是<code>utf-8</code>的，按理说只要服务器发给浏览器的是<code>utf-8</code>编码的文本，浏览器就可以解析。但这里需要注意的是，一般浏览器支持多种编码，也就是不论网页是什么编码的，只要告诉浏览器，浏览器所在的个人电脑中能查到这种编码标准，浏览器就能正常显示网页。所以要解决乱码问题，只要发给浏览器的文本的实际编码格式与网页中标示的格式一致，浏览器就能正常解析。</p>
+<h3 id="浏览器网页乱码">浏览器网页乱码</h3><p>一般浏览器的默认的字符编码是<code>utf-8</code>的，按理说只要服务器发给浏览器的是<code>utf-8</code>编码的文本，浏览器就可以解析。但这里需要注意的是，一般浏览器支持多种编码，也就是不论网页是什么编码的，只要告诉浏览器，浏览器所在的个人电脑中能查到这种编码标准，浏览器就能正常显示网页。所以要解决乱码问题，只要发给浏览器的文本的实际编码格式与网页中标示的格式一致，浏览器就能正常解析。</p>
 <p>html网页字符标签<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>J2EE中一般整个服务统一编码标准，在过滤器中设置响应的字符编码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,</span><br><span class="line">		FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException</span><br><span class="line"></span>&#123;</span><br><span class="line">	String encoding = getEncoding();</span><br><span class="line">	<span class="keyword">if</span> (encoding == <span class="keyword">null</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		encoding = <span class="string">"utf-8"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 设置上指定的编码</span></span><br><span class="line">	request.setCharacterEncoding(encoding);</span><br><span class="line">	response.setCharacterEncoding(encoding);</span><br><span class="line"></span><br><span class="line">	chain.doFilter(request, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="服务端解析乱码">服务端解析乱码</h3><p>服务端解析乱码根据提交方式，一般有两种情况：对于post方式提交的报文，只要像上面在过滤器中设置字符集即可；对于get方式提交的参数乱码，需要在tomcat的<code>server.xml</code>中指定URI的字符集，具体如下：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector <span class="variable">connectionTimeout=</span><span class="string">"20000"</span> <span class="variable">port=</span><span class="string">"8080"</span> </span><br><span class="line">        <span class="variable">protocol=</span><span class="string">"HTTP/1.1"</span> <span class="variable">redirectPort=</span><span class="string">"8443"</span> <span class="variable">URIEncoding=</span><span class="string">"UTF-8"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -159,7 +160,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器网页乱码"><span class="toc-number">2.1.</span> <span class="toc-text">浏览器网页乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端解析乱码"><span class="toc-number">2.2.</span> <span class="toc-text">服务端解析乱码</span></a></li></ol></li></ol>
  
   </div>
 
