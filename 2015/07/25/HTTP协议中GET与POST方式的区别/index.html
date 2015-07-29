@@ -4,25 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Http协议中GET与POST方式的区别 | Hexo</title>
+    <title>HTTP协议中GET与POST方式的区别 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
+    <meta name="description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
 具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Http协议中GET与POST方式的区别">
-<meta property="og:url" content="http://yoursite.com/2015/07/25/Http协议中GET与POST方式的区别/index.html">
+<meta property="og:title" content="HTTP协议中GET与POST方式的区别">
+<meta property="og:url" content="http://yoursite.com/2015/07/25/HTTP协议中GET与POST方式的区别/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
+<meta property="og:description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
 具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
-<meta property="og:updated_time" content="2015-07-25T13:28:15.000Z">
+<meta property="og:updated_time" content="2015-07-29T06:21:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Http协议中GET与POST方式的区别">
-<meta name="twitter:description" content="概念Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
+<meta name="twitter:title" content="HTTP协议中GET与POST方式的区别">
+<meta name="twitter:description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
 具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
 
     
@@ -83,7 +83,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/25/Http协议中GET与POST方式的区别/" title="Http协议中GET与POST方式的区别" itemprop="url">Http协议中GET与POST方式的区别</a>
+      <a href="/2015/07/25/HTTP协议中GET与POST方式的区别/" title="HTTP协议中GET与POST方式的区别" itemprop="url">HTTP协议中GET与POST方式的区别</a>
   </h1>
   <p class="article-author">By
        
@@ -103,7 +103,7 @@
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>Http协议是我们平时上网，浏览器经常使用的协议，其中Http请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
+		<h2 id="概念">概念</h2><p>HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
 <h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">	username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">	password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">		<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">		value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <p>即</p>
 <blockquote>
@@ -143,7 +143,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/GET/">GET</a><a href="/tags/Http/">Http</a><a href="/tags/POST/">POST</a>
+  <span></span> <a href="/tags/GET/">GET</a><a href="/tags/HTTP/">HTTP</a><a href="/tags/POST/">POST</a>
   </div>
 
 </div>
@@ -152,7 +152,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/25/Http协议中GET与POST方式的区别/" data-title="Http协议中GET与POST方式的区别 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/25/HTTP协议中GET与POST方式的区别/" data-title="HTTP协议中GET与POST方式的区别 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -231,7 +231,7 @@
 			
 		
 			
-				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
 			
 		
 			
@@ -255,7 +255,7 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
 			
 		
 			
@@ -264,10 +264,6 @@
 		
 			
 				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Http/" title="Http">Http<sup>1</sup></a></li>
 			
 		
 			
