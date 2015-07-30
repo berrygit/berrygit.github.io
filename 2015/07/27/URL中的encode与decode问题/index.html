@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
 像上面，平时访问网站的时候，常看到地址栏里的URL有很多看不懂的%符号。查了一下，原来这些%是浏览器提交请求时，自动将中文或者一些特殊符号转了一下格式。仔细一看不难发现，这种格式是每个字符转成%+该字符的16进制编码的形式。那么为什么要这么转呢？查看HTTP的报文，你会发现，报文的格式有专门的指">
-<meta property="og:updated_time" content="2015-07-29T11:31:52.000Z">
+<meta property="og:updated_time" content="2015-07-30T04:30:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="URL中的encode与decode问题">
 <meta name="twitter:description" content="原理http%CE%AA%CA%B2%C3%B4%D2%AAdecode%20%D3%EBencode
@@ -114,7 +114,7 @@
 <blockquote>
 <p>http为什么要decode 与encode</p>
 </blockquote>
-<h3 id="web服务中">web服务中</h3><p>一般浏览器提交时，会自动将url部分做<code>utf-8</code>格式的encode，tomcat接受请求后，在调用<code>getParameter</code>方法时也会自动按照默认<code>ISO-8859-1</code>格式做decode，如要指定配置字符集，见<a href="/2015/07/29/网页中文乱码问题/#服务端解析乱码">网页中文乱码问题</a>。</p>
+<h3 id="web服务中">web服务中</h3><p>一般浏览器提交时，会自动将url部分做<code>utf-8</code>格式的encode，tomcat接受请求后，在调用<code>getParameter</code>方法时也会自动按照默认<code>ISO-8859-1</code>格式做decode，如要指定配置字符集，见<a href="/2015/07/29/网页中文乱码问题/#服务端解析乱码">中文乱码问题</a>。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -155,9 +155,9 @@
 
 
 <div class="next">
-<a href="/2015/07/25/struts2的集成配置与简单使用/"  title="struts2的集成配置与简单使用">
+<a href="/2015/07/25/HTTP协议中GET与POST方式的区别/"  title="HTTP协议中GET与POST方式的区别">
  <strong>下一篇：</strong><br/> 
- <span>struts2的集成配置与简单使用
+ <span>HTTP协议中GET与POST方式的区别
 </span>
 </a>
 </div>
