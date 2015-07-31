@@ -1,0 +1,537 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>J2EE的一些基本概念 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Berry">
+    
+
+    
+    <meta name="description" content="基本概念J2EE标准J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把">
+<meta property="og:type" content="article">
+<meta property="og:title" content="J2EE的一些基本概念">
+<meta property="og:url" content="http://yoursite.com/2015/07/23/J2EE的一些基本概念/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本概念J2EE标准J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201301/29/1359428942_1310.png">
+<meta property="og:updated_time" content="2015-07-31T07:23:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="J2EE的一些基本概念">
+<meta name="twitter:description" content="基本概念J2EE标准J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/23/J2EE的一些基本概念/" title="J2EE的一些基本概念" itemprop="url">J2EE的一些基本概念</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-23T04:46:44.000Z" itemprop="datePublished"> 發表於 2015-07-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#J2EE标准"><span class="toc-number">1.1.</span> <span class="toc-text">J2EE标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中间件"><span class="toc-number">1.2.</span> <span class="toc-text">中间件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J2EE中WEB服务的目录结构"><span class="toc-number">2.</span> <span class="toc-text">J2EE中WEB服务的目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tomcat的目录结构"><span class="toc-number">2.1.</span> <span class="toc-text">tomcat的目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WEB服务的目录"><span class="toc-number">2.2.</span> <span class="toc-text">WEB服务的目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web-xml中的几个概念"><span class="toc-number">3.</span> <span class="toc-text">web.xml中的几个概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-number">3.1.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#servlet"><span class="toc-number">3.2.</span> <span class="toc-text">servlet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#listener"><span class="toc-number">3.3.</span> <span class="toc-text">listener</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期"><span class="toc-number">3.4.</span> <span class="toc-text">生命周期</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="基本概念">基本概念</h2><h3 id="J2EE标准">J2EE标准</h3><p>J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把服务从一种服务器迁移到另一种服务器上，再比如服务想把数据库由MySQL迁移到Oracle），这样就需要一套统一的标准。各个基础服务软件公司按照这套标准提供各自的服务，使用者根据这套标准开发，便可以达到平台移植和可重用的结果。举例说SUN提出JDBC的标准，Oracle和MySQL均按照这套标准提供自己数据库与java对接的实现，这样使用者只要根据JDBC标准，便可以不修改代码的前提下连接任一种数据库。再比如服务原本在JBOSS上运行，想迁移到tomcat上，也是不需要修改代码实现的，这样就增强了软件的可移植性。</p>
+<h3 id="中间件">中间件</h3><p>所谓中间件就是一些基础性的，需要重复使用的软件，具体讲一些框架就是中间件（比如struts），他提供了一层封装，让我们不用去关注底层的事情，只要专注做业务逻辑上的实现就好。</p>
+<h2 id="J2EE中WEB服务的目录结构">J2EE中WEB服务的目录结构</h2><p>需要说明的是，J2EE是一套标准，SUN公司是不提供实现的，实现要由想对接服务的其它公司提供，比如tomcat，JBoos。这便是马士兵老师常说的：“三流公司卖产品，二流公司卖技术，一流公司卖标准”。闲话少说，具体看J2EE中的目录标准：</p>
+<h3 id="tomcat的目录结构">tomcat的目录结构</h3><blockquote>
+<ul>
+<li>bin目录<br>包含可执行文件，主要是启动，关闭和调试tomcat的执行文件。<br>startup.sh —用于启动<br>shutdown.sh —用于关闭</li>
+<li><p>conf目录<br>包含配置文件：<br>web.xml，java WEB服务的全局配置文件。<br>server.xml，配置tomcat启动端口，和启动服务的具体位置。如配置启动服务的路径：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context <span class="variable">docBase=</span><span class="string">"/home/berry/develop/apache-tomcat-7.0.63/wtpwebapps/project</span><br><span class="line">"</span> <span class="variable">path=</span><span class="string">""</span> <span class="variable">reloadable=</span><span class="string">"true"</span> <span class="variable">source=</span><span class="string">"org.eclipse.jst.jee.server:project"</span>/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lib目录<br>tomcat服务用到的jar包。</p>
+</li>
+<li>webapps目录<br>存放java web的服务文件，该文件夹下每一个文件夹都是一个服务，具体执行哪一个由server.xml配置，默认情况下会执行ROOT文件夹下的服务。</li>
+</ul>
+</blockquote>
+<h3 id="WEB服务的目录">WEB服务的目录</h3><p>web项目文件夹下，主要包含:</p>
+<blockquote>
+<ul>
+<li>index.html，index.jsp等，服务进来后第一个被访问的起始页面，具体由web.xml配置。</li>
+<li>WEB-INF目录<br>该目录下保存的是文件是不允许随便访问的，包含源码信息等，具有安全性。里面大致有：<ul>
+<li>lib目录<br>存放web服务用到的jar包。</li>
+<li>class目录<br>存放零散的web服务用到的class文件。</li>
+<li>web.xml<br>web服务必须包含的配置文件，用于配置web服务的filter，servlet，listener，起始页面等。web服务的conf目录下也有该文件，如果有冲突配置按照该web服务的配置为准，如欢迎页面：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.html&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.xhtml&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.htm&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.jsp&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">&lt;/welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="web-xml中的几个概念">web.xml中的几个概念</h2><h3 id="filter">filter</h3><blockquote>
+<p>过滤器,使用责任链模式实现，对所有的请求进行过滤，多个过滤器之间相互独立。</p>
+</blockquote>
+<p>实现接口<code>javax.servlet.Filter</code><br>web.xml配置<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;filter&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-name&gt;</span>EncodingFilter<span class="variable">&lt;/filter-name&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-class&gt;</span>filter.EncodingFilter<span class="variable">&lt;/filter-class&gt;</span></span><br><span class="line">	<span class="variable">&lt;init-param&gt;</span></span><br><span class="line">		<span class="variable">&lt;param-name&gt;</span>encoding<span class="variable">&lt;/param-name&gt;</span></span><br><span class="line">		<span class="variable">&lt;param-value&gt;</span>utf-8<span class="variable">&lt;/param-value&gt;</span></span><br><span class="line">	<span class="variable">&lt;/init-param&gt;</span></span><br><span class="line"><span class="variable">&lt;/filter&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">&lt;filter-mapping&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-name&gt;</span>EncodingFilter<span class="variable">&lt;/filter-name&gt;</span></span><br><span class="line">	<span class="variable">&lt;url-pattern&gt;</span>/<span class="keyword">*</span><span class="variable">&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="variable">&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>多个filter之间相互独立,初始化化顺序按照<code>web.xml</code>中<code>&lt;filter&gt;</code>配置顺序.过滤请求按照<code>web.xml</code>中<code>&lt;filter-mapping&gt;</code>顺序,如果所有的filter都通过,交给servlet处理请求.</li>
+<li>过滤器的dofilter方法中<code>chain.doFilter(request, response);</code>将请求传递下去,如果没有该代码,所有的请求都将在该过滤器中被终止.</li>
+</ol>
+<p><img src="http://img.my.csdn.net/uploads/201301/29/1359428942_1310.png" alt="filter执行过程"></p>
+<h3 id="servlet">servlet</h3><blockquote>
+<p>servlet是一种运行服务器端的java应用程序，并且可以动态的生成web页面，工作在客户端请求与服务器响应的中间层。具体见<a href="/2015/07/24/Servlet浅析及使用/">servlet介绍</a>。</p>
+</blockquote>
+<h3 id="listener">listener</h3><blockquote>
+<p>监听器,使用观察者模式实现，主要用来监听。当application，session，request三个对象创建消亡或者往其中添加修改删除属性时自动执行代码。</p>
+</blockquote>
+<h3 id="生命周期">生命周期</h3><p>filter类在web服务器启动初始化时即被加载，实例化时会执行<code>init</code>方法，在web服务器关闭时会执行<code>destroy</code>方法。</p>
+<p>总体初始化顺序：context-param &gt; Listener &gt; Filter &gt; Servlet。 </p>
+<hr>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/J2EE/">J2EE</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/filter/">filter</a><a href="/tags/listener/">listener</a><a href="/tags/servlet/">servlet</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/07/23/J2EE的一些基本概念/" data-title="J2EE的一些基本概念 | Hexo" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/24/Servlet浅析及使用/" title="Servlet浅析及使用">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Servlet浅析及使用</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#J2EE标准"><span class="toc-number">1.1.</span> <span class="toc-text">J2EE标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中间件"><span class="toc-number">1.2.</span> <span class="toc-text">中间件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J2EE中WEB服务的目录结构"><span class="toc-number">2.</span> <span class="toc-text">J2EE中WEB服务的目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tomcat的目录结构"><span class="toc-number">2.1.</span> <span class="toc-text">tomcat的目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WEB服务的目录"><span class="toc-number">2.2.</span> <span class="toc-text">WEB服务的目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web-xml中的几个概念"><span class="toc-number">3.</span> <span class="toc-text">web.xml中的几个概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-number">3.1.</span> <span class="toc-text">filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#servlet"><span class="toc-number">3.2.</span> <span class="toc-text">servlet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#listener"><span class="toc-number">3.3.</span> <span class="toc-text">listener</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期"><span class="toc-number">3.4.</span> <span class="toc-text">生命周期</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/网络/" title="网络">网络<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux/" title="linux">linux<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Berry">Berry</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
