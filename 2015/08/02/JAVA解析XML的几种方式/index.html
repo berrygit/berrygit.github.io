@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>网站开发中文乱码问题 | Hexo</title>
+    <title>JAVA解析XML的几种方式 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念网站开发中，经常会遇到中文乱码的问题。那么为什么会有这种问题，又要怎么解决呢？首先，还要从字符集开始说起。我们知道计算机图形界面显示的文本，在存储到硬盘或者内存中时，对应的是一串0和1的二进制串。那么，什么样的二进制编码，对应着什么样的字符，就需要一个约定好的标准，这样计算机上的软件程序才能正确识别出来。在最开始的时候，计算机还没有互联网化，不同国家或地区有着自己的标准，这就导致用一种编码的编">
+    <meta name="description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，但大体上将只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网站开发中文乱码问题">
-<meta property="og:url" content="http://yoursite.com/2015/07/29/网站开发中文乱码问题/index.html">
+<meta property="og:title" content="JAVA解析XML的几种方式">
+<meta property="og:url" content="http://yoursite.com/2015/08/02/JAVA解析XML的几种方式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念网站开发中，经常会遇到中文乱码的问题。那么为什么会有这种问题，又要怎么解决呢？首先，还要从字符集开始说起。我们知道计算机图形界面显示的文本，在存储到硬盘或者内存中时，对应的是一串0和1的二进制串。那么，什么样的二进制编码，对应着什么样的字符，就需要一个约定好的标准，这样计算机上的软件程序才能正确识别出来。在最开始的时候，计算机还没有互联网化，不同国家或地区有着自己的标准，这就导致用一种编码的编">
-<meta property="og:updated_time" content="2015-07-29T11:42:28.000Z">
+<meta property="og:description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，但大体上将只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的">
+<meta property="og:updated_time" content="2015-08-02T11:08:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网站开发中文乱码问题">
-<meta name="twitter:description" content="概念网站开发中，经常会遇到中文乱码的问题。那么为什么会有这种问题，又要怎么解决呢？首先，还要从字符集开始说起。我们知道计算机图形界面显示的文本，在存储到硬盘或者内存中时，对应的是一串0和1的二进制串。那么，什么样的二进制编码，对应着什么样的字符，就需要一个约定好的标准，这样计算机上的软件程序才能正确识别出来。在最开始的时候，计算机还没有互联网化，不同国家或地区有着自己的标准，这就导致用一种编码的编">
+<meta name="twitter:title" content="JAVA解析XML的几种方式">
+<meta name="twitter:description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，但大体上将只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/29/网站开发中文乱码问题/" title="网站开发中文乱码问题" itemprop="url">网站开发中文乱码问题</a>
+      <a href="/2015/08/02/JAVA解析XML的几种方式/" title="JAVA解析XML的几种方式" itemprop="url">JAVA解析XML的几种方式</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-29T05:44:47.000Z" itemprop="datePublished"> 發表於 2015-07-29</time>
+    <time datetime="2015-08-02T08:04:28.000Z" itemprop="datePublished"> 發表於 2015-08-02</time>
     
   </p>
 </header>
@@ -96,16 +96,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器网页乱码"><span class="toc-number">2.1.</span> <span class="toc-text">浏览器网页乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端解析乱码"><span class="toc-number">2.2.</span> <span class="toc-text">服务端解析乱码</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML"><span class="toc-number">1.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM和SAX"><span class="toc-number">2.</span> <span class="toc-text">DOM和SAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比"><span class="toc-number">2.2.</span> <span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDOM，DOM4J和JAXB"><span class="toc-number">3.</span> <span class="toc-text">JDOM，DOM4J和JAXB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM4J"><span class="toc-number">3.1.</span> <span class="toc-text">DOM4J</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDOM"><span class="toc-number">3.2.</span> <span class="toc-text">JDOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAXB"><span class="toc-number">3.3.</span> <span class="toc-text">JAXB</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>网站开发中，经常会遇到中文乱码的问题。那么为什么会有这种问题，又要怎么解决呢？<br>首先，还要从字符集开始说起。我们知道计算机图形界面显示的文本，在存储到硬盘或者内存中时，对应的是一串0和1的二进制串。那么，什么样的二进制编码，对应着什么样的字符，就需要一个约定好的标准，这样计算机上的软件程序才能正确识别出来。在最开始的时候，计算机还没有互联网化，不同国家或地区有着自己的标准，这就导致用一种编码的编辑器去打开另一种编码写的文本时无法正常识别，也就是我们看到的乱码（由于计算机由西方发展出来，英文的编码是最先定好的，其它国家沿用了这些字母的编码，在此基础上添加自己的编码，所以很少看到英文乱码）。</p>
-<h2 id="解决">解决</h2><p>概念清楚了，那么在开发中怎么解决呢？</p>
-<h3 id="浏览器网页乱码">浏览器网页乱码</h3><p>一般浏览器的默认的字符编码是<code>utf-8</code>的，按理说只要服务器发给浏览器的是<code>utf-8</code>编码的文本，浏览器就可以解析。但这里需要注意的是，一般浏览器支持多种编码，也就是不论网页是什么编码的，只要告诉浏览器，浏览器所在的个人电脑中能查到这种编码标准，浏览器就能正常显示网页。所以要解决乱码问题，只要发给浏览器的文本的实际编码格式与网页中标示的格式一致，浏览器就能正常解析。</p>
-<p>html网页字符标签<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>J2EE中一般整个服务统一编码标准，在过滤器中设置响应的字符编码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,</span><br><span class="line">		FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException</span><br><span class="line"></span>&#123;</span><br><span class="line">	String encoding = getEncoding();</span><br><span class="line">	<span class="keyword">if</span> (encoding == <span class="keyword">null</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		encoding = <span class="string">"utf-8"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 设置上指定的编码</span></span><br><span class="line">	request.setCharacterEncoding(encoding);</span><br><span class="line">	response.setCharacterEncoding(encoding);</span><br><span class="line"></span><br><span class="line">	chain.doFilter(request, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="服务端解析乱码">服务端解析乱码</h3><p>服务端解析乱码根据提交方式，一般有两种情况：对于post方式提交的报文，只要像上面在过滤器中设置字符集即可；对于get方式提交的参数乱码，需要在tomcat的<code>server.xml</code>中指定URI的字符集，具体如下：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector <span class="variable">connectionTimeout=</span><span class="string">"20000"</span> <span class="variable">port=</span><span class="string">"8080"</span> </span><br><span class="line">        <span class="variable">protocol=</span><span class="string">"HTTP/1.1"</span> <span class="variable">redirectPort=</span><span class="string">"8443"</span> <span class="variable">URIEncoding=</span><span class="string">"UTF-8"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+		<h2 id="XML">XML</h2><p>XML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，但大体上将只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解析方式，如DOM4J，JDOM等。</p>
+<h2 id="DOM和SAX">DOM和SAX</h2><h3 id="概念">概念</h3><p>DOM是XML标准提出者w3c组织提出的一种规范，DOM方式概括的讲是将整个XML文件对应的建立一个树状结构的对象放入内存，然后以对象的形式解析。SAX方式类似与流媒体，基于事件触发，比如重头到尾浏览整个XML文件遇到一些标签，会促发一些解析的方法。</p>
+<h3 id="对比">对比</h3><p>对比而言，DOM方式不适合解析很大的XML，在XML文件很大时会导致内存溢出，但是这种方式解析XML由于将整个对象放入内存在对其修改时很方便；而SAX方式基于流不一次读入所有的，可以用很少的内存资源，SAX有个缺点是只能按顺序进行，解析过程中不方便往回或者跳跃的去处理前面的内容，适合读取不适合修改XML内容。</p>
+<h2 id="JDOM，DOM4J和JAXB">JDOM，DOM4J和JAXB</h2><h3 id="DOM4J">DOM4J</h3><p>据测试，DOM4J的性能是最好的，hibernate等框架也是使用DOM4J来解析XML文档。DOM4J中有一个对象<code>Document</code>，可以说它是文件或者<code>String</code>的一种抽象，可以方便的对其添加或者删除节点，然后再保存到文件或者字符串中。DOM4J支持xPath，可以方便快速的读取XML的内容。</p>
+<p>DOM4J一般只需要使用包<code>dom4j-1.6.1.jar</code>，使用xPath时需要包<code>jaxen-1.1.6.jar</code>。</p>
+<h3 id="JDOM">JDOM</h3><p>JDOM与DOM4J类似，性能稍逊，语法有别，需要做类型转换，核心jar包<code>jdom-2.0.6.jar</code>。</p>
+<h3 id="JAXB">JAXB</h3><p>SUN提出，原理是根据DTD生成java源文件，然后再解析，自动做类型转换。如果想增删节点，则必须相应的修改java源文件。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +120,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/乱码/">乱码</a>
+  <span></span> <a href="/tags/XML/">XML</a>
   </div>
 
 </div>
@@ -128,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/29/网站开发中文乱码问题/" data-title="网站开发中文乱码问题 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/02/JAVA解析XML的几种方式/" data-title="JAVA解析XML的几种方式 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,19 +142,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/30/struts2的集成配置与简单使用/" title="struts2的集成配置与简单使用">
-  <strong>上一篇：</strong><br/>
-  <span>
-  struts2的集成配置与简单使用</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/29/Servlet-Jsp页面跳转问题/"  title="Servlet/JSP页面跳转问题">
+<a href="/2015/07/30/struts2的集成配置与简单使用/"  title="struts2的集成配置与简单使用">
  <strong>下一篇：</strong><br/> 
- <span>Servlet/JSP页面跳转问题
+ <span>struts2的集成配置与简单使用
 </span>
 </a>
 </div>
@@ -168,7 +161,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器网页乱码"><span class="toc-number">2.1.</span> <span class="toc-text">浏览器网页乱码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端解析乱码"><span class="toc-number">2.2.</span> <span class="toc-text">服务端解析乱码</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML"><span class="toc-number">1.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM和SAX"><span class="toc-number">2.</span> <span class="toc-text">DOM和SAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比"><span class="toc-number">2.2.</span> <span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDOM，DOM4J和JAXB"><span class="toc-number">3.</span> <span class="toc-text">JDOM，DOM4J和JAXB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM4J"><span class="toc-number">3.1.</span> <span class="toc-text">DOM4J</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDOM"><span class="toc-number">3.2.</span> <span class="toc-text">JDOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAXB"><span class="toc-number">3.3.</span> <span class="toc-text">JAXB</span></a></li></ol></li></ol>
  
   </div>
 

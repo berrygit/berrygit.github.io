@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="基本概念J2EE标准J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201301/29/1359428942_1310.png">
-<meta property="og:updated_time" content="2015-07-31T07:27:52.000Z">
+<meta property="og:updated_time" content="2015-07-31T07:36:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="J2EE的一些基本概念">
 <meta name="twitter:description" content="基本概念J2EE标准J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把">
@@ -122,7 +122,7 @@
 <li>WEB-INF目录<br>该目录下保存的是文件是不允许随便访问的，包含源码信息等，具有安全性。里面大致有：<ul>
 <li>lib目录<br>存放web服务用到的jar包。</li>
 <li>class目录<br>存放零散的web服务用到的class文件。</li>
-<li>web.xml<br>web服务必须包含的配置文件，用于配置web服务的filter，servlet，listener，起始页面等。web服务的conf目录下也有该文件，如果有冲突配置按照该web服务的配置为准，如欢迎页面：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.html&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.xhtml&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.htm&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">    &lt;welcome-<span class="keyword">file</span>&gt;<span class="built_in">index</span>.jsp&lt;/welcome-<span class="keyword">file</span>&gt;</span><br><span class="line">&lt;/welcome-<span class="keyword">file</span>-<span class="keyword">list</span>&gt;</span><br></pre></td></tr></table></figure>
+<li>web.xml<br>web服务必须包含的配置文件，用于配置web服务的filter，servlet，listener，起始页面等。web服务的conf目录下也有该文件，如果有冲突配置按照该web服务的配置为准，如欢迎页面：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">welcome-file-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>index.html<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>index.xhtml<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>index.htm<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="title">welcome-file</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">welcome-file-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -214,7 +214,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>7</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>8</sup></a></li>
 		  
 		
 		  
@@ -235,11 +235,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
 			
 		
 			
@@ -255,11 +255,15 @@
 			
 		
 			
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+				<li><a href="/tags/XML/" title="XML">XML<sup>1</sup></a></li>
 			
 		
 			
