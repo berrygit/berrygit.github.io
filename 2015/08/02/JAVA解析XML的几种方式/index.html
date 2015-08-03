@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/08/02/JAVA解析XML的几种方式/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解">
-<meta property="og:updated_time" content="2015-08-03T03:11:41.000Z">
+<meta property="og:updated_time" content="2015-08-03T03:14:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA解析XML的几种方式">
 <meta name="twitter:description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解">
@@ -106,7 +106,7 @@
 <h2 id="JDOM，DOM4J和JAXB">JDOM，DOM4J和JAXB</h2><h3 id="DOM4J">DOM4J</h3><p>据测试，DOM4J的性能是最好的，hibernate等框架也是使用DOM4J来解析XML文档。DOM4J中有一个对象<code>Document</code>，可以说它是文件或者<code>String</code>的一种抽象，可以方便的对其添加或者删除节点，然后再保存到文件或者字符串中。DOM4J支持xPath，可以方便快速的读取XML的内容。</p>
 <p>DOM4J一般只需要使用包<code>dom4j-1.6.1.jar</code>，使用xPath时需要包<code>jaxen-1.1.6.jar</code>。</p>
 <h3 id="JDOM">JDOM</h3><p>JDOM与DOM4J类似，性能稍逊，语法有别，需要做类型转换，核心jar包<code>jdom-2.0.6.jar</code>。</p>
-<h3 id="JAXB">JAXB</h3><p>SUN提出，JDK自带，原理是根据DTD生成java源文件，然后再解析，自动做类型转换。处理时与java源文件绑定，如果想增删节点，则必须相应的修改java源文件。</p>
+<h3 id="JAXB">JAXB</h3><p>SUN提出，JDK自带，原理是根据DTD生成java源文件，然后再解析，自动做类型转换。处理时与java源文件绑定，如果想增删节点，则必须相应的修改java源文件，不便于做增删操作。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -142,6 +142,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/08/03/Struts2使用FreeMarker/" title="Struts2使用FreeMarker">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Struts2使用FreeMarker</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/07/30/Struts2的集成配置与简单使用/"  title="Struts2的集成配置与简单使用">
@@ -175,7 +183,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>8</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>9</sup></a></li>
 		  
 		
 		  
@@ -196,11 +204,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
 			
 		
 			
@@ -216,11 +224,15 @@
 			
 		
 			
-				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
 			
 		
 			
