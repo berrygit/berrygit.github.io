@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解">
+    <meta name="description" content="XML概念XML（可扩展性标记语言）是一种平台独立性语言，用于描述数据和跨平台数据交换。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA解析XML的几种方式">
 <meta property="og:url" content="http://yoursite.com/2015/08/02/JAVA解析XML的几种方式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解">
-<meta property="og:updated_time" content="2015-08-03T03:14:38.000Z">
+<meta property="og:description" content="XML概念XML（可扩展性标记语言）是一种平台独立性语言，用于描述数据和跨平台数据交换。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供">
+<meta property="og:updated_time" content="2015-08-04T04:18:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA解析XML的几种方式">
-<meta name="twitter:description" content="XMLXML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解">
+<meta name="twitter:description" content="XML概念XML（可扩展性标记语言）是一种平台独立性语言，用于描述数据和跨平台数据交换。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -96,11 +96,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML"><span class="toc-number">1.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM和SAX"><span class="toc-number">2.</span> <span class="toc-text">DOM和SAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比"><span class="toc-number">2.2.</span> <span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDOM，DOM4J和JAXB"><span class="toc-number">3.</span> <span class="toc-text">JDOM，DOM4J和JAXB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM4J"><span class="toc-number">3.1.</span> <span class="toc-text">DOM4J</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDOM"><span class="toc-number">3.2.</span> <span class="toc-text">JDOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAXB"><span class="toc-number">3.3.</span> <span class="toc-text">JAXB</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML概念"><span class="toc-number">1.</span> <span class="toc-text">XML概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM和SAX"><span class="toc-number">2.</span> <span class="toc-text">DOM和SAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比"><span class="toc-number">2.2.</span> <span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDOM，DOM4J和JAXB"><span class="toc-number">3.</span> <span class="toc-text">JDOM，DOM4J和JAXB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM4J"><span class="toc-number">3.1.</span> <span class="toc-text">DOM4J</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDOM"><span class="toc-number">3.2.</span> <span class="toc-text">JDOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAXB"><span class="toc-number">3.3.</span> <span class="toc-text">JAXB</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="XML">XML</h2><p>XML（可扩展性标记语言）是一种平台独立性语言，用于跨平台传递消息。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解析方式（如DOM4J，JDOM等）。</p>
+		<h2 id="XML概念">XML概念</h2><p>XML（可扩展性标记语言）是一种平台独立性语言，用于描述数据和跨平台数据交换。所谓XML解析，是指将XML报文映射成响应的JAVA类对象，便于业务逻辑中使用。JAVA解析XML有几种方式，大体上讲只有SAX（Simple API for XML）和DOM（Document Object Model）两种方式，这两种方式解析XML比较难用，一些软件组织在这两种方式的基础上做了一些封装，提供了相对友好的解析方式（如DOM4J，JDOM等）。</p>
 <h2 id="DOM和SAX">DOM和SAX</h2><h3 id="概念">概念</h3><p>DOM是XML标准提出者w3c组织提出的一种规范，DOM方式概括的讲是将整个XML文件对应的建立一个树状结构的对象放入内存，然后以对象的形式解析。SAX方式类似与流媒体，基于事件触发，比如重头到尾浏览整个XML文件遇到一些标签，会促发一些解析的方法。</p>
 <h3 id="对比">对比</h3><p>对比而言，DOM方式不适合解析很大的XML，在XML文件很大时会导致内存溢出，但是这种方式解析XML由于将整个对象放入内存在对其修改时很方便；而SAX方式基于流不一次读入所有的，可以用很少的内存资源，SAX有个缺点是只能按顺序进行，解析过程中不方便往回或者跳跃的去处理前面的内容，适合读取不适合修改XML内容。</p>
 <h2 id="JDOM，DOM4J和JAXB">JDOM，DOM4J和JAXB</h2><h3 id="DOM4J">DOM4J</h3><p>据测试，DOM4J的性能是最好的，hibernate等框架也是使用DOM4J来解析XML文档。DOM4J中有一个对象<code>Document</code>，可以说它是文件或者<code>String</code>的一种抽象，可以方便的对其添加或者删除节点，然后再保存到文件或者字符串中。DOM4J支持xPath，可以方便快速的读取XML的内容。</p>
@@ -111,11 +111,6 @@
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/J2EE/">J2EE</a>
-</div>
 
 
   <div class="article-tags">
@@ -169,7 +164,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML"><span class="toc-number">1.</span> <span class="toc-text">XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM和SAX"><span class="toc-number">2.</span> <span class="toc-text">DOM和SAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比"><span class="toc-number">2.2.</span> <span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDOM，DOM4J和JAXB"><span class="toc-number">3.</span> <span class="toc-text">JDOM，DOM4J和JAXB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM4J"><span class="toc-number">3.1.</span> <span class="toc-text">DOM4J</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDOM"><span class="toc-number">3.2.</span> <span class="toc-text">JDOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAXB"><span class="toc-number">3.3.</span> <span class="toc-text">JAXB</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML概念"><span class="toc-number">1.</span> <span class="toc-text">XML概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM和SAX"><span class="toc-number">2.</span> <span class="toc-text">DOM和SAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对比"><span class="toc-number">2.2.</span> <span class="toc-text">对比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JDOM，DOM4J和JAXB"><span class="toc-number">3.</span> <span class="toc-text">JDOM，DOM4J和JAXB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM4J"><span class="toc-number">3.1.</span> <span class="toc-text">DOM4J</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDOM"><span class="toc-number">3.2.</span> <span class="toc-text">JDOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAXB"><span class="toc-number">3.3.</span> <span class="toc-text">JAXB</span></a></li></ol></li></ol>
  
   </div>
 
@@ -183,7 +178,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>9</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>8</sup></a></li>
 		  
 		
 		  
@@ -204,6 +199,10 @@
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/XML/" title="XML">XML<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
 			
 		
@@ -212,7 +211,7 @@
 			
 		
 			
-				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
 			
 		
 			
@@ -224,19 +223,15 @@
 			
 		
 			
-				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/XML/" title="XML">XML<sup>1</sup></a></li>
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
 			
 		
 			
