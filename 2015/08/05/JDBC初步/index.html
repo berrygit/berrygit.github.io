@@ -1,0 +1,535 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>JDBC初步 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Berry">
+    
+
+    
+    <meta name="description" content="JDBCJDBC为J2EE标准的一部分，用于规范JAVA数据库操作，数据库厂商根据标准提供自己数据库实现的jar包。
+使用注册各数据库厂商提供的Driver实例化后会向DriverManager注册。
+12String driver = &quot;org.apache.derby.jdbc.ClientDriver&quot;;Class.forName(driver);
+获得数据库连接根据各数据库厂商规定的URL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC初步">
+<meta property="og:url" content="http://yoursite.com/2015/08/05/JDBC初步/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JDBCJDBC为J2EE标准的一部分，用于规范JAVA数据库操作，数据库厂商根据标准提供自己数据库实现的jar包。
+使用注册各数据库厂商提供的Driver实例化后会向DriverManager注册。
+12String driver = &quot;org.apache.derby.jdbc.ClientDriver&quot;;Class.forName(driver);
+获得数据库连接根据各数据库厂商规定的URL">
+<meta property="og:updated_time" content="2015-08-05T10:13:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDBC初步">
+<meta name="twitter:description" content="JDBCJDBC为J2EE标准的一部分，用于规范JAVA数据库操作，数据库厂商根据标准提供自己数据库实现的jar包。
+使用注册各数据库厂商提供的Driver实例化后会向DriverManager注册。
+12String driver = &quot;org.apache.derby.jdbc.ClientDriver&quot;;Class.forName(driver);
+获得数据库连接根据各数据库厂商规定的URL">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/05/JDBC初步/" title="JDBC初步" itemprop="url">JDBC初步</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-05T09:55:40.000Z" itemprop="datePublished"> 發表於 2015-08-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC"><span class="toc-number">1.</span> <span class="toc-text">JDBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册"><span class="toc-number">2.1.</span> <span class="toc-text">注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得数据库连接"><span class="toc-number">2.2.</span> <span class="toc-text">获得数据库连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得声明"><span class="toc-number">2.3.</span> <span class="toc-text">获得声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建表"><span class="toc-number">2.4.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果集"><span class="toc-number">2.5.</span> <span class="toc-text">结果集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">2.6.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭连接"><span class="toc-number">2.7.</span> <span class="toc-text">关闭连接</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="JDBC">JDBC</h2><p>JDBC为J2EE标准的一部分，用于规范JAVA数据库操作，数据库厂商根据标准提供自己数据库实现的jar包。</p>
+<h2 id="使用">使用</h2><h3 id="注册">注册</h3><p>各数据库厂商提供的<code>Driver</code>实例化后会向<code>DriverManager</code>注册。</p>
+<figure class="highlight monkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String driver = <span class="string">"org.apache.derby.jdbc.ClientDriver"</span>;</span><br><span class="line"><span class="class"><span class="keyword">Class</span>.<span class="title">forName</span>(<span class="title">driver</span>);</span></span><br></pre></td></tr></table></figure>
+<h3 id="获得数据库连接">获得数据库连接</h3><p>根据各数据库厂商规定的URL获得连接。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">String</span> url = <span class="string">"jdbc:derby://localhost:1527/firstdb01;create=true"</span>;</span><br><span class="line"><span class="title">Connection</span> conn = DriverManager.getConnection(url);</span><br></pre></td></tr></table></figure>
+<h3 id="获得声明">获得声明</h3><p>声明有两种，一种是一般，另一种用<code>？</code>做占位符便于写插入语句。<br>一般声明：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Statement stmt = conn.createStatement();</span><br><span class="line">stmt.executeUpdate("<span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_user <span class="keyword">VALUES</span> (<span class="number">2</span>,<span class="string">'Zhang hua'</span>)<span class="string">");</span></span></span><br></pre></td></tr></table></figure></p>
+<p>prepare声明：<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement preStmt = conn</span><br><span class="line">		.prepareStatement<span class="params">(<span class="string">"insert into t_user values (?,?)"</span>)</span>;</span><br><span class="line">preStmt.setInt<span class="params">(<span class="number">1</span>, <span class="number">3</span>)</span>;</span><br><span class="line">preStmt.setString<span class="params">(<span class="number">2</span>, <span class="string">"huahua"</span>)</span>;</span><br><span class="line">preStmt.executeUpdate<span class="params">()</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="创建表">创建表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stmt.execute("<span class="operator"><span class="keyword">create</span> <span class="keyword">table</span> t_user(id <span class="built_in">int</span> <span class="keyword">primary</span> <span class="keyword">key</span>, Name <span class="built_in">varchar</span>(<span class="number">255</span>))<span class="string">");</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="结果集">结果集</h3><p>查询结果是一个结果集。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ResultSet rs = stmt.executeQuery<span class="params">(<span class="string">"select * from t_user"</span>)</span>;</span><br><span class="line"></span><br><span class="line">		while <span class="params">(rs.next<span class="params">()</span>)</span></span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println<span class="params">(rs.getInt<span class="params">(<span class="string">"id"</span>)</span>)</span>;</span><br><span class="line">			System.out.println<span class="params">(rs.getString<span class="params">(<span class="string">"Name"</span>)</span>)</span>;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="事务">事务</h3><p>JDBC事务默认自动提交，也可以自己指定，但更改后要记得恢复现场，以免其它方法使用时发生意外。<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      conn.setAutoCommit<span class="params">(<span class="literal">false</span>)</span>;</span><br><span class="line">Statement stmt = conn.createStatement<span class="params">()</span>;</span><br><span class="line">stmt.executeUpdate<span class="params">(<span class="string">"INSERT INTO t_user VALUES (2,'Zhang hua')"</span>)</span>;</span><br><span class="line">conn.commit<span class="params">()</span>;</span><br><span class="line">conn.setAutoCommit<span class="params">(<span class="literal">true</span>)</span>;</span><br><span class="line"><span class="comment">// commit后便无效</span></span><br><span class="line">conn.rollback<span class="params">()</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="关闭连接">关闭连接</h3><p>资源使用后要记得关闭，且要注意顺序。<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection conn, Statement stmt, ResultSet rs)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">try</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 关闭结果集</span></span><br><span class="line">		<span class="keyword">if</span> (rs != <span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			rs.close();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 关闭声明</span></span><br><span class="line">		<span class="keyword">if</span> (stmt != <span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			stmt.close();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 关闭连接</span></span><br><span class="line">		<span class="keyword">if</span> (conn != <span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			conn.close();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">catch</span> (Exception e)</span><br><span class="line">	&#123;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">finally</span></span><br><span class="line">	&#123;</span><br><span class="line">		rs = <span class="keyword">null</span>;</span><br><span class="line">		stmt = <span class="keyword">null</span>;</span><br><span class="line">		conn = <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/J2EE/">J2EE</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JDBC/">JDBC</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/08/05/JDBC初步/" data-title="JDBC初步 | Hexo" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/07/数据库基础/" title="数据库基础">
+  <strong>上一篇：</strong><br/>
+  <span>
+  数据库基础</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/05/Linux初步/"  title="Linux初步">
+ <strong>下一篇：</strong><br/> 
+ <span>Linux初步
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDBC"><span class="toc-number">1.</span> <span class="toc-text">JDBC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册"><span class="toc-number">2.1.</span> <span class="toc-text">注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得数据库连接"><span class="toc-number">2.2.</span> <span class="toc-text">获得数据库连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获得声明"><span class="toc-number">2.3.</span> <span class="toc-text">获得声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建表"><span class="toc-number">2.4.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果集"><span class="toc-number">2.5.</span> <span class="toc-text">结果集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">2.6.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭连接"><span class="toc-number">2.7.</span> <span class="toc-text">关闭连接</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/网络/" title="网络">网络<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书笔记/" title="读书笔记">读书笔记<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/XML/" title="XML">XML<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/效率/" title="效率">效率<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JDBC/" title="JDBC">JDBC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Berry">Berry</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

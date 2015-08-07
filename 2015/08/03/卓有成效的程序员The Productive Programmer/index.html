@@ -4,26 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>HTTP协议中GET与POST方式的区别 | Hexo</title>
+    <title>卓有成效的程序员(The Productive Programmer) | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
+    <meta name="description" content="静态分析对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。
+
+静态分析工具主要有两类：
+
+编译后代码检查（字节码，class文件等），如FindBugs（美国马里兰大学的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP协议中GET与POST方式的区别">
-<meta property="og:url" content="http://yoursite.com/2015/07/25/HTTP协议中GET与POST方式的区别/index.html">
+<meta property="og:title" content="卓有成效的程序员(The Productive Programmer)">
+<meta property="og:url" content="http://yoursite.com/2015/08/03/卓有成效的程序员The Productive Programmer/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
-<meta property="og:updated_time" content="2015-07-29T06:21:51.000Z">
+<meta property="og:description" content="静态分析对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。
+
+静态分析工具主要有两类：
+
+编译后代码检查（字节码，class文件等），如FindBugs（美国马里兰大学的">
+<meta property="og:updated_time" content="2015-08-03T13:21:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP协议中GET与POST方式的区别">
-<meta name="twitter:description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	usernam">
+<meta name="twitter:title" content="卓有成效的程序员(The Productive Programmer)">
+<meta name="twitter:description" content="静态分析对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。
+
+静态分析工具主要有两类：
+
+编译后代码检查（字节码，class文件等），如FindBugs（美国马里兰大学的">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -83,14 +92,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/25/HTTP协议中GET与POST方式的区别/" title="HTTP协议中GET与POST方式的区别" itemprop="url">HTTP协议中GET与POST方式的区别</a>
+      <a href="/2015/08/03/卓有成效的程序员The Productive Programmer/" title="卓有成效的程序员(The Productive Programmer)" itemprop="url">卓有成效的程序员(The Productive Programmer)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-25T04:46:44.000Z" itemprop="datePublished"> 發表於 2015-07-25</time>
+    <time datetime="2015-08-03T12:11:57.000Z" itemprop="datePublished"> 發表於 2015-08-03</time>
     
   </p>
 </header>
@@ -99,37 +108,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析"><span class="toc-number">1.</span> <span class="toc-text">静态分析</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到，又一直没搞清楚区别，这次详细的记录下。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
-<h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">	username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">	password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">		<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">		value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p>即</p>
+		<h3 id="静态分析">静态分析</h3><p>对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。</p>
 <blockquote>
-<p>登陆系统</p>
-<form action="/test/HeroLogin" method="get"><br>    username: <input type="text" name="username"><br><br>    password: <input type="password" name="password"><br> <input type="submit" value="submit"> <input type="reset" value="reset"><br></form>
-
+<p>静态分析工具主要有两类：</p>
+<ol>
+<li>编译后代码检查（字节码，class文件等），如<code>FindBugs</code>（美国马里兰大学的开源项目）。</li>
+<li>源代码检查，如Checkstyle（检查代码格式），PMD（可以发现重复代码问题）。</li>
+</ol>
 </blockquote>
-<h3 id="GET方式">GET方式</h3><p>当以get方式提交时，观察浏览器页面的地址栏中URL为</p>
-<blockquote>
-<p><a href="http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456" target="_blank" rel="external">http://localhost:8080/test/HeroLogin?username=berry&amp;password=123456</a></p>
-</blockquote>
-<p>抓包后，可以看到报文</p>
-<blockquote>
-<p>GET /test/HeroLogin?username=berry&amp;password=123456 HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 05:13:13 GMT</p>
-</blockquote>
-<p>可以看到GET方式请求信息是通过URL提交的。</p>
-<h3 id="POST方式">POST方式</h3><p>观察到以post方式提交，浏览器地址栏URL中没有页面的信息。</p>
-<blockquote>
-<p><a href="http://localhost:8080/test/HeroLogin" target="_blank" rel="external">http://localhost:8080/test/HeroLogin</a></p>
-</blockquote>
-<p>抓包后可以看到</p>
-<blockquote>
-<p>POST /test/HeroLogin HTTP/1.1<br>Host: localhost:8080<br>User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:39.0) Gecko/20100101 Firefox/39.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8<br>Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Referer: <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a><br>Connection: keep-alive<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 30<br>username=berry&amp;password=654321<br>4gQ@<br>HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Length: 0<br>Date: Sat, 25 Jul 2015 06:15:43 GMT</p>
-</blockquote>
-<p>此时，页面信息是在报文体中的。</p>
-<hr>
+<p>这两类工具都提供接口，让我们自定义需要检查的问题，同时它们也可以放入到项目构建中，很方便做持续集成。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -137,13 +128,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/网络/">网络</a>
+  <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/GET/">GET</a><a href="/tags/HTTP/">HTTP</a><a href="/tags/POST/">POST</a>
+  <span></span> <a href="/tags/效率/">效率</a>
   </div>
 
 </div>
@@ -152,7 +143,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/25/HTTP协议中GET与POST方式的区别/" data-title="HTTP协议中GET与POST方式的区别 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/03/卓有成效的程序员The Productive Programmer/" data-title="卓有成效的程序员(The Productive Programmer) | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -166,18 +157,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/07/27/URL中的encode与decode问题/" title="URL中的encode与decode问题">
+ <a href="/2015/08/04/XML基础/" title="XML基础">
   <strong>上一篇：</strong><br/>
   <span>
-  URL中的encode与decode问题</span>
+  XML基础</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/07/25/用tcpdump命令抓包/"  title="用tcpdump命令抓包">
+<a href="/2015/08/03/Struts2中使用FreeMarker/"  title="Struts2中使用FreeMarker">
  <strong>下一篇：</strong><br/> 
- <span>用tcpdump命令抓包
+ <span>Struts2中使用FreeMarker
 </span>
 </a>
 </div>
@@ -192,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析"><span class="toc-number">1.</span> <span class="toc-text">静态分析</span></a></li></ol>
  
   </div>
 
