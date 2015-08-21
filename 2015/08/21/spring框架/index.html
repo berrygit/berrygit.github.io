@@ -4,23 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux初步 | Hexo</title>
+    <title>spring框架 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。">
+    <meta name="description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux初步">
-<meta property="og:url" content="http://yoursite.com/2015/08/05/Linux初步/index.html">
+<meta property="og:title" content="spring框架">
+<meta property="og:url" content="http://yoursite.com/2015/08/21/spring框架/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。">
-<meta property="og:updated_time" content="2015-08-05T06:23:41.000Z">
+<meta property="og:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+<meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/spring-overview.png">
+<meta property="og:updated_time" content="2015-08-21T13:28:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux初步">
-<meta name="twitter:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。">
+<meta name="twitter:title" content="spring框架">
+<meta name="twitter:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -80,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/05/Linux初步/" title="Linux初步" itemprop="url">Linux初步</a>
+      <a href="/2015/08/21/spring框架/" title="spring框架" itemprop="url">spring框架</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-05T05:38:40.000Z" itemprop="datePublished"> 發表於 2015-08-05</time>
+    <time datetime="2015-08-21T11:58:30.000Z" itemprop="datePublished"> 發表於 2015-08-21</time>
     
   </p>
 </header>
@@ -96,11 +97,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化"><span class="toc-number">2.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">3.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">3.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">3.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">3.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="bash的环境配置文件">bash的环境配置文件</h3><p>用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读<code>/etc/profile</code>和<code>～/.bashrc</code>，而nog-login只会读<code>~/.bashrc</code>。<code>/etc/profile</code>是系统级别的，<code>～/.bashrc</code>为用户偏好。</p>
+		<h2 id="概念">概念</h2><p>spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用<code>new</code>关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的<code>new</code>的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用配置文件通过配置表明，这样需要改动时就只需要更改配置文件而不需要修改代码，这样就很好的符合了开闭原则，降低了软件开发的复杂度并且降低了耦合，spring框架便主要做这方面的工作。</p>
+<h2 id="模块化">模块化</h2><p>spring框架目前支持多种机制，被分成了20个模块。<br><img src="http://7xl9g1.com1.z0.glb.clouddn.com/spring-overview.png" alt="spring模块"></p>
+<h2 id="核心概念">核心概念</h2><h3 id="IOC">IOC</h3><p>Inversion of Control (IoC)也被称作dependency injection (DI)，意思是对象的创建不再是由对象一步步初始化自己的成员变量，而是先初始化好变量，由spring容器注入给对象。</p>
+<h3 id="AOP">AOP</h3><h3 id="核心接口">核心接口</h3><p><code>BeanFactory</code>，<code>ApplicationContext</code>为<code>BeanFactory</code>的子接口，</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +117,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/05/Linux初步/" data-title="Linux初步 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/21/spring框架/" data-title="spring框架 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -126,19 +130,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/05/JDBC标准/" title="JDBC标准">
-  <strong>上一篇：</strong><br/>
-  <span>
-  JDBC标准</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/04/XML基础/"  title="XML基础">
+<a href="/2015/08/07/数据库基础/"  title="数据库基础">
  <strong>下一篇：</strong><br/> 
- <span>XML基础
+ <span>数据库基础
 </span>
 </a>
 </div>
@@ -153,7 +149,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化"><span class="toc-number">2.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">3.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">3.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">3.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">3.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li></ol>
  
   </div>
 
