@@ -4,24 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>spring框架 | Hexo</title>
+    <title>设计模式 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+    <meta name="description" content="解释器Interpreter
+目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
+动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
+适用：语法简单；性能要求不严格。
+效果：易于修改和扩充语法。迭代器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring框架">
-<meta property="og:url" content="http://yoursite.com/2015/08/21/spring框架/index.html">
+<meta property="og:title" content="设计模式">
+<meta property="og:url" content="http://yoursite.com/2015/08/30/设计模式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
-<meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/spring-overview.png">
-<meta property="og:updated_time" content="2015-08-30T08:25:40.000Z">
+<meta property="og:description" content="解释器Interpreter
+目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
+动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
+适用：语法简单；性能要求不严格。
+效果：易于修改和扩充语法。迭代器">
+<meta property="og:updated_time" content="2015-08-30T12:29:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring框架">
-<meta name="twitter:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+<meta name="twitter:title" content="设计模式">
+<meta name="twitter:description" content="解释器Interpreter
+目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
+动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
+适用：语法简单；性能要求不严格。
+效果：易于修改和扩充语法。迭代器">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -81,14 +92,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/21/spring框架/" title="spring框架" itemprop="url">spring框架</a>
+      <a href="/2015/08/30/设计模式/" title="设计模式" itemprop="url">设计模式</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-21T11:58:30.000Z" itemprop="datePublished"> 發表於 2015-08-21</time>
+    <time datetime="2015-08-30T08:26:04.000Z" itemprop="datePublished"> 發表於 2015-08-30</time>
     
   </p>
 </header>
@@ -97,64 +108,21 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化"><span class="toc-number">2.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">3.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">3.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">3.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">3.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bean属性"><span class="toc-number">4.1.</span> <span class="toc-text">bean属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI依赖注入"><span class="toc-number">4.2.</span> <span class="toc-text">DI依赖注入</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用<code>new</code>关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的<code>new</code>的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用配置文件通过配置表明，这样需要改动时就只需要更改配置文件而不需要修改代码，这样就很好的符合了开闭原则，降低了软件开发的复杂度并且降低了耦合，spring框架便主要做这方面的工作。</p>
-<h2 id="模块化">模块化</h2><p>spring框架目前支持多种机制，被分成了20个模块。<br><img src="http://7xl9g1.com1.z0.glb.clouddn.com/spring-overview.png" alt="spring模块"></p>
-<h2 id="核心概念">核心概念</h2><h3 id="IOC">IOC</h3><p>Inversion of Control (IoC)也被称作dependency injection (DI)，意思是对象的创建不再是由对象一步步初始化自己的成员变量，而是先初始化好变量，由spring容器注入给对象。</p>
-<h3 id="AOP">AOP</h3><p>Aspect-Oriented Programming (AOP)面向切面编程是面向对象编程的有力补充，意思是在代码的流程中，在某个方法的执行前后插入特定代码（比如日志记录，权限检查，性能监测，事务管理等）。</p>
-<h3 id="核心接口">核心接口</h3><p><code>BeanFactory</code>，<code>ApplicationContext</code>为<code>BeanFactory</code>的子接口。</p>
-<h2 id="使用">使用</h2><h3 id="bean属性">bean属性</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">&emsp;&emsp;属性&emsp;&emsp;</th>
-<th style="text-align:center">&emsp;&emsp;意义&emsp;&emsp;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">class</td>
-<td style="text-align:center">bean对应的类</td>
-</tr>
-<tr>
-<td style="text-align:center">name/id</td>
-<td style="text-align:center">bean的名称</td>
-</tr>
-<tr>
-<td style="text-align:center">scope</td>
-<td style="text-align:center">bean的有效范围</td>
-</tr>
-<tr>
-<td style="text-align:center">constructor arguments</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">properties</td>
-<td style="text-align:center">bean中的属性</td>
-</tr>
-<tr>
-<td style="text-align:center">autowiring mode</td>
-<td style="text-align:center">自动装配</td>
-</tr>
-<tr>
-<td style="text-align:center">lazy-initialization mode</td>
-<td style="text-align:center">懒加载</td>
-</tr>
-<tr>
-<td style="text-align:center">initialization method</td>
-<td style="text-align:center">初始化方法</td>
-</tr>
-<tr>
-<td style="text-align:center">destruction method</td>
-<td style="text-align:center">销毁方法</td>
-</tr>
-</tbody>
-</table>
-<h3 id="DI依赖注入">DI依赖注入</h3><ul>
-<li>通过构造器注入</li>
-<li>通过Setter方法注入</li>
+		<h3 id="解释器Interpreter">解释器Interpreter</h3><ul>
+<li>目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。</li>
+<li>动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。</li>
+<li>适用：语法简单；性能要求不严格。</li>
+<li>效果：易于修改和扩充语法。<h3 id="迭代器Iterator">迭代器Iterator</h3></li>
+<li>目的：提供一种不需要关注底层实现便可遍历聚合对象元素的方法。</li>
+<li>别名：游标</li>
+<li>动机：通过将遍历和获取元素的职责从聚合对象（如List）中拿出，封装到<code>iterator</code>对象中。<code>iterator</code>对象对外提供统一的接口，并且记录当前访问元素的位置，这样客户端不需要关注聚合对象的具体实现，只需要调用统一的接口遍历元素。从聚合对象的角度，为提供一致的访问不需要更改已有代码的实现，只需要添加<code>iterator</code>接口的实现，符合<code>开闭原则</code>。</li>
+<li>适用：不需要关注底层实现便可遍历；提供多种遍历方式；对于不同类型的聚合对象对外提供一致接口。</li>
+<li>效果：<code>iterator</code>简化了聚合对象的接口。</li>
+<li>实现：<br>游标：聚合对象控制遍历算法，<code>iterator</code>只记录状态的迭代器模式被称为游标，这种实现不便于提供多种遍历元素的方式，但可以保证封装不被破坏；<br>健壮性：在<code>iterator</code>中更改元素一般会导致问题，可以采用先复制聚合对象再遍历聚合对象副本修改原本的方式，但此方式开销较大。</li>
 </ul>
   
 	</div>
@@ -168,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/21/spring框架/" data-title="spring框架 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/30/设计模式/" data-title="设计模式 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -181,19 +149,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/30/设计模式/" title="设计模式">
-  <strong>上一篇：</strong><br/>
-  <span>
-  设计模式</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/07/数据库基础/"  title="数据库基础">
+<a href="/2015/08/21/spring框架/"  title="spring框架">
  <strong>下一篇：</strong><br/> 
- <span>数据库基础
+ <span>spring框架
 </span>
 </a>
 </div>
@@ -208,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化"><span class="toc-number">2.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">3.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">3.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">3.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">3.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bean属性"><span class="toc-number">4.1.</span> <span class="toc-text">bean属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI依赖注入"><span class="toc-number">4.2.</span> <span class="toc-text">DI依赖注入</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li></ol>
  
   </div>
 
