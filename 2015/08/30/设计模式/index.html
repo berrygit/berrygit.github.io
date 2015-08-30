@@ -29,7 +29,7 @@
 效果：易于修改和扩充语法。
 
 迭">
-<meta property="og:updated_time" content="2015-08-30T12:35:26.000Z">
+<meta property="og:updated_time" content="2015-08-30T12:37:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
 <meta name="twitter:description" content="解释器Interpreter
@@ -130,7 +130,10 @@
 <li>动机：通过将遍历和获取元素的职责从聚合对象（如List）中拿出，封装到<code>iterator</code>对象中。<code>iterator</code>对象对外提供统一的接口，并且记录当前访问元素的位置，这样客户端不需要关注聚合对象的具体实现，只需要调用统一的接口遍历元素。从聚合对象的角度，为提供一致的访问不需要更改已有代码的实现，只需要添加<code>iterator</code>接口的实现，符合<code>开闭原则</code>。</li>
 <li>适用：不需要关注底层实现便可遍历；提供多种遍历方式；对于不同类型的聚合对象对外提供一致接口。</li>
 <li>效果：<code>iterator</code>简化了聚合对象的接口。</li>
-<li>实现：<br>游标：聚合对象控制遍历算法，<code>iterator</code>只记录状态的迭代器模式被称为游标，这种实现不便于提供多种遍历元素的方式，但可以保证封装不被破坏；<br>健壮性：在<code>iterator</code>中更改元素一般会导致问题，可以采用先复制聚合对象再遍历聚合对象副本修改原本的方式，但此方式开销较大。</li>
+<li>实现：<blockquote>
+<p>游标：聚合对象控制遍历算法，<code>iterator</code>只记录状态的迭代器模式被称为游标，这种实现不便于提供多种遍历元素的方式，但可以保证封装不被破坏；<br>健壮性：在<code>iterator</code>中更改元素一般会导致问题，可以采用先复制聚合对象再遍历聚合对象副本修改原本的方式，但此方式开销较大。</p>
+</blockquote>
+</li>
 </ul>
   
 	</div>
