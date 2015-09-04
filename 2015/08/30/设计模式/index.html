@@ -11,34 +11,34 @@
     
 
     
-    <meta name="description" content="解释器Interpreter
+    <meta name="description" content="创建型结构型行为型解释器Interpreter
 目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
 动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
 适用：语法简单；性能要求不严格。
-效果：易于修改和扩充语法。
+参与者：
 
-迭">
+A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="http://yoursite.com/2015/08/30/设计模式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="解释器Interpreter
+<meta property="og:description" content="创建型结构型行为型解释器Interpreter
 目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
 动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
 适用：语法简单；性能要求不严格。
-效果：易于修改和扩充语法。
+参与者：
 
-迭">
-<meta property="og:updated_time" content="2015-09-04T06:12:29.000Z">
+A">
+<meta property="og:updated_time" content="2015-09-04T12:27:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
-<meta name="twitter:description" content="解释器Interpreter
+<meta name="twitter:description" content="创建型结构型行为型解释器Interpreter
 目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
 动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
 适用：语法简单；性能要求不严格。
-效果：易于修改和扩充语法。
+参与者：
 
-迭">
+A">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -114,22 +114,34 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">5.</span> <span class="toc-text">观察者Observer</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建型"><span class="toc-number">1.</span> <span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构型"><span class="toc-number">2.</span> <span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行为型"><span class="toc-number">3.</span> <span class="toc-text">行为型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">3.1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">3.2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">3.4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">3.5.</span> <span class="toc-text">观察者Observer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态State"><span class="toc-number">3.6.</span> <span class="toc-text">状态State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略Strategy"><span class="toc-number">3.7.</span> <span class="toc-text">策略Strategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法Template_Method"><span class="toc-number">3.8.</span> <span class="toc-text">模板方法Template Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问者Visitor"><span class="toc-number">3.9.</span> <span class="toc-text">访问者Visitor</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="解释器Interpreter">解释器Interpreter</h3><ul>
+		<h2 id="创建型">创建型</h2><h2 id="结构型">结构型</h2><h2 id="行为型">行为型</h2><h3 id="解释器Interpreter">解释器Interpreter</h3><ul>
 <li>目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。</li>
 <li>动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。</li>
 <li>适用：语法简单；性能要求不严格。</li>
-<li>效果：易于修改和扩充语法。</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>AbstractExpression</strong>：抽象表达式。<br><strong>TerminalExpression</strong>：根据终端符号解释的终端表达式。<br><strong>NonterminalExpression</strong>：非终端表达式的解释。<br><strong>Context</strong>：包含解释进度等全局信息。<br><strong>Client</strong>：定义或使用已经给出的根据语法定义的用于解释的抽象表达式；触发解释动作。</p>
+</blockquote>
+</li>
+<li><p>效果：易于修改和扩充语法。</p>
+</li>
 </ul>
 <h3 id="迭代器Iterator">迭代器Iterator</h3><ul>
 <li>目的：提供一种不需要关注底层实现便可遍历聚合对象元素的方法。</li>
 <li>别名：游标</li>
 <li>动机：通过将遍历和获取元素的职责从聚合对象（如List）中拿出，封装到<code>iterator</code>对象中。<code>iterator</code>对象对外提供统一的接口，并且记录当前访问元素的位置，这样客户端不需要关注聚合对象的具体实现，只需要调用统一的接口遍历元素。从聚合对象的角度，不同对象为提供一致的访问不需要更改已有代码的实现，只需要添加<code>iterator</code>接口的实现，符合<code>开闭原则</code>。</li>
 <li>适用：不需要关注底层实现便可遍历；提供多种遍历方式；对于不同类型的聚合对象对外提供一致接口。</li>
-<li>效果：<code>iterator</code>简化了聚合对象的接口。</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>Iterator</strong>：定义用于获取和遍历的接口。<br><strong>ConcreteIterator</strong>：实现<code>Iterator</code>接口；记录当前访问元素的位置信息。<br><strong>Aggregate</strong>：定义产生<code>iterator</code>对象的接口。<br><strong>ConcreteAggregate</strong>：实现<code>Aggregate</code>接口。</p>
+</blockquote>
+</li>
+<li><p>效果：<code>iterator</code>简化了聚合对象的接口。</p>
+</li>
 <li><p>实现：</p>
 <blockquote>
 <p>游标：聚合对象控制遍历算法，<code>iterator</code>只记录状态的迭代器模式被称为游标，这种实现不便于提供多种遍历元素的方式，但可以保证封装不被破坏；<br>健壮性：在<code>iterator</code>中更改元素一般会导致问题，可以采用先复制聚合对象再遍历聚合对象副本修改原本的方式，但此方式开销较大。</p>
@@ -140,15 +152,17 @@
 </ul>
 <h3 id="中介者Mediator">中介者Mediator</h3><ul>
 <li>目的：将对象之间的交互从对象中提取封装到一个专门的对象中。</li>
-<li>动机：一个子系统在达到一定规模后，对象之间的交互将会变得非常繁杂，有可能每一个对象都要与其它所有对象交互，持有其它所有对象的引用，这样的子系统可维护性很差，假如需要更改一个对象的实现就可能涉及到修改其它所有的对象，并且定义出许多的子类。如果我们提供一个专门的中介对象，封装所有对象之间的交互，一个对象状态改变后，只需要通知中介对象，由中介对象持有其它所有对象的引用，并根据设定好的协议依次调用其它对象的接口即可完成对象之间的交互。这样的模式使得每一个参与对象并不需要知道其它所有对象的存在，只需要与中介者对象交互，从而降低了对象间的耦合度，如果需要变更只需要独立的更改中介者对象或者某个参与对象的实现，同时集中存放行为可以使我们对对象之间的交互过程更清晰。</li>
-<li><p>适用：</p>
+<li>动机：一个子系统在达到一定规模后，对象之间的交互将会变得非常繁杂，有可能每一个对象都要与其它所有对象交互，持有其它所有对象的引用，这样的子系统可维护性很差，假如需要更改一个对象的实现就可能涉及到修改其它所有的对象，并且定义出许多的子类。如果我们提供一个专门的中介对象，封装所有对象之间的交互，一个对象状态改变后，只需要通知中介对象，由中介对象持有其它所有对象的引用，并根据设定好的协议依次调用其它对象的接口即可完成对象之间的交互。</li>
+<li><p>适用：一组设计良好但交互过于复杂的对象（每个对象的内部依赖不成结构并且难以理解）；由于与许多对象交互，重用变得很困难；行为被分散在许多类当中，定制时不需要许多的子类。</p>
+</li>
+<li><p>参与者：</p>
 <blockquote>
-<p>一组设计良好但交互过于复杂的对象（每个对象的内部依赖不成结构并且难以理解）；由于与许多对象交互，重用变得很困难；行为被分散在许多类当中，定制时不需要许多的子类。</p>
+<p><strong>Mediator</strong>：定义与其它对象交互的接口。<br><strong>ConcreteMediator</strong>：实现对象之间的交互。<br><strong>Colleague classes</strong>：每个对象只知道并且只与中介对象打交道。</p>
 </blockquote>
 </li>
 <li><p>效果：</p>
 <blockquote>
-<p>限制住了子类的数量；降低了参与对象的耦合; 通过将多对多关系替换为一对多关系，简化了对象的接口；通过集中存放行为，明晰了对象间的交互过程；集中控制导致中介者对象内部逻辑过于复杂。</p>
+<p>限制住了子类的数量；<br>每一个参与对象并不需要知道其它所有对象的存在，只需要与中介者对象交互，从而降低了对象间的耦合度，如果需要变更只需要独立的更改中介者对象或者某个参与对象的实现;<br>通过将多对多关系替换为一对多关系，简化了对象的接口；<br>通过集中存放行为，明晰了对象间的交互过程；<br>集中控制导致中介者对象内部逻辑过于复杂。</p>
 </blockquote>
 </li>
 <li><p>相关模式：参与对象与中介者对象间的交互可以使用<code>观察者模式</code>实现。</p>
@@ -158,10 +172,7 @@
 <li>目的：在不破坏封装的前提下，获取和外部化对象的内部状态，使得对象稍后可以恢复状态。</li>
 <li>别名：token</li>
 <li>动机：在一些实现诸如<code>重做</code>功能的场景下，需要记录对象的内部状态以便在稍后恢复之前的状态。备忘录模式要求记录过程不能破坏对象的封装，所以<code>originator</code>将自己的状态以特定的数据结构封装到<code>memento</code>对象中，<code>memento</code>对象一般只有提供他的<code>originator</code>才能正常解析。</li>
-<li><p>适用：</p>
-<blockquote>
-<p>需要保存对象的快照以便稍后可以恢复；不想破坏对象的封装。</p>
-</blockquote>
+<li><p>适用：需要保存对象的快照以便稍后可以恢复；不想破坏对象的封装。</p>
 </li>
 <li><p>参与者：</p>
 <blockquote>
@@ -170,7 +181,7 @@
 </li>
 <li><p>效果：</p>
 <blockquote>
-<p>保护封装；简化<code>Originator</code>；使用备忘录模式需要较多的资源；<code>宽</code>和<code>瘦</code>接口可能在某些语言中不易实现；<code>Memento</code>复杂时，<code>Caretaker</code>需要较多的存储。</p>
+<p>保护封装；<br>简化<code>Originator</code>；<br>使用备忘录模式需要较多的资源；<br><code>宽</code>和<code>瘦</code>接口可能在某些语言中不易实现；<br><code>Memento</code>复杂时，<code>Caretaker</code>需要较多的存储。</p>
 </blockquote>
 </li>
 <li><p>实现：</p>
@@ -193,14 +204,63 @@
 </li>
 <li><p>效果：</p>
 <blockquote>
-<p>随意添加订阅者；订阅者与发布者之间松耦合，订阅者不知道其它订阅者的存在只知道发布者，发布者不确切知道订阅者的实现，只通过简单的接口通知订阅者；支持广播通信；存在不必要的通知。</p>
+<p>随意添加订阅者；<br>订阅者与发布者之间松耦合，订阅者不知道其它订阅者的存在只知道发布者，发布者不确切知道订阅者的实现，只通过简单的接口通知订阅者；<br>支持广播通信；<br>存在不必要的通知。</p>
 </blockquote>
 </li>
 <li><p>实现：</p>
 <blockquote>
-<p>通知触发者：1.setter方法（在一系列的更改状态操作中，容易导致频繁低效的通知）；2.client通知（增加了client的职责，client代码忘记通知会导致bug）。</p>
+<p>通知触发者：1.setter方法（在一系列的更改状态操作中，容易导致频繁低效的通知）；2.client通知（增加了client的职责，client代码忘记通知会导致bug）。<br>确保发布者在通知时状态一致。<br><code>拉取</code>和<code>推送</code>模式：发布者主动将变更信息推送到订阅者，发布者只通知变更，订阅者自己去发布者处查询变更的信息。<br>为了使通知更加具体化，可以扩展注册接口，关注者订阅时带上标示兴趣的参数，发布者根据该参数选择每次要通知的关注者。</p>
 </blockquote>
 </li>
+</ul>
+<h3 id="状态State">状态State</h3><ul>
+<li>目的：使一个对象在内部状态发生改变后行为也相应改变。</li>
+<li>动机：实现有限状态机（如TCP连接）。</li>
+<li>适用：一个对象的行为取决于它的状态，并且需要在运行时动态改变。</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>Context</strong>：定义与client感兴趣的接口；维持一个状态实例标示现在的状态。<br><strong>State</strong>：定义一组全面的与外界交互的接口。<br><strong>ConcreteState subclasses</strong>：每个子类定义一组特定的实现State接口的行为。</p>
+</blockquote>
+</li>
+<li><p>效果：</p>
+<blockquote>
+<p>将分散的状态代码封装到一个个独立的状态类中，易维护可扩展，利于增加新的状态，避免了仅使用一个类造成的大量的if语句的代码，这样的代码通常较难理解，并且修改和扩展较繁琐；<br>让状态切换更明确；<br>如果状态对象中没有实例变量，那么状态对象可以被共享。</p>
+</blockquote>
+</li>
+<li><p>实现：</p>
+<blockquote>
+<p>状态转换定义者：State对象或者Context对象;<br>表驱动方法代替。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="策略Strategy">策略Strategy</h3><ul>
+<li>目的：定义一系列算法，分别封装，并且可以被client在运行时动态指定。</li>
+<li>动机：将某个特定算法从客户端代码中分离和封装，以便运行时动态使用。</li>
+<li>适用：许多相关的类，只是行为部分不同；需要隐藏算法的具体实现，让客户端代码关注的更少，代码变得简单；去除过多的条件控制语句，将各个分支封装到相应的策略类里来。</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>Strategy</strong>：定义一个其它子类共用的算法调用接口。<br><strong>ConcreteStrategy</strong>：根据<code>Strategy</code>接口实现算法。<br><strong>Context</strong>：持有策略的实现类。</p>
+</blockquote>
+</li>
+<li><p>效果：</p>
+<blockquote>
+<p>从单一类中提取出繁杂的策略，使代码易于理解，便于维护和扩展。<br>适用多态，消除了过多的条件分支语句。<br>便于client代码灵活选择策略。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="模板方法Template_Method">模板方法Template Method</h3><ul>
+<li>目的：定义好一个算法的骨架，把算法的某一个步骤推迟给子类实现，子类的实现可以灵活定制，并且不影响算法的结构。</li>
+<li>适用：相同的实现只写一次，不同的部分封装到不同的类中；钩子函数。</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>AbstractClass</strong>：定义基本的算法结构。<br><strong>ConcreteClass</strong>：定制算法的某一步。</p>
+</blockquote>
+</li>
+<li><p>相关模式：<code>策略模式</code>扩展整个算法，而<code>模板方法</code>只扩展算法的一部分；<code>工厂方法</code>与<code>模板方法</code>一致。</p>
+</li>
+</ul>
+<h3 id="访问者Visitor">访问者Visitor</h3><ul>
+<li>目的：</li>
 </ul>
   
 	</div>
@@ -246,7 +306,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">5.</span> <span class="toc-text">观察者Observer</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建型"><span class="toc-number">1.</span> <span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构型"><span class="toc-number">2.</span> <span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行为型"><span class="toc-number">3.</span> <span class="toc-text">行为型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">3.1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">3.2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">3.4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">3.5.</span> <span class="toc-text">观察者Observer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态State"><span class="toc-number">3.6.</span> <span class="toc-text">状态State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略Strategy"><span class="toc-number">3.7.</span> <span class="toc-text">策略Strategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法Template_Method"><span class="toc-number">3.8.</span> <span class="toc-text">模板方法Template Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问者Visitor"><span class="toc-number">3.9.</span> <span class="toc-text">访问者Visitor</span></a></li></ol></li></ol>
  
   </div>
 
