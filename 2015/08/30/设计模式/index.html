@@ -29,7 +29,7 @@
 效果：易于修改和扩充语法。
 
 迭">
-<meta property="og:updated_time" content="2015-08-30T13:01:03.000Z">
+<meta property="og:updated_time" content="2015-09-04T06:12:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
 <meta name="twitter:description" content="解释器Interpreter
@@ -114,7 +114,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">5.</span> <span class="toc-text">观察者Observer</span></a></li></ol>
 		
 		</div>
 		
@@ -127,7 +127,7 @@
 <h3 id="迭代器Iterator">迭代器Iterator</h3><ul>
 <li>目的：提供一种不需要关注底层实现便可遍历聚合对象元素的方法。</li>
 <li>别名：游标</li>
-<li>动机：通过将遍历和获取元素的职责从聚合对象（如List）中拿出，封装到<code>iterator</code>对象中。<code>iterator</code>对象对外提供统一的接口，并且记录当前访问元素的位置，这样客户端不需要关注聚合对象的具体实现，只需要调用统一的接口遍历元素。从聚合对象的角度，为提供一致的访问不需要更改已有代码的实现，只需要添加<code>iterator</code>接口的实现，符合<code>开闭原则</code>。</li>
+<li>动机：通过将遍历和获取元素的职责从聚合对象（如List）中拿出，封装到<code>iterator</code>对象中。<code>iterator</code>对象对外提供统一的接口，并且记录当前访问元素的位置，这样客户端不需要关注聚合对象的具体实现，只需要调用统一的接口遍历元素。从聚合对象的角度，不同对象为提供一致的访问不需要更改已有代码的实现，只需要添加<code>iterator</code>接口的实现，符合<code>开闭原则</code>。</li>
 <li>适用：不需要关注底层实现便可遍历；提供多种遍历方式；对于不同类型的聚合对象对外提供一致接口。</li>
 <li>效果：<code>iterator</code>简化了聚合对象的接口。</li>
 <li><p>实现：</p>
@@ -135,7 +135,71 @@
 <p>游标：聚合对象控制遍历算法，<code>iterator</code>只记录状态的迭代器模式被称为游标，这种实现不便于提供多种遍历元素的方式，但可以保证封装不被破坏；<br>健壮性：在<code>iterator</code>中更改元素一般会导致问题，可以采用先复制聚合对象再遍历聚合对象副本修改原本的方式，但此方式开销较大。</p>
 </blockquote>
 </li>
-<li><p>相关模式：实现方式类似于<code>门面模式</code>和<code>命令模式</code>。</p>
+<li><p>相关模式：实现方式类似于<code>门面模式</code>和<code>命令模式</code>的组合。</p>
+</li>
+</ul>
+<h3 id="中介者Mediator">中介者Mediator</h3><ul>
+<li>目的：将对象之间的交互从对象中提取封装到一个专门的对象中。</li>
+<li>动机：一个子系统在达到一定规模后，对象之间的交互将会变得非常繁杂，有可能每一个对象都要与其它所有对象交互，持有其它所有对象的引用，这样的子系统可维护性很差，假如需要更改一个对象的实现就可能涉及到修改其它所有的对象，并且定义出许多的子类。如果我们提供一个专门的中介对象，封装所有对象之间的交互，一个对象状态改变后，只需要通知中介对象，由中介对象持有其它所有对象的引用，并根据设定好的协议依次调用其它对象的接口即可完成对象之间的交互。这样的模式使得每一个参与对象并不需要知道其它所有对象的存在，只需要与中介者对象交互，从而降低了对象间的耦合度，如果需要变更只需要独立的更改中介者对象或者某个参与对象的实现，同时集中存放行为可以使我们对对象之间的交互过程更清晰。</li>
+<li><p>适用：</p>
+<blockquote>
+<p>一组设计良好但交互过于复杂的对象（每个对象的内部依赖不成结构并且难以理解）；由于与许多对象交互，重用变得很困难；行为被分散在许多类当中，定制时不需要许多的子类。</p>
+</blockquote>
+</li>
+<li><p>效果：</p>
+<blockquote>
+<p>限制住了子类的数量；降低了参与对象的耦合; 通过将多对多关系替换为一对多关系，简化了对象的接口；通过集中存放行为，明晰了对象间的交互过程；集中控制导致中介者对象内部逻辑过于复杂。</p>
+</blockquote>
+</li>
+<li><p>相关模式：参与对象与中介者对象间的交互可以使用<code>观察者模式</code>实现。</p>
+</li>
+</ul>
+<h3 id="备忘录Memento">备忘录Memento</h3><ul>
+<li>目的：在不破坏封装的前提下，获取和外部化对象的内部状态，使得对象稍后可以恢复状态。</li>
+<li>别名：token</li>
+<li>动机：在一些实现诸如<code>重做</code>功能的场景下，需要记录对象的内部状态以便在稍后恢复之前的状态。备忘录模式要求记录过程不能破坏对象的封装，所以<code>originator</code>将自己的状态以特定的数据结构封装到<code>memento</code>对象中，<code>memento</code>对象一般只有提供他的<code>originator</code>才能正常解析。</li>
+<li><p>适用：</p>
+<blockquote>
+<p>需要保存对象的快照以便稍后可以恢复；不想破坏对象的封装。</p>
+</blockquote>
+</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>Memento</strong>：保存<code>Originator</code>对象的内部状态（并不一定全部）；对<code>Caretaker</code>展示<code>瘦</code>接口，只允许其传递自身到<code>Originator</code>，对<code>Originator</code>展示<code>宽</code>接口，允许<code>Memento</code>获得自身内部状态。<br><strong>Originator</strong>：生成和解析<code>Memento</code>。<br><strong>Caretaker</strong>：安全保存<code>Memento</code>，不允许触探<code>Memento</code>内容。</p>
+</blockquote>
+</li>
+<li><p>效果：</p>
+<blockquote>
+<p>保护封装；简化<code>Originator</code>；使用备忘录模式需要较多的资源；<code>宽</code>和<code>瘦</code>接口可能在某些语言中不易实现；<code>Memento</code>复杂时，<code>Caretaker</code>需要较多的存储。</p>
+</blockquote>
+</li>
+<li><p>实现：</p>
+<blockquote>
+<p>存储增量变更：在一系列的<code>撤销</code>或者<code>重做</code>列表中，存储备忘录时可以只存储相对上一个动作的增量变更，以降低存储等消费。</p>
+</blockquote>
+</li>
+<li><p>相关模式：<code>命令模式</code>和<code>迭代器模式</code>使用<code>备忘录模式</code>记录对象状态。</p>
+</li>
+</ul>
+<h3 id="观察者Observer">观察者Observer</h3><ul>
+<li>目的：定义一个<code>一对多</code>关系，实现当一个对象的状态改变时，其它对象将会自动的被通知或更新。</li>
+<li>别名：Pub-Sub</li>
+<li>动机：当一个对象保存着数据，其它如果对象需要根据数据做若干呈现，并且数据一旦改变其它对象的改变也要立即同步变更。</li>
+<li>适用：将两个方面的抽象分离，一个依赖于另一个，分别封装后可以独立扩展和重用；一个对象状态改变需要通知其它依赖对象，甚至不通知对象的数量，也不需要确切的知道要通知的对象是谁。</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>Subject</strong>：定义订阅接口，<code>Observer</code>对象调用接口<code>订阅</code>和<code>取消订阅</code>。<br><strong>Observer</strong>：定义通知接口，<code>Subject</code>变更时调用该接口来通知。<br><strong>ConcreteSubject</strong>：存储状态，通知观察者。<br><strong>ConcreteObserver</strong>：实现通知接口。</p>
+</blockquote>
+</li>
+<li><p>效果：</p>
+<blockquote>
+<p>随意添加订阅者；订阅者与发布者之间松耦合，订阅者不知道其它订阅者的存在只知道发布者，发布者不确切知道订阅者的实现，只通过简单的接口通知订阅者；支持广播通信；存在不必要的通知。</p>
+</blockquote>
+</li>
+<li><p>实现：</p>
+<blockquote>
+<p>通知触发者：1.setter方法（在一系列的更改状态操作中，容易导致频繁低效的通知）；2.client通知（增加了client的职责，client代码忘记通知会导致bug）。</p>
+</blockquote>
 </li>
 </ul>
   
@@ -182,7 +246,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">5.</span> <span class="toc-text">观察者Observer</span></a></li></ol>
  
   </div>
 
