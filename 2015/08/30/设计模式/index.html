@@ -11,34 +11,22 @@
     
 
     
-    <meta name="description" content="创建型结构型行为型解释器Interpreter
-目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
-动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
-适用：语法简单；性能要求不严格。
-参与者：
-
-A">
+    <meta name="description" content="综述设计模式其实是在面向对象编程的思想的指导下，在一些特定的曾经困扰设计人员的问题中，广泛被人们采用的一些设计经验的合集而已。设计模式来源于重构，正是在有一堆糟烂的难于维护的代码存在，才为设计模式的出现提供了契机。
+意义
+提供一个设计层次的通用词汇，让团队人员在设计层次上就一个问题用一个概括性的词汇来描述各自的想法。大型系统广泛使用设计模式，学习设计模式后可以使我们更好的理解既有系统代码的层次结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="http://yoursite.com/2015/08/30/设计模式/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="创建型结构型行为型解释器Interpreter
-目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
-动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
-适用：语法简单；性能要求不严格。
-参与者：
-
-A">
-<meta property="og:updated_time" content="2015-09-04T12:27:27.000Z">
+<meta property="og:description" content="综述设计模式其实是在面向对象编程的思想的指导下，在一些特定的曾经困扰设计人员的问题中，广泛被人们采用的一些设计经验的合集而已。设计模式来源于重构，正是在有一堆糟烂的难于维护的代码存在，才为设计模式的出现提供了契机。
+意义
+提供一个设计层次的通用词汇，让团队人员在设计层次上就一个问题用一个概括性的词汇来描述各自的想法。大型系统广泛使用设计模式，学习设计模式后可以使我们更好的理解既有系统代码的层次结构">
+<meta property="og:updated_time" content="2015-09-06T11:41:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
-<meta name="twitter:description" content="创建型结构型行为型解释器Interpreter
-目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。
-动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。
-适用：语法简单；性能要求不严格。
-参与者：
-
-A">
+<meta name="twitter:description" content="综述设计模式其实是在面向对象编程的思想的指导下，在一些特定的曾经困扰设计人员的问题中，广泛被人们采用的一些设计经验的合集而已。设计模式来源于重构，正是在有一堆糟烂的难于维护的代码存在，才为设计模式的出现提供了契机。
+意义
+提供一个设计层次的通用词汇，让团队人员在设计层次上就一个问题用一个概括性的词汇来描述各自的想法。大型系统广泛使用设计模式，学习设计模式后可以使我们更好的理解既有系统代码的层次结构">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -114,11 +102,17 @@ A">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建型"><span class="toc-number">1.</span> <span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构型"><span class="toc-number">2.</span> <span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行为型"><span class="toc-number">3.</span> <span class="toc-text">行为型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">3.1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">3.2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">3.4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">3.5.</span> <span class="toc-text">观察者Observer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态State"><span class="toc-number">3.6.</span> <span class="toc-text">状态State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略Strategy"><span class="toc-number">3.7.</span> <span class="toc-text">策略Strategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法Template_Method"><span class="toc-number">3.8.</span> <span class="toc-text">模板方法Template Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问者Visitor"><span class="toc-number">3.9.</span> <span class="toc-text">访问者Visitor</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#综述"><span class="toc-number">1.</span> <span class="toc-text">综述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#意义"><span class="toc-number">1.1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC框架"><span class="toc-number">1.2.</span> <span class="toc-text">MVC框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建型"><span class="toc-number">2.</span> <span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构型"><span class="toc-number">3.</span> <span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行为型"><span class="toc-number">4.</span> <span class="toc-text">行为型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#责任链Chain_of_Responsibility"><span class="toc-number">4.1.</span> <span class="toc-text">责任链Chain of Responsibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令Command"><span class="toc-number">4.2.</span> <span class="toc-text">命令Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">4.3.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">4.4.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">4.5.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">4.6.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">4.7.</span> <span class="toc-text">观察者Observer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态State"><span class="toc-number">4.8.</span> <span class="toc-text">状态State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略Strategy"><span class="toc-number">4.9.</span> <span class="toc-text">策略Strategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法Template_Method"><span class="toc-number">4.10.</span> <span class="toc-text">模板方法Template Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问者Visitor"><span class="toc-number">4.11.</span> <span class="toc-text">访问者Visitor</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="创建型">创建型</h2><h2 id="结构型">结构型</h2><h2 id="行为型">行为型</h2><h3 id="解释器Interpreter">解释器Interpreter</h3><ul>
+		<h2 id="综述">综述</h2><p>设计模式其实是在面向对象编程的思想的指导下，在一些特定的曾经困扰设计人员的问题中，广泛被人们采用的一些设计经验的合集而已。设计模式来源于重构，正是在有一堆糟烂的难于维护的代码存在，才为设计模式的出现提供了契机。</p>
+<h3 id="意义">意义</h3><blockquote>
+<p>提供一个设计层次的通用词汇，让团队人员在设计层次上就一个问题用一个概括性的词汇来描述各自的想法。<br>大型系统广泛使用设计模式，学习设计模式后可以使我们更好的理解既有系统代码的层次结构。<br>提供思路，使我们设计出更易于维护的软件，重构代码时做更少的更改。<br>面向对象思想的实例化补充。</p>
+</blockquote>
+<h3 id="MVC框架">MVC框架</h3><p>三种设计模式的组合：页面的嵌套使用组合模式；模型层与展示层使用观察者模式；控制层与展示层使用策略模式。</p>
+<h2 id="创建型">创建型</h2><h2 id="结构型">结构型</h2><h2 id="行为型">行为型</h2><p>封装变更：当程序的某一方面经常发生变更，就把它封装起来，定义抽象类，子类实现具体的封装。</p>
+<h3 id="责任链Chain_of_Responsibility">责任链Chain of Responsibility</h3><h3 id="命令Command">命令Command</h3><h3 id="解释器Interpreter">解释器Interpreter</h3><ul>
 <li>目的：对一种给出的语言，定义这种语言的语法表示和解释器，用解释器在语法表示的基础上去解释该语言中的句子。</li>
 <li>动机：如果一件事情经常发生，我们可以对这件事情用语言做一个定义来表示这件事，使用解释器去匹配某件事是否是我们定义的那件（如正则表达式）。解释器需要定义语法表示，给出某个特定的语法检验表达式和解释。</li>
 <li>适用：语法简单；性能要求不严格。</li>
@@ -260,7 +254,19 @@ A">
 </li>
 </ul>
 <h3 id="访问者Visitor">访问者Visitor</h3><ul>
-<li>目的：</li>
+<li>目的：在不改变所操作元素的情况下，在其上定义一种新的操作。</li>
+<li>动机：例如像编译器，对代码做静态检查，每一个要检查的语法或者语义条目都需要一个单独的逻辑，并且不能更改已有的代码。</li>
+<li>适用：需要在一组结构化的对象上添加某些行为，并且不破坏原有的行为；对象的结构很少改变，但需要经常在对象上添加行为，如果改变原有对象以添加行为会导致对象结构也随之做频繁较大改动。</li>
+<li><p>参与者：</p>
+<blockquote>
+<p><strong>Visitor</strong>：定义访问元素接口。<br><strong>ConcreteVisitor</strong>：根据自身定义出访问的特定实现。<br><strong>Element</strong>：节点，定义接口以参数形式接收访问者。<br><strong>ConcreteElement</strong>：实现<code>Element</code>接口。<br><strong>ObjectStructure</strong>：包含<code>Element</code>的组合结构。</p>
+</blockquote>
+</li>
+<li><p>效果：</p>
+<blockquote>
+<p>易于添加新行为，如果在每个节点定义，将需要逐个添加。<br>行为集中，内聚更高。<br>如果结构变更，增加新的节点类型将变得很繁琐。<br>破坏封装。</p>
+</blockquote>
+</li>
 </ul>
   
 	</div>
@@ -306,7 +312,7 @@ A">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建型"><span class="toc-number">1.</span> <span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构型"><span class="toc-number">2.</span> <span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行为型"><span class="toc-number">3.</span> <span class="toc-text">行为型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">3.1.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">3.2.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">3.3.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">3.4.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">3.5.</span> <span class="toc-text">观察者Observer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态State"><span class="toc-number">3.6.</span> <span class="toc-text">状态State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略Strategy"><span class="toc-number">3.7.</span> <span class="toc-text">策略Strategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法Template_Method"><span class="toc-number">3.8.</span> <span class="toc-text">模板方法Template Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问者Visitor"><span class="toc-number">3.9.</span> <span class="toc-text">访问者Visitor</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#综述"><span class="toc-number">1.</span> <span class="toc-text">综述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#意义"><span class="toc-number">1.1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC框架"><span class="toc-number">1.2.</span> <span class="toc-text">MVC框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建型"><span class="toc-number">2.</span> <span class="toc-text">创建型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构型"><span class="toc-number">3.</span> <span class="toc-text">结构型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#行为型"><span class="toc-number">4.</span> <span class="toc-text">行为型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#责任链Chain_of_Responsibility"><span class="toc-number">4.1.</span> <span class="toc-text">责任链Chain of Responsibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令Command"><span class="toc-number">4.2.</span> <span class="toc-text">命令Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解释器Interpreter"><span class="toc-number">4.3.</span> <span class="toc-text">解释器Interpreter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代器Iterator"><span class="toc-number">4.4.</span> <span class="toc-text">迭代器Iterator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中介者Mediator"><span class="toc-number">4.5.</span> <span class="toc-text">中介者Mediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备忘录Memento"><span class="toc-number">4.6.</span> <span class="toc-text">备忘录Memento</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者Observer"><span class="toc-number">4.7.</span> <span class="toc-text">观察者Observer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#状态State"><span class="toc-number">4.8.</span> <span class="toc-text">状态State</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略Strategy"><span class="toc-number">4.9.</span> <span class="toc-text">策略Strategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法Template_Method"><span class="toc-number">4.10.</span> <span class="toc-text">模板方法Template Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问者Visitor"><span class="toc-number">4.11.</span> <span class="toc-text">访问者Visitor</span></a></li></ol></li></ol>
  
   </div>
 
