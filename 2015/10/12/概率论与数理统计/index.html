@@ -4,35 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>卓有成效的程序员(The Productive Programmer) | Hexo</title>
+    <title>概率论与数理统计 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="静态分析对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。
-
-静态分析工具主要有两类：
-
-编译后代码检查（字节码，class文件等），如FindBugs（美国马里兰大学的">
+    <meta name="description" content="概率论基本概念在一定条件下，可能出现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="卓有成效的程序员(The Productive Programmer)">
-<meta property="og:url" content="http://yoursite.com/2015/08/03/卓有成效的程序员The Productive Programmer/index.html">
+<meta property="og:title" content="概率论与数理统计">
+<meta property="og:url" content="http://yoursite.com/2015/10/12/概率论与数理统计/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="静态分析对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。
-
-静态分析工具主要有两类：
-
-编译后代码检查（字节码，class文件等），如FindBugs（美国马里兰大学的">
-<meta property="og:updated_time" content="2015-08-07T12:57:57.000Z">
+<meta property="og:description" content="概率论基本概念在一定条件下，可能出现">
+<meta property="og:updated_time" content="2015-10-12T04:06:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="卓有成效的程序员(The Productive Programmer)">
-<meta name="twitter:description" content="静态分析对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。
-
-静态分析工具主要有两类：
-
-编译后代码检查（字节码，class文件等），如FindBugs（美国马里兰大学的">
+<meta name="twitter:title" content="概率论与数理统计">
+<meta name="twitter:description" content="概率论基本概念在一定条件下，可能出现">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -92,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/03/卓有成效的程序员The Productive Programmer/" title="卓有成效的程序员(The Productive Programmer)" itemprop="url">卓有成效的程序员(The Productive Programmer)</a>
+      <a href="/2015/10/12/概率论与数理统计/" title="概率论与数理统计" itemprop="url">概率论与数理统计</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-03T12:11:57.000Z" itemprop="datePublished"> 發表於 2015-08-03</time>
+    <time datetime="2015-10-12T04:02:43.000Z" itemprop="datePublished"> 發表於 2015-10-12</time>
     
   </p>
 </header>
@@ -108,34 +96,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析"><span class="toc-number">1.</span> <span class="toc-text">静态分析</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概率论基本概念"><span class="toc-number">1.</span> <span class="toc-text">概率论基本概念</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="静态分析">静态分析</h3><p>对于像java，C++等静态语言可以使用静态分析工具对代码做静态分析，静态分析工具并不能帮我们发现所有的代码问题，它们一般是经常出现并且归类后的代码问题。它可以让我们避免一些使用代码评审手段等很难发现的问题，如果不做静态检查我们可能要盯着电脑屏幕花费很长时间才能定位出来这些问题。</p>
-<blockquote>
-<p>静态分析工具主要有两类：</p>
-<ol>
-<li>编译后代码检查（字节码，class文件等），如<code>FindBugs</code>（美国马里兰大学的开源项目）。</li>
-<li>源代码检查，如Checkstyle（检查代码格式），PMD（内带CPD可以发现重复代码问题）。</li>
-</ol>
-</blockquote>
-<p>这两类工具都提供接口，让我们自定义需要检查的问题，同时它们也可以放入到项目构建中，很方便做持续集成。</p>
+		<h2 id="概率论基本概念">概率论基本概念</h2><p>在一定条件下，可能出现</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/效率/">效率</a>
-  </div>
 
 </div>
 
@@ -143,7 +113,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/03/卓有成效的程序员The Productive Programmer/" data-title="卓有成效的程序员(The Productive Programmer) | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/10/12/概率论与数理统计/" data-title="概率论与数理统计 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,19 +126,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/04/XML语言/" title="XML语言">
-  <strong>上一篇：</strong><br/>
-  <span>
-  XML语言</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/03/Struts2中使用FreeMarker/"  title="Struts2中使用FreeMarker">
+<a href="/2015/10/02/git使用/"  title="git使用">
  <strong>下一篇：</strong><br/> 
- <span>Struts2中使用FreeMarker
+ <span>git使用
 </span>
 </a>
 </div>
@@ -183,7 +145,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析"><span class="toc-number">1.</span> <span class="toc-text">静态分析</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概率论基本概念"><span class="toc-number">1.</span> <span class="toc-text">概率论基本概念</span></a></li></ol>
  
   </div>
 
