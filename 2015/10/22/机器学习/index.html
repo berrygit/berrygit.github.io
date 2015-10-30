@@ -4,26 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux初步 | Hexo</title>
+    <title>机器学习 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
+    <meta name="description" content="意义机器学习是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。
+类别根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。
+分类算法k-临近算法已有一定量参考数据，并且明确参考数据的分类，对一个新的数据，根据计算其与每一个已">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux初步">
-<meta property="og:url" content="http://yoursite.com/2015/08/05/Linux初步/index.html">
+<meta property="og:title" content="机器学习">
+<meta property="og:url" content="http://yoursite.com/2015/10/22/机器学习/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
-<meta property="og:updated_time" content="2015-10-15T09:52:28.000Z">
+<meta property="og:description" content="意义机器学习是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。
+类别根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。
+分类算法k-临近算法已有一定量参考数据，并且明确参考数据的分类，对一个新的数据，根据计算其与每一个已">
+<meta property="og:updated_time" content="2015-10-30T04:05:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux初步">
-<meta name="twitter:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
+<meta name="twitter:title" content="机器学习">
+<meta name="twitter:description" content="意义机器学习是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。
+类别根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。
+分类算法k-临近算法已有一定量参考数据，并且明确参考数据的分类，对一个新的数据，根据计算其与每一个已">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -83,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/05/Linux初步/" title="Linux初步" itemprop="url">Linux初步</a>
+      <a href="/2015/10/22/机器学习/" title="机器学习" itemprop="url">机器学习</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-05T05:38:40.000Z" itemprop="datePublished"> 發表於 2015-08-05</time>
+    <time datetime="2015-10-22T13:46:54.000Z" itemprop="datePublished"> 發表於 2015-10-22</time>
     
   </p>
 </header>
@@ -99,15 +102,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">1.</span> <span class="toc-text">wget</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类别"><span class="toc-number">2.</span> <span class="toc-text">类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类算法"><span class="toc-number">3.</span> <span class="toc-text">分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#k-临近算法"><span class="toc-number">3.1.</span> <span class="toc-text">k-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准化"><span class="toc-number">3.1.1.</span> <span class="toc-text">标准化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">3.1.2.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树算法"><span class="toc-number">3.2.</span> <span class="toc-text">决策树算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用处"><span class="toc-number">3.2.2.</span> <span class="toc-text">用处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息熵"><span class="toc-number">3.2.3.</span> <span class="toc-text">信息熵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-number">3.3.</span> <span class="toc-text">朴素贝叶斯</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h3 id="bash的环境配置文件">bash的环境配置文件</h3><p>用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读<code>/etc/profile</code>和<code>～/.bashrc</code>，而nog-login只会读<code>~/.bashrc</code>。<code>/etc/profile</code>是系统级别的，<code>～/.bashrc</code>为用户偏好。</p>
-<h2 id="常用命令">常用命令</h2><h3 id="wget">wget</h3><p>wget用来下载网络资源，可以镜像整个网站，也可以下载单个文件。</p>
-<blockquote>
-<p>wget —content-disposition URL</p>
-</blockquote>
+		<h2 id="意义">意义</h2><p>机器学习是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。</p>
+<h2 id="类别">类别</h2><p>根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。</p>
+<h2 id="分类算法">分类算法</h2><h3 id="k-临近算法">k-临近算法</h3><p>已有一定量参考数据，并且明确参考数据的分类，对一个新的数据，根据计算其与每一个已有数据的距离，选取距离最近的k个数据（k一般小于20），分析选出数据的分类情况，以此确定新数据的分类。</p>
+<h4 id="标准化">标准化</h4><p>数据可能有多个参考的维度，每一个维度的数值数量级可能相差很大，需要标准化，使每个维度占用的比例均等。</p>
+<h4 id="特点">特点</h4><p>需要大量的内存和计算时间。</p>
+<h3 id="决策树算法">决策树算法</h3><p>根据数据构建出决策树，每次根据决策树判断新数据的分类。</p>
+<h4 id="特点-1">特点</h4><p>计算代价低，学习结果易于被人脑理解，但学习结果倾向于过拟合。</p>
+<h4 id="用处">用处</h4><p>更好的理解数据。</p>
+<h4 id="信息熵">信息熵</h4><p>衡量信息按照某个维度内部的杂乱程度。</p>
+<h3 id="朴素贝叶斯">朴素贝叶斯</h3><p>计算样本集的各个二维高斯分布，新的数据点计算它在各个高斯分布中的概率，让后把它分类在概率较大的样本集中。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -120,7 +128,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/05/Linux初步/" data-title="Linux初步 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/10/22/机器学习/" data-title="机器学习 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -134,18 +142,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/05/JDBC标准/" title="JDBC标准">
+ <a href="/2015/10/24/python/" title="python">
   <strong>上一篇：</strong><br/>
   <span>
-  JDBC标准</span>
+  python</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/04/XML语言/"  title="XML语言">
+<a href="/2015/10/12/概率论与数理统计/"  title="概率论与数理统计">
  <strong>下一篇：</strong><br/> 
- <span>XML语言
+ <span>概率论与数理统计
 </span>
 </a>
 </div>
@@ -160,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">1.</span> <span class="toc-text">wget</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类别"><span class="toc-number">2.</span> <span class="toc-text">类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类算法"><span class="toc-number">3.</span> <span class="toc-text">分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#k-临近算法"><span class="toc-number">3.1.</span> <span class="toc-text">k-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准化"><span class="toc-number">3.1.1.</span> <span class="toc-text">标准化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">3.1.2.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树算法"><span class="toc-number">3.2.</span> <span class="toc-text">决策树算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用处"><span class="toc-number">3.2.2.</span> <span class="toc-text">用处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息熵"><span class="toc-number">3.2.3.</span> <span class="toc-text">信息熵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-number">3.3.</span> <span class="toc-text">朴素贝叶斯</span></a></li></ol></li></ol>
  
   </div>
 

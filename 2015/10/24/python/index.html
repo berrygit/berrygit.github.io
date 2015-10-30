@@ -4,26 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux初步 | Hexo</title>
+    <title>python | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
+    <meta name="description" content="脚本语言python脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。
+缩进python使用缩进区分语句块，导致代码排版整洁，长度小。
+容器ListsLists中什么都可以装。Dictionaries键值对，键必须为数字或字符，类似于java中的map。Sets集合，值不重复。两个集合之间，有交，并，减操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux初步">
-<meta property="og:url" content="http://yoursite.com/2015/08/05/Linux初步/index.html">
+<meta property="og:title" content="python">
+<meta property="og:url" content="http://yoursite.com/2015/10/24/python/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
-<meta property="og:updated_time" content="2015-10-15T09:52:28.000Z">
+<meta property="og:description" content="脚本语言python脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。
+缩进python使用缩进区分语句块，导致代码排版整洁，长度小。
+容器ListsLists中什么都可以装。Dictionaries键值对，键必须为数字或字符，类似于java中的map。Sets集合，值不重复。两个集合之间，有交，并，减操作。">
+<meta property="og:updated_time" content="2015-10-24T15:30:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux初步">
-<meta name="twitter:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
+<meta name="twitter:title" content="python">
+<meta name="twitter:description" content="脚本语言python脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。
+缩进python使用缩进区分语句块，导致代码排版整洁，长度小。
+容器ListsLists中什么都可以装。Dictionaries键值对，键必须为数字或字符，类似于java中的map。Sets集合，值不重复。两个集合之间，有交，并，减操作。">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -83,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/05/Linux初步/" title="Linux初步" itemprop="url">Linux初步</a>
+      <a href="/2015/10/24/python/" title="python" itemprop="url">python</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-05T05:38:40.000Z" itemprop="datePublished"> 發表於 2015-08-05</time>
+    <time datetime="2015-10-24T08:12:48.000Z" itemprop="datePublished"> 發表於 2015-10-24</time>
     
   </p>
 </header>
@@ -99,15 +102,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">1.</span> <span class="toc-text">wget</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本语言python"><span class="toc-number">1.</span> <span class="toc-text">脚本语言python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩进"><span class="toc-number">2.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-number">3.</span> <span class="toc-text">容器</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="bash的环境配置文件">bash的环境配置文件</h3><p>用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读<code>/etc/profile</code>和<code>～/.bashrc</code>，而nog-login只会读<code>~/.bashrc</code>。<code>/etc/profile</code>是系统级别的，<code>～/.bashrc</code>为用户偏好。</p>
-<h2 id="常用命令">常用命令</h2><h3 id="wget">wget</h3><p>wget用来下载网络资源，可以镜像整个网站，也可以下载单个文件。</p>
-<blockquote>
-<p>wget —content-disposition URL</p>
-</blockquote>
+		<h2 id="脚本语言python">脚本语言python</h2><p>脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。</p>
+<h2 id="缩进">缩进</h2><p>python使用缩进区分语句块，导致代码排版整洁，长度小。</p>
+<h2 id="容器">容器</h2><p><strong>Lists</strong><br>Lists中什么都可以装。<br><strong>Dictionaries</strong><br>键值对，键必须为数字或字符，类似于java中的map。<br><strong>Sets</strong><br>集合，值不重复。两个集合之间，有交，并，减操作。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -120,7 +121,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/05/Linux初步/" data-title="Linux初步 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/10/24/python/" data-title="python | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -133,19 +134,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/05/JDBC标准/" title="JDBC标准">
-  <strong>上一篇：</strong><br/>
-  <span>
-  JDBC标准</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/04/XML语言/"  title="XML语言">
+<a href="/2015/10/22/机器学习/"  title="机器学习">
  <strong>下一篇：</strong><br/> 
- <span>XML语言
+ <span>机器学习
 </span>
 </a>
 </div>
@@ -160,7 +153,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">1.</span> <span class="toc-text">wget</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本语言python"><span class="toc-number">1.</span> <span class="toc-text">脚本语言python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩进"><span class="toc-number">2.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-number">3.</span> <span class="toc-text">容器</span></a></li></ol>
  
   </div>
 
