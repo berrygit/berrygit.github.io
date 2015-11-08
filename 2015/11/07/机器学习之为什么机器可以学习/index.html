@@ -4,23 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>自然语言处理 | Hexo</title>
+    <title>【机器学习】之为什么机器可以学习 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="自然语言是上下文相关的，而计算机程序设计语言是上下文无关的，两者的复杂度极大的不同。">
+    <meta name="description" content="何为学习学习并不代表解决一切问题，不代表百分百不会犯错，但学习意味着能力的提升，可以改善既有表现，因而学习就是有意义的，这与人的学习是一致的。
+三个关键&amp;gt;1.存在某种模式；2.没有确定的定义；3.有足够的数据做支持。
+使用机器学习的几个场景&amp;gt;1.过于繁杂，无法确切的用程序逻辑定义；2.要很短的时间（几秒钟）做出决断的情况下；3.个性化定制的场景；4.表现出智能。
+机器学习的本质将现实世">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自然语言处理">
-<meta property="og:url" content="http://yoursite.com/2015/10/31/自然语言处理/index.html">
+<meta property="og:title" content="【机器学习】之为什么机器可以学习">
+<meta property="og:url" content="http://yoursite.com/2015/11/07/机器学习之为什么机器可以学习/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="自然语言是上下文相关的，而计算机程序设计语言是上下文无关的，两者的复杂度极大的不同。">
-<meta property="og:updated_time" content="2015-10-31T13:41:18.000Z">
+<meta property="og:description" content="何为学习学习并不代表解决一切问题，不代表百分百不会犯错，但学习意味着能力的提升，可以改善既有表现，因而学习就是有意义的，这与人的学习是一致的。
+三个关键&amp;gt;1.存在某种模式；2.没有确定的定义；3.有足够的数据做支持。
+使用机器学习的几个场景&amp;gt;1.过于繁杂，无法确切的用程序逻辑定义；2.要很短的时间（几秒钟）做出决断的情况下；3.个性化定制的场景；4.表现出智能。
+机器学习的本质将现实世">
+<meta property="og:updated_time" content="2015-11-08T06:29:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自然语言处理">
-<meta name="twitter:description" content="自然语言是上下文相关的，而计算机程序设计语言是上下文无关的，两者的复杂度极大的不同。">
+<meta name="twitter:title" content="【机器学习】之为什么机器可以学习">
+<meta name="twitter:description" content="何为学习学习并不代表解决一切问题，不代表百分百不会犯错，但学习意味着能力的提升，可以改善既有表现，因而学习就是有意义的，这与人的学习是一致的。
+三个关键&amp;gt;1.存在某种模式；2.没有确定的定义；3.有足够的数据做支持。
+使用机器学习的几个场景&amp;gt;1.过于繁杂，无法确切的用程序逻辑定义；2.要很短的时间（几秒钟）做出决断的情况下；3.个性化定制的场景；4.表现出智能。
+机器学习的本质将现实世">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -80,14 +89,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/10/31/自然语言处理/" title="自然语言处理" itemprop="url">自然语言处理</a>
+      <a href="/2015/11/07/机器学习之为什么机器可以学习/" title="【机器学习】之为什么机器可以学习" itemprop="url">【机器学习】之为什么机器可以学习</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-31T13:16:13.000Z" itemprop="datePublished"> 發表於 2015-10-31</time>
+    <time datetime="2015-11-07T06:52:59.000Z" itemprop="datePublished"> 發表於 2015-11-07</time>
     
   </p>
 </header>
@@ -96,11 +105,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为学习"><span class="toc-number">1.</span> <span class="toc-text">何为学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个关键"><span class="toc-number">1.1.</span> <span class="toc-text">三个关键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用机器学习的几个场景"><span class="toc-number">1.2.</span> <span class="toc-text">使用机器学习的几个场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习的本质"><span class="toc-number">2.</span> <span class="toc-text">机器学习的本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#学习的目的"><span class="toc-number">2.1.</span> <span class="toc-text">学习的目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#偏差"><span class="toc-number">2.2.</span> <span class="toc-text">偏差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存在的必要性"><span class="toc-number">2.3.</span> <span class="toc-text">存在的必要性</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>自然语言是上下文相关的，而计算机程序设计语言是上下文无关的，两者的复杂度极大的不同。</p>
+		<h2 id="何为学习">何为学习</h2><p>学习并不代表解决一切问题，不代表百分百不会犯错，但学习意味着能力的提升，可以改善既有表现，因而学习就是有意义的，这与人的学习是一致的。</p>
+<h3 id="三个关键">三个关键</h3><p>&gt;<br>1.存在某种模式；<br>2.没有确定的定义；<br>3.有足够的数据做支持。</p>
+<h3 id="使用机器学习的几个场景">使用机器学习的几个场景</h3><p>&gt;<br>1.过于繁杂，无法确切的用程序逻辑定义；<br>2.要很短的时间（几秒钟）做出决断的情况下；<br>3.个性化定制的场景；<br>4.表现出智能。</p>
+<h2 id="机器学习的本质">机器学习的本质</h2><p>将现实世界的规律，用数学的方式表示出来，进而可以让计算机去处理。之所以用数学去表示，有两方面原因：一是数学可以把问题抽象，让繁杂的事情变得简单，易于人脑去理解；二是数学可以变为计算机去处理的程序。</p>
+<h3 id="学习的目的">学习的目的</h3><p>找到一个假设，使其与真实的规律尽可能的相像。</p>
+<h3 id="偏差">偏差</h3><p>一般机器学习的误差来自两个方面，一是样本的采集，采集可能不均衡，一些特别的样本总是采集不到，另外采集时总有测量误差；另一方面，即便样本百分百完备，学习算法得出的结论未必能与客观规律完全一致。</p>
+<h3 id="存在的必要性">存在的必要性</h3><p>但是，是否在一定的条件下可以让出错的概率尽可能的小到可以忽略的程度，如果可以，那么机器学习便是可行的。即我们的目标是找到一个假设，使其与真实的规律尽可能的相像。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +128,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/10/31/自然语言处理/" data-title="自然语言处理 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/11/07/机器学习之为什么机器可以学习/" data-title="【机器学习】之为什么机器可以学习 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -126,19 +141,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/11/07/机器学习之为什么机器可以学习/" title="【机器学习】之为什么机器可以学习">
-  <strong>上一篇：</strong><br/>
-  <span>
-  【机器学习】之为什么机器可以学习</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/10/24/python/"  title="python">
+<a href="/2015/10/31/自然语言处理/"  title="自然语言处理">
  <strong>下一篇：</strong><br/> 
- <span>python
+ <span>自然语言处理
 </span>
 </a>
 </div>
@@ -153,7 +160,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为学习"><span class="toc-number">1.</span> <span class="toc-text">何为学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个关键"><span class="toc-number">1.1.</span> <span class="toc-text">三个关键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用机器学习的几个场景"><span class="toc-number">1.2.</span> <span class="toc-text">使用机器学习的几个场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器学习的本质"><span class="toc-number">2.</span> <span class="toc-text">机器学习的本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#学习的目的"><span class="toc-number">2.1.</span> <span class="toc-text">学习的目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#偏差"><span class="toc-number">2.2.</span> <span class="toc-text">偏差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存在的必要性"><span class="toc-number">2.3.</span> <span class="toc-text">存在的必要性</span></a></li></ol></li></ol>
  
   </div>
 

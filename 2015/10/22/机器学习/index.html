@@ -13,20 +13,20 @@
     
     <meta name="description" content="意义机器学习又称统计机器学习，是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。
 模型输入空间到输出空间的一种关系映射，机器学习最重要的是找到最适合描述问题的模型。
-类别根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。">
+类别根据是否有预先知道的结果分为：监督式学习（给定标注），无监督式学习（没有任何标注），半监督式学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习">
 <meta property="og:url" content="http://yoursite.com/2015/10/22/机器学习/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="意义机器学习又称统计机器学习，是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。
 模型输入空间到输出空间的一种关系映射，机器学习最重要的是找到最适合描述问题的模型。
-类别根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。">
-<meta property="og:updated_time" content="2015-11-03T10:45:54.000Z">
+类别根据是否有预先知道的结果分为：监督式学习（给定标注），无监督式学习（没有任何标注），半监督式学习">
+<meta property="og:updated_time" content="2015-11-08T12:53:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习">
 <meta name="twitter:description" content="意义机器学习又称统计机器学习，是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。
 模型输入空间到输出空间的一种关系映射，机器学习最重要的是找到最适合描述问题的模型。
-类别根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。">
+类别根据是否有预先知道的结果分为：监督式学习（给定标注），无监督式学习（没有任何标注），半监督式学习">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -102,18 +102,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-number">2.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类别"><span class="toc-number">3.</span> <span class="toc-text">类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类算法"><span class="toc-number">4.</span> <span class="toc-text">分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#k-临近算法"><span class="toc-number">4.1.</span> <span class="toc-text">k-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准化"><span class="toc-number">4.1.1.</span> <span class="toc-text">标准化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">4.1.2.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树算法"><span class="toc-number">4.2.</span> <span class="toc-text">决策树算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用处"><span class="toc-number">4.2.2.</span> <span class="toc-text">用处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息熵"><span class="toc-number">4.2.3.</span> <span class="toc-text">信息熵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-number">4.3.</span> <span class="toc-text">朴素贝叶斯</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-number">2.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类别"><span class="toc-number">3.</span> <span class="toc-text">类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类算法"><span class="toc-number">4.</span> <span class="toc-text">分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#感知器perceptron"><span class="toc-number">4.1.</span> <span class="toc-text">感知器perceptron</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">4.1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k-临近算法"><span class="toc-number">4.2.</span> <span class="toc-text">k-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准化"><span class="toc-number">4.2.1.</span> <span class="toc-text">标准化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树算法"><span class="toc-number">4.3.</span> <span class="toc-text">决策树算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用处"><span class="toc-number">4.3.2.</span> <span class="toc-text">用处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息熵"><span class="toc-number">4.3.3.</span> <span class="toc-text">信息熵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-number">4.4.</span> <span class="toc-text">朴素贝叶斯</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<h2 id="意义">意义</h2><p>机器学习又称统计机器学习，是基于数据的，按照统计学上的理论，在大量数据样本的支持下，通过分析数据得出有益的结论或者合理的预测，就可以使我们在不需要模型化复杂事物内部联系的前提下，在宏观统计上反映事物的内在规律。</p>
 <h2 id="模型">模型</h2><p>输入空间到输出空间的一种关系映射，机器学习最重要的是找到最适合描述问题的模型。</p>
-<h2 id="类别">类别</h2><p>根据是否有预先知道的结果分为：监督式学习，无监督式学习。根据结果的类型，分为分类问题和回归问题。</p>
-<h2 id="分类算法">分类算法</h2><h3 id="k-临近算法">k-临近算法</h3><p>已有一定量参考数据，并且明确参考数据的分类，对一个新的数据，根据计算其与每一个已有数据的距离，选取距离最近的k个数据（k一般小于20），分析选出数据的分类情况，以此确定新数据的分类。</p>
+<h2 id="类别">类别</h2><p>根据是否有预先知道的结果分为：监督式学习（给定标注），无监督式学习（没有任何标注），半监督式学习（比如标注成本比较高，只给少量标注）。根据结果的类型，分为分类问题和回归问题等。</p>
+<h2 id="分类算法">分类算法</h2><h3 id="感知器perceptron">感知器perceptron</h3><p>感知器是最基本的二类分类算法，根据线性数据像打分一样给出数值，如果分值大于某个阈值便分为正类，否则为负类。</p>
+<h4 id="特点">特点</h4><p>不论几维输入空间，感知器都可以在有限次的尝试收敛，但无法预知收敛的时间，如果输入数据不是线性可分的，将不易判断到底是无法可分还是程序跑的时间不够，只能等待。</p>
+<h3 id="k-临近算法">k-临近算法</h3><p>已有一定量参考数据，并且明确参考数据的分类，对一个新的数据，根据计算其与每一个已有数据的距离，选取距离最近的k个数据（k一般小于20），分析选出数据的分类情况，以此确定新数据的分类。</p>
 <h4 id="标准化">标准化</h4><p>数据可能有多个参考的维度，每一个维度的数值数量级可能相差很大，需要标准化，使每个维度占用的比例均等。</p>
-<h4 id="特点">特点</h4><p>需要大量的内存和计算时间。</p>
+<h4 id="特点-1">特点</h4><p>需要大量的内存和计算时间。</p>
 <h3 id="决策树算法">决策树算法</h3><p>根据数据构建出决策树，每次根据决策树判断新数据的分类。</p>
-<h4 id="特点-1">特点</h4><p>计算代价低，学习结果易于被人脑理解，但学习结果倾向于过拟合。</p>
+<h4 id="特点-2">特点</h4><p>计算代价低，学习结果易于被人脑理解，但学习结果倾向于过拟合。</p>
 <h4 id="用处">用处</h4><p>更好的理解数据。</p>
 <h4 id="信息熵">信息熵</h4><p>衡量信息按照某个维度内部的杂乱程度。</p>
 <h3 id="朴素贝叶斯">朴素贝叶斯</h3><p>计算样本集的各个二维高斯分布，新的数据点计算它在各个高斯分布中的概率，让后把它分类在概率较大的样本集中。</p>
@@ -169,7 +171,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-number">2.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类别"><span class="toc-number">3.</span> <span class="toc-text">类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类算法"><span class="toc-number">4.</span> <span class="toc-text">分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#k-临近算法"><span class="toc-number">4.1.</span> <span class="toc-text">k-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准化"><span class="toc-number">4.1.1.</span> <span class="toc-text">标准化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">4.1.2.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树算法"><span class="toc-number">4.2.</span> <span class="toc-text">决策树算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-1"><span class="toc-number">4.2.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用处"><span class="toc-number">4.2.2.</span> <span class="toc-text">用处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息熵"><span class="toc-number">4.2.3.</span> <span class="toc-text">信息熵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-number">4.3.</span> <span class="toc-text">朴素贝叶斯</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#意义"><span class="toc-number">1.</span> <span class="toc-text">意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型"><span class="toc-number">2.</span> <span class="toc-text">模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类别"><span class="toc-number">3.</span> <span class="toc-text">类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类算法"><span class="toc-number">4.</span> <span class="toc-text">分类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#感知器perceptron"><span class="toc-number">4.1.</span> <span class="toc-text">感知器perceptron</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">4.1.1.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k-临近算法"><span class="toc-number">4.2.</span> <span class="toc-text">k-临近算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准化"><span class="toc-number">4.2.1.</span> <span class="toc-text">标准化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#决策树算法"><span class="toc-number">4.3.</span> <span class="toc-text">决策树算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特点-2"><span class="toc-number">4.3.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#用处"><span class="toc-number">4.3.2.</span> <span class="toc-text">用处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息熵"><span class="toc-number">4.3.3.</span> <span class="toc-text">信息熵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#朴素贝叶斯"><span class="toc-number">4.4.</span> <span class="toc-text">朴素贝叶斯</span></a></li></ol></li></ol>
  
   </div>
 
