@@ -1,0 +1,553 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Linux系统使用指南 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Berry">
+    
+
+    
+    <meta name="description" content="文件与目录权限用户/用户组/其它linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。123-rw-rw-r--   1 berry berry     996  1月  6 16:15 无标题文档 3~drwxrwxr-x   2 berry berry    4096  1月  6 16:57 研讨班-r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux系统使用指南">
+<meta property="og:url" content="http://yoursite.com/2016/01/19/Linux系统使用指南/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="文件与目录权限用户/用户组/其它linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。123-rw-rw-r--   1 berry berry     996  1月  6 16:15 无标题文档 3~drwxrwxr-x   2 berry berry    4096  1月  6 16:57 研讨班-r">
+<meta property="og:updated_time" content="2016-01-20T12:41:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux系统使用指南">
+<meta name="twitter:description" content="文件与目录权限用户/用户组/其它linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。123-rw-rw-r--   1 berry berry     996  1月  6 16:15 无标题文档 3~drwxrwxr-x   2 berry berry    4096  1月  6 16:57 研讨班-r">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/19/Linux系统使用指南/" title="Linux系统使用指南" itemprop="url">Linux系统使用指南</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-19T11:51:53.000Z" itemprop="datePublished"> 發表於 2016-01-19</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与目录权限"><span class="toc-number">1.</span> <span class="toc-text">文件与目录权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户/用户组/其它"><span class="toc-number">1.1.</span> <span class="toc-text">用户/用户组/其它</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改权限"><span class="toc-number">1.2.</span> <span class="toc-text">修改权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三个重要配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">三个重要配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件与目录的权限"><span class="toc-number">1.4.</span> <span class="toc-text">文件与目录的权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件系统"><span class="toc-number">2.</span> <span class="toc-text">文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inode与block块"><span class="toc-number">2.1.</span> <span class="toc-text">inode与block块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">3.</span> <span class="toc-text">bash的环境配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">4.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">4.1.</span> <span class="toc-text">wget</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="文件与目录权限">文件与目录权限</h2><h3 id="用户/用户组/其它">用户/用户组/其它</h3><p>linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-r--   <span class="number">1</span> <span class="keyword">berry </span><span class="keyword">berry </span>    <span class="number">996</span>  <span class="number">1</span>月  <span class="number">6</span> <span class="number">16</span>:<span class="number">15</span> 无标题文档 <span class="number">3</span>~</span><br><span class="line"><span class="label">drwxrwxr</span>-x   <span class="number">2</span> <span class="keyword">berry </span><span class="keyword">berry </span>   <span class="number">4096</span>  <span class="number">1</span>月  <span class="number">6</span> <span class="number">16</span>:<span class="number">57</span> 研讨班</span><br><span class="line">-rw-rw-r--   <span class="number">1</span> <span class="keyword">berry </span><span class="keyword">berry </span><span class="number">4060800</span>  <span class="number">1</span>月  <span class="number">6</span> <span class="number">16</span>:<span class="number">57</span> 研讨班.zip</span><br></pre></td></tr></table></figure></p>
+<p>如上所示，系统按这个顺序为每一个文件和目录对这三类用户提供权限设置。</p>
+<h3 id="修改权限">修改权限</h3><p>可以分别使用三个命令修改：<code>chgrp</code>，<code>chown</code>，<code>chmod</code>。</p>
+<h3 id="三个重要配置文件">三个重要配置文件</h3><blockquote>
+<p>/etc/passwd #账号信息<br>/etc/shadow #加密后的密码信息<br>/etc/group #组信息</p>
+</blockquote>
+<h3 id="文件与目录的权限">文件与目录的权限</h3><p>文件的rwx分别代表可读取文件内容，可修改文件内容，可执行该文件的权限。<br>目录的rwx分别代表可读取目录下的文件列表，可修改目录下文件结构(删除，复制，移动等)，可以cd到该目录下。</p>
+<h2 id="文件系统">文件系统</h2><h3 id="inode与block块">inode与block块</h3><p>inode记录文件的原信息，包括文件或目录的权限，block记录文件的数据信息。对于文件，inode记录文件的权限，block保存数据；对于目录，inode同样记录权限，但block记录目录下有哪些文件或目录，以及这些文件或目录对应的inode号码数据。</p>
+<h2 id="bash的环境配置文件">bash的环境配置文件</h2><p>用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读<code>/etc/profile</code>和<code>～/.bashrc</code>，而nog-login只会读<code>~/.bashrc</code>。<code>/etc/profile</code>是系统级别的，<code>～/.bashrc</code>为用户偏好。</p>
+<h2 id="常用命令">常用命令</h2><h3 id="wget">wget</h3><p>wget用来下载网络资源，可以镜像整个网站，也可以下载单个文件。</p>
+<blockquote>
+<p>wget —content-disposition URL</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/01/19/Linux系统使用指南/" data-title="Linux系统使用指南 | Hexo" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/01/26/大数据处理技术/" title="大数据处理技术">
+  <strong>上一篇：</strong><br/>
+  <span>
+  大数据处理技术</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/12/10/xml与json对比/"  title="xml与json对比">
+ <strong>下一篇：</strong><br/> 
+ <span>xml与json对比
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与目录权限"><span class="toc-number">1.</span> <span class="toc-text">文件与目录权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户/用户组/其它"><span class="toc-number">1.1.</span> <span class="toc-text">用户/用户组/其它</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改权限"><span class="toc-number">1.2.</span> <span class="toc-text">修改权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三个重要配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">三个重要配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件与目录的权限"><span class="toc-number">1.4.</span> <span class="toc-text">文件与目录的权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件系统"><span class="toc-number">2.</span> <span class="toc-text">文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inode与block块"><span class="toc-number">2.1.</span> <span class="toc-text">inode与block块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">3.</span> <span class="toc-text">bash的环境配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">4.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">4.1.</span> <span class="toc-text">wget</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/网络/" title="网络">网络<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书笔记/" title="读书笔记">读书笔记<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/XML/" title="XML">XML<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/效率/" title="效率">效率<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JDBC/" title="JDBC">JDBC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Berry">Berry</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

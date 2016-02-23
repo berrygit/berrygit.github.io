@@ -4,26 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux初步 | Hexo</title>
+    <title>xml与json对比 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
+    <meta name="description" content="XML与JSONXML与JSON都可以用来通过web网络做服务间少量数据的交换，目前JSON更流行，JSON与XML各有特点：
+
+XML复杂结构时层次更清晰
+JSON没有重复的标签，同样的信息JSON格式的报文更小；js对JSON支持较好，可以很容易的解析JSON报文。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux初步">
-<meta property="og:url" content="http://yoursite.com/2015/08/05/Linux初步/index.html">
+<meta property="og:title" content="xml与json对比">
+<meta property="og:url" content="http://yoursite.com/2015/12/10/xml与json对比/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
-<meta property="og:updated_time" content="2015-10-15T09:52:28.000Z">
+<meta property="og:description" content="XML与JSONXML与JSON都可以用来通过web网络做服务间少量数据的交换，目前JSON更流行，JSON与XML各有特点：
+
+XML复杂结构时层次更清晰
+JSON没有重复的标签，同样的信息JSON格式的报文更小；js对JSON支持较好，可以很容易的解析JSON报文。">
+<meta property="og:updated_time" content="2015-12-10T06:55:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux初步">
-<meta name="twitter:description" content="bash的环境配置文件用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读/etc/profile和～/.bashrc，而nog-login只会读~/.bashrc。/etc/profile是系统级别的，～/.bashrc为用户偏好。
-常用命令wgetwget用来下载网络资源，可以镜像整个网站，也可以下">
+<meta name="twitter:title" content="xml与json对比">
+<meta name="twitter:description" content="XML与JSONXML与JSON都可以用来通过web网络做服务间少量数据的交换，目前JSON更流行，JSON与XML各有特点：
+
+XML复杂结构时层次更清晰
+JSON没有重复的标签，同样的信息JSON格式的报文更小；js对JSON支持较好，可以很容易的解析JSON报文。">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -83,14 +89,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/05/Linux初步/" title="Linux初步" itemprop="url">Linux初步</a>
+      <a href="/2015/12/10/xml与json对比/" title="xml与json对比" itemprop="url">xml与json对比</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-05T05:38:40.000Z" itemprop="datePublished"> 發表於 2015-08-05</time>
+    <time datetime="2015-12-10T06:52:04.000Z" itemprop="datePublished"> 發表於 2015-12-10</time>
     
   </p>
 </header>
@@ -99,15 +105,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">1.</span> <span class="toc-text">wget</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML与JSON"><span class="toc-number">1.</span> <span class="toc-text">XML与JSON</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="bash的环境配置文件">bash的环境配置文件</h3><p>用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读<code>/etc/profile</code>和<code>～/.bashrc</code>，而nog-login只会读<code>~/.bashrc</code>。<code>/etc/profile</code>是系统级别的，<code>～/.bashrc</code>为用户偏好。</p>
-<h2 id="常用命令">常用命令</h2><h3 id="wget">wget</h3><p>wget用来下载网络资源，可以镜像整个网站，也可以下载单个文件。</p>
-<blockquote>
-<p>wget —content-disposition URL</p>
-</blockquote>
+		<h2 id="XML与JSON">XML与JSON</h2><p>XML与JSON都可以用来通过web网络做服务间少量数据的交换，目前JSON更流行，JSON与XML各有特点：</p>
+<ul>
+<li>XML<br>复杂结构时层次更清晰</li>
+<li>JSON<br>没有重复的标签，同样的信息JSON格式的报文更小；js对JSON支持较好，可以很容易的解析JSON报文。</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -120,7 +126,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/05/Linux初步/" data-title="Linux初步 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/12/10/xml与json对比/" data-title="xml与json对比 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -134,18 +140,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/05/JDBC标准/" title="JDBC标准">
+ <a href="/2016/01/19/Linux系统使用指南/" title="Linux系统使用指南">
   <strong>上一篇：</strong><br/>
   <span>
-  JDBC标准</span>
+  Linux系统使用指南</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/04/XML语言/"  title="XML语言">
+<a href="/2015/11/07/机器学习之为什么机器可以学习/"  title="【机器学习】之为什么机器可以学习">
  <strong>下一篇：</strong><br/> 
- <span>XML语言
+ <span>【机器学习】之为什么机器可以学习
 </span>
 </a>
 </div>
@@ -160,7 +166,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">1.</span> <span class="toc-text">bash的环境配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">1.</span> <span class="toc-text">wget</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XML与JSON"><span class="toc-number">1.</span> <span class="toc-text">XML与JSON</span></a></li></ol>
  
   </div>
 
@@ -178,7 +184,7 @@
 		  
 		
 		  
-			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
 		  
 		
 		  
@@ -315,7 +321,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Berry">Berry</a>
 		

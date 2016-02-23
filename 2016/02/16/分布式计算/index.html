@@ -4,29 +4,50 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>python | Hexo</title>
+    <title>分布式计算 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="脚本语言python脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。
-缩进python使用缩进区分语句块，导致代码排版整洁，长度小。
-容器ListsLists中什么都可以装。Dictionaries键值对，键必须为数字或字符，类似于java中的map。Sets集合，值不重复。两个集合之间，有交，并，减操作。">
+    <meta name="description" content="分布式的必要性
+提高计算能力，单台计算机总存在瓶颈，根据分而治之的思想，并行处理以提升计算能力。
+可靠性考虑，避免单点故障，数据丢失。
+
+一致性模型
+弱一致性：写入后可能读出来，也可能读不出来（如cache）。
+最终一致性：写入后，可能读不到，但经过一个窗口时间后一定能读出来（如电子邮件）。
+强一致性：写入后一定能读出来（如文件系统）。
+
+弱一致性和最终一致性是异步冗余的，强一致性是同步冗余的，异">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python">
-<meta property="og:url" content="http://yoursite.com/2015/10/24/python/index.html">
+<meta property="og:title" content="分布式计算">
+<meta property="og:url" content="http://yoursite.com/2016/02/16/分布式计算/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="脚本语言python脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。
-缩进python使用缩进区分语句块，导致代码排版整洁，长度小。
-容器ListsLists中什么都可以装。Dictionaries键值对，键必须为数字或字符，类似于java中的map。Sets集合，值不重复。两个集合之间，有交，并，减操作。">
-<meta property="og:updated_time" content="2015-10-24T15:30:55.000Z">
+<meta property="og:description" content="分布式的必要性
+提高计算能力，单台计算机总存在瓶颈，根据分而治之的思想，并行处理以提升计算能力。
+可靠性考虑，避免单点故障，数据丢失。
+
+一致性模型
+弱一致性：写入后可能读出来，也可能读不出来（如cache）。
+最终一致性：写入后，可能读不到，但经过一个窗口时间后一定能读出来（如电子邮件）。
+强一致性：写入后一定能读出来（如文件系统）。
+
+弱一致性和最终一致性是异步冗余的，强一致性是同步冗余的，异">
+<meta property="og:updated_time" content="2016-02-16T12:36:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python">
-<meta name="twitter:description" content="脚本语言python脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。
-缩进python使用缩进区分语句块，导致代码排版整洁，长度小。
-容器ListsLists中什么都可以装。Dictionaries键值对，键必须为数字或字符，类似于java中的map。Sets集合，值不重复。两个集合之间，有交，并，减操作。">
+<meta name="twitter:title" content="分布式计算">
+<meta name="twitter:description" content="分布式的必要性
+提高计算能力，单台计算机总存在瓶颈，根据分而治之的思想，并行处理以提升计算能力。
+可靠性考虑，避免单点故障，数据丢失。
+
+一致性模型
+弱一致性：写入后可能读出来，也可能读不出来（如cache）。
+最终一致性：写入后，可能读不到，但经过一个窗口时间后一定能读出来（如电子邮件）。
+强一致性：写入后一定能读出来（如文件系统）。
+
+弱一致性和最终一致性是异步冗余的，强一致性是同步冗余的，异">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -86,14 +107,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/10/24/python/" title="python" itemprop="url">python</a>
+      <a href="/2016/02/16/分布式计算/" title="分布式计算" itemprop="url">分布式计算</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-24T08:12:48.000Z" itemprop="datePublished"> 發表於 2015-10-24</time>
+    <time datetime="2016-02-16T11:59:05.000Z" itemprop="datePublished"> 發表於 2016-02-16</time>
     
   </p>
 </header>
@@ -102,13 +123,26 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本语言python"><span class="toc-number">1.</span> <span class="toc-text">脚本语言python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩进"><span class="toc-number">2.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-number">3.</span> <span class="toc-text">容器</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式的必要性"><span class="toc-number">1.</span> <span class="toc-text">分布式的必要性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性模型"><span class="toc-number">1.1.</span> <span class="toc-text">一致性模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两阶段提交（2PC）"><span class="toc-number">1.2.</span> <span class="toc-text">两阶段提交（2PC）</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="脚本语言python">脚本语言python</h2><p>脚本语言的优势在于语法简洁，相比编译语言java，c++等可以用很少的代码实现功能，缺点在于程序的运行速度不如java等编译语言高。</p>
-<h2 id="缩进">缩进</h2><p>python使用缩进区分语句块，导致代码排版整洁，长度小。</p>
-<h2 id="容器">容器</h2><p><strong>Lists</strong><br>Lists中什么都可以装。<br><strong>Dictionaries</strong><br>键值对，键必须为数字或字符，类似于java中的map。<br><strong>Sets</strong><br>集合，值不重复。两个集合之间，有交，并，减操作。</p>
+		<h2 id="分布式的必要性">分布式的必要性</h2><ul>
+<li>提高计算能力，单台计算机总存在瓶颈，根据分而治之的思想，并行处理以提升计算能力。</li>
+<li>可靠性考虑，避免单点故障，数据丢失。</li>
+</ul>
+<h3 id="一致性模型">一致性模型</h3><ul>
+<li>弱一致性：写入后可能读出来，也可能读不出来（如cache）。</li>
+<li>最终一致性：写入后，可能读不到，但经过一个窗口时间后一定能读出来（如电子邮件）。</li>
+<li>强一致性：写入后一定能读出来（如文件系统）。</li>
+</ul>
+<p>弱一致性和最终一致性是异步冗余的，强一致性是同步冗余的，异步冗余意味着更好的性能但更复杂的状态控制，同步冗余意味着简单但性能会下降。</p>
+<h3 id="两阶段提交（2PC）">两阶段提交（2PC）</h3><p>当事务涉及多个节点，每个节点都是<code>参与者</code>，它们只知道自己的状态，因而需要另外的一个节点作为<code>协调者</code>统一掌控所有节点是把事务提交还是回滚。</p>
+<ul>
+<li>第一阶段：协调者收到读写请求，发生给参与者并询问所有参与者是否可以提交，参与者做各种准备（如资源上锁，预留资源），参与者返回准备情况。</li>
+<li>第二阶段：如果所有参与者都做好提交准备，协调者会发送“正式提交”命令。参与者提交事务并释放资源。如果任何一个参与者“拒绝提交”，协调者向所有参与者发送“取消事务”命令，参与者取消事务。</li>
+</ul>
+<p>问题：同步等待，对性能影响大。如果协调者在第一阶段结束后挂掉，那么参与者将处于状态未知状态。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -121,7 +155,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/10/24/python/" data-title="python | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/02/16/分布式计算/" data-title="分布式计算 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -134,19 +168,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/10/31/自然语言处理/" title="自然语言处理">
-  <strong>上一篇：</strong><br/>
-  <span>
-  自然语言处理</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/10/22/机器学习/"  title="机器学习">
+<a href="/2016/02/14/算法设计/"  title="算法设计">
  <strong>下一篇：</strong><br/> 
- <span>机器学习
+ <span>算法设计
 </span>
 </a>
 </div>
@@ -161,7 +187,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#脚本语言python"><span class="toc-number">1.</span> <span class="toc-text">脚本语言python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩进"><span class="toc-number">2.</span> <span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器"><span class="toc-number">3.</span> <span class="toc-text">容器</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式的必要性"><span class="toc-number">1.</span> <span class="toc-text">分布式的必要性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性模型"><span class="toc-number">1.1.</span> <span class="toc-text">一致性模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两阶段提交（2PC）"><span class="toc-number">1.2.</span> <span class="toc-text">两阶段提交（2PC）</span></a></li></ol></li></ol>
  
   </div>
 
@@ -179,7 +205,7 @@
 		  
 		
 		  
-			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
 		  
 		
 		  
@@ -316,7 +342,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Berry">Berry</a>
 		

@@ -12,48 +12,21 @@
 
     
     <meta name="description" content="数据库设计范式表关联主键关联，外键关联。
-数据库事务ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。
-数据库事务隔离机制数据库事务隔离机制：
-
-
-read-uncommited
-read-commited
-repeatable
-serializable
-
-
-一般设置为read-c">
+数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
+ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Dura">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库基础">
 <meta property="og:url" content="http://yoursite.com/2015/08/07/数据库基础/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数据库设计范式表关联主键关联，外键关联。
-数据库事务ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。
-数据库事务隔离机制数据库事务隔离机制：
-
-
-read-uncommited
-read-commited
-repeatable
-serializable
-
-
-一般设置为read-c">
-<meta property="og:updated_time" content="2015-08-07T12:48:02.000Z">
+数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
+ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Dura">
+<meta property="og:updated_time" content="2016-02-16T14:58:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库基础">
 <meta name="twitter:description" content="数据库设计范式表关联主键关联，外键关联。
-数据库事务ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。
-数据库事务隔离机制数据库事务隔离机制：
-
-
-read-uncommited
-read-commited
-repeatable
-serializable
-
-
-一般设置为read-c">
+数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
+ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Dura">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -134,7 +107,14 @@ serializable
 		</div>
 		
 		<h2 id="数据库设计范式">数据库设计范式</h2><h2 id="表关联">表关联</h2><p>主键关联，外键关联。</p>
-<h2 id="数据库事务">数据库事务</h2><h3 id="ACID">ACID</h3><p>数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。</p>
+<h2 id="数据库事务">数据库事务</h2><p>事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。</p>
+<h3 id="ACID">ACID</h3><p>数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。</p>
+<ul>
+<li>原子性：事务对数据的修改要么全部执行，要么全都不执行。</li>
+<li>一致性：事务完成时，所有内容必须全部满足数据库的约束。</li>
+<li>隔离性：不同事务间不会相互影响，一个事务读取数据时，要么读取另一个事务更新前的状态，要么读取另一个事务更新后的状态，不会读取另一个事务的中间状态的数据。</li>
+<li>持久性：事务完成后修改是要持久化的。</li>
+</ul>
 <h3 id="数据库事务隔离机制">数据库事务隔离机制</h3><p>数据库事务隔离机制：</p>
 <blockquote>
 <ol>
@@ -215,7 +195,7 @@ serializable
 		  
 		
 		  
-			<li><a href="/categories/linux/" title="linux">linux<sup>1</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
 		  
 		
 		  
@@ -352,7 +332,7 @@ serializable
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
 		
 		<a href="/about" target="_blank" title="Berry">Berry</a>
 		
