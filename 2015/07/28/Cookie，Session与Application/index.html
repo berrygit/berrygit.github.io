@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/07/28/Cookie，Session与Application/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概念WEB开发中经常遇到cookie,session和application的概念，那么这几个名称到底意味着什么呢？故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请">
-<meta property="og:updated_time" content="2016-02-25T07:57:54.000Z">
+<meta property="og:updated_time" content="2016-02-25T07:58:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie，Session与Application">
 <meta name="twitter:description" content="概念WEB开发中经常遇到cookie,session和application的概念，那么这几个名称到底意味着什么呢？故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请">
@@ -125,7 +125,7 @@
 </blockquote>
 <h2 id="session">session</h2><p>session是服务器端用来记录用户信息的，直白的讲session是服务器为用户的每一个浏览器窗口对应的在内存中开辟的一小块存储区域。需要注意的是，每个浏览器窗口在服务器端有且只有一个seesion对应，那么服务端怎么能知道哪个浏览器请求对应着哪一个session呢？这就要把每次创建的session分配一个ID，浏览器请求时带上这个sessionID，服务器就可以根据这个sessionID去查询对应的session了。当然，服务端session中不像cookie只能是纯文本，为了处理方便是可以存储对象的。</p>
 <p>这里有两个问题，一个是session是要有失效时间的，否则一直创建session不回收，内存会吃不消。另一个是浏览器是怎么把sessionID传给服务端。有两种方法，一个是服务端会自动把sessionID写到cookie里，每次浏览器提交cookie的时候会带上；另一种，假如浏览器端把cookie禁止掉，那么就需要web服务的代码中自己把session拼接在请求URL的后面，提交到服务器（以tomcat为例，创建的session标示叫<code>jsessionid</code>，可以通过<code>resp.encodeURL</code>方法把url转码并且末尾加上jsessionid字段）。</p>
-<h3 id="session失效时间配置">session失效时间配置</h3><p>web.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">session-config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">session-timeout</span>&gt;</span>30<span class="tag">&lt;/<span class="title">session-timeout</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置session的超时管理,以分钟为单位 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="session失效时间配置">session失效时间配置</h3><p>web.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">session-config</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置session的超时管理,以分钟为单位 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">session-timeout</span>&gt;</span>30<span class="tag">&lt;/<span class="title">session-timeout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="验证">验证</h3><p>测试代码：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">protected void testSession(HttpServletRequest req, HttpServletResponse resp)</span><br><span class="line">		throws IOException</span><br><span class="line">&#123;</span><br><span class="line">	HttpSession session = req.getSession(true);</span><br><span class="line"></span><br><span class="line">	System.out.println(session.getId());</span><br><span class="line"></span><br><span class="line">	resp.setCharacterEncoding("utf-8");</span><br><span class="line">	PrintWriter pw = resp.getWriter();</span><br><span class="line">	String uri = "/test/login";</span><br><span class="line">	String encodeUri = resp.encodeURL(uri);</span><br><span class="line"></span><br><span class="line">	pw.write("<span class="doctype">&lt;!DOCTYPE HTML&gt;</span><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">\"en\"</span>&gt;</span><span class="tag">&lt;<span class="title">head</span>&gt;</span><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">\"UTF-8\"</span>&gt;</span><span class="tag">&lt;/<span class="title">head</span>&gt;</span><span class="tag">&lt;<span class="title">body</span>&gt;</span>");</span><br><span class="line">	pw.write("<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">" + uri + "</span>&gt;</span>cookie刷新<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;<span class="title">br</span>&gt;</span>");</span><br><span class="line">	pw.write("<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">" + encodeUri + "</span>&gt;</span>url重写刷新<span class="tag">&lt;/<span class="title">a</span>&gt;</span>");</span><br><span class="line">	pw.write("<span class="tag">&lt;/<span class="title">body</span>&gt;</span><span class="tag">&lt;/<span class="title">html</span>&gt;</span>");</span><br><span class="line">	pw.flush();</span><br><span class="line">	pw.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>测试结果：<br>每次点击<code>cookie刷新</code>，得到相同的session，每次打印的jsessionid均相同，可以查看到后台的抓包报文</p>
 <blockquote>
@@ -270,15 +270,15 @@
 			
 		
 			
+				<li><a href="/tags/效率/" title="效率">效率<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/效率/" title="效率">效率<sup>1</sup></a></li>
 			
 		
 			
