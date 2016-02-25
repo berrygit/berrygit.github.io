@@ -29,7 +29,7 @@
 
 初始化
 局部变量声明时就必须">
-<meta property="og:updated_time" content="2016-02-24T09:07:51.000Z">
+<meta property="og:updated_time" content="2016-02-25T06:14:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA程序设计">
 <meta name="twitter:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符合向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符合向右移位，空位补零。
@@ -114,7 +114,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -128,6 +128,12 @@
 <li>类的静态成员（类静态变量，静态初始化块）只初始化一次，当类被第一次new（其实构造器就是静态方法）或者类的静态变量和静态方法第一次被触及使用之前类加载器就会把类的静态成员全部初始化。</li>
 <li>静态块只初始化一次，非静态块每次创建对象时都执行。</li>
 <li>类静态成员先于一般成员；类变量先于初始化块；初始化块先于构造器。</li>
+<li>先初始化父类然后子类，对于默认构造器，编译器会自动添加调用父类构造器的代码；如果不用默认构造器初始化，编译器会强制提醒显式调用父类构造器，并且是子类构造器内第一行代码，否则编译器会报错提醒。</li>
+</ol>
+<h3 id="Object类">Object类</h3><p>Object类下除final方法外，其它方法都是应该按照需要被覆写的。具体有：</p>
+<ol>
+<li><code>equals</code>，原始实现是通过<code>==</code>判断两对象是否指向同一引用，一般需要判断对象的值时需要覆写，如Map和Set中的元素是唯一的，插入或者查找时需要根据equals方法判断。存在继承关系的类无法满足传递性和对称性，需要使用组合替代继承。</li>
+<li><code>hashcode</code>，集合中散列函数根据hashcode去放入和查找桶号，因而要求对于equals返回相等的对象它们的hashcode也必须相等，否则查找时找不到对象（注意计算hashcode时不要使用equals方法为判断的字段）；对于equals返回不等的对象尽量使它们的hashcode不等。</li>
 </ol>
 <h2 id="克隆">克隆</h2><h3 id="实现">实现</h3><p>重载Object类的clone方法；调用super.clone()；同时类实现<code>Cloneable</code>接口。客户端程序调用clone方法时，JVM会自动将类中的基本类型及引用类型成员变量的值克隆。</p>
 <h3 id="深克隆与浅克隆">深克隆与浅克隆</h3><p>上述克隆只会克隆基本类型和引用类型的引用，称为浅克隆；对于引用类型需要使用序列化和反序列化的方式进行深克隆。</p>
@@ -183,7 +189,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li></ol></li></ol>
  
   </div>
 

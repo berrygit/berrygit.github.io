@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Effective Java | Hexo</title>
+    <title>面向对象程序设计 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="类建造者使用建造者模式初始化多个入参的对象，特别是很多参数是可选参数。
-内存尽量使用不可变对象，减少不必要的内存和性能开销，例如享元模式。可以使用静态工厂控制对象的创建。
-垃圾回收不要忘记清空不使用的引用，造成内存无法释放，导致内存溢出等系统上线很久后才被发现的问题（如实现栈，如果弹出的位置的引用未被置NULL，会造成引用永不释放，一个引用不释放还会导致其引用的其它对象无法释放，最后占用大量内存）">
+    <meta name="description" content="组合优于继承
+使用继承时要满足里氏替换原则。
+不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Effective Java">
-<meta property="og:url" content="http://yoursite.com/2016/02/24/Effective Java/index.html">
+<meta property="og:title" content="面向对象程序设计">
+<meta property="og:url" content="http://yoursite.com/2016/02/25/面向对象程序设计/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="类建造者使用建造者模式初始化多个入参的对象，特别是很多参数是可选参数。
-内存尽量使用不可变对象，减少不必要的内存和性能开销，例如享元模式。可以使用静态工厂控制对象的创建。
-垃圾回收不要忘记清空不使用的引用，造成内存无法释放，导致内存溢出等系统上线很久后才被发现的问题（如实现栈，如果弹出的位置的引用未被置NULL，会造成引用永不释放，一个引用不释放还会导致其引用的其它对象无法释放，最后占用大量内存）">
-<meta property="og:updated_time" content="2016-02-25T03:19:16.000Z">
+<meta property="og:description" content="组合优于继承
+使用继承时要满足里氏替换原则。
+不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。">
+<meta property="og:updated_time" content="2016-02-25T03:18:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Effective Java">
-<meta name="twitter:description" content="类建造者使用建造者模式初始化多个入参的对象，特别是很多参数是可选参数。
-内存尽量使用不可变对象，减少不必要的内存和性能开销，例如享元模式。可以使用静态工厂控制对象的创建。
-垃圾回收不要忘记清空不使用的引用，造成内存无法释放，导致内存溢出等系统上线很久后才被发现的问题（如实现栈，如果弹出的位置的引用未被置NULL，会造成引用永不释放，一个引用不释放还会导致其引用的其它对象无法释放，最后占用大量内存）">
+<meta name="twitter:title" content="面向对象程序设计">
+<meta name="twitter:description" content="组合优于继承
+使用继承时要满足里氏替换原则。
+不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -86,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/24/Effective Java/" title="Effective Java" itemprop="url">Effective Java</a>
+      <a href="/2016/02/25/面向对象程序设计/" title="面向对象程序设计" itemprop="url">面向对象程序设计</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2016-02-24T05:42:30.000Z" itemprop="datePublished"> 發表於 2016-02-24</time>
+    <time datetime="2016-02-25T02:50:20.000Z" itemprop="datePublished"> 發表於 2016-02-25</time>
     
   </p>
 </header>
@@ -102,14 +102,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">1.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者"><span class="toc-number">1.1.</span> <span class="toc-text">建造者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存"><span class="toc-number">1.2.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合优于继承"><span class="toc-number">1.</span> <span class="toc-text">组合优于继承</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="类">类</h2><h3 id="建造者">建造者</h3><p>使用建造者模式初始化多个入参的对象，特别是很多参数是可选参数。</p>
-<h3 id="内存">内存</h3><p>尽量使用不可变对象，减少不必要的内存和性能开销，例如享元模式。可以使用静态工厂控制对象的创建。</p>
-<h3 id="垃圾回收">垃圾回收</h3><p>不要忘记清空不使用的引用，造成内存无法释放，导致内存溢出等系统上线很久后才被发现的问题（如实现栈，如果弹出的位置的引用未被置NULL，会造成引用永不释放，一个引用不释放还会导致其引用的其它对象无法释放，最后占用大量内存）。</p>
-<h2 id="注解">注解</h2><p>坚持使用@Override注解，它能防止我们想覆盖一个方法却实现为重载。</p>
+		<h2 id="组合优于继承">组合优于继承</h2><ol>
+<li>使用继承时要满足里氏替换原则。</li>
+<li>不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +122,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/02/24/Effective Java/" data-title="Effective Java | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/02/25/面向对象程序设计/" data-title="面向对象程序设计 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +135,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/02/25/面向对象程序设计/" title="面向对象程序设计">
-  <strong>上一篇：</strong><br/>
-  <span>
-  面向对象程序设计</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/02/16/分布式计算/"  title="分布式计算">
+<a href="/2016/02/24/Effective Java/"  title="Effective Java">
  <strong>下一篇：</strong><br/> 
- <span>分布式计算
+ <span>Effective Java
 </span>
 </a>
 </div>
@@ -162,7 +154,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">1.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者"><span class="toc-number">1.1.</span> <span class="toc-text">建造者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存"><span class="toc-number">1.2.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合优于继承"><span class="toc-number">1.</span> <span class="toc-text">组合优于继承</span></a></li></ol>
  
   </div>
 
