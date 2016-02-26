@@ -29,7 +29,7 @@
 
 初始化
 局部变量声明时就必须">
-<meta property="og:updated_time" content="2016-02-26T03:31:46.000Z">
+<meta property="og:updated_time" content="2016-02-26T07:01:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA程序设计">
 <meta name="twitter:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符合向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符合向右移位，空位补零。
@@ -135,7 +135,7 @@
 <li><code>equals</code>，原始实现是通过<code>==</code>判断两对象是否指向同一引用，一般需要判断对象的值时需要覆写，如Map和Set中的元素是唯一的，插入或者查找时需要根据equals方法判断。存在继承关系的类无法满足传递性和对称性，需要使用组合替代继承。</li>
 <li><code>hashcode</code>，集合中散列函数根据hashcode去放入和查找桶号，因而要求对于equals返回相等的对象它们的hashcode也必须相等，否则查找时找不到对象（注意计算hashcode时不要使用equals方法为判断的字段）；对于equals返回不等的对象尽量使它们的hashcode不等。由于计算hashcode的代价较高，可以在对象中缓存hashcode的值。</li>
 <li><code>toString</code>，始终复写该方法。</li>
-<li><code>clone</code>,见<a href="2016/02/13/JAVA程序设计/#克隆">克隆</a>。</li>
+<li><code>clone</code>,见<a href="/2016/02/13/JAVA程序设计/#克隆">克隆</a>。</li>
 </ol>
 <h2 id="克隆">克隆</h2><h3 id="实现">实现</h3><p>重载Object类的clone方法；调用super.clone()；同时类实现<code>Cloneable</code>接口。客户端程序调用clone方法时，JVM会自动将类中的基本类型及引用类型成员变量的值克隆。</p>
 <h3 id="深克隆与浅克隆">深克隆与浅克隆</h3><p>上述克隆只会克隆基本类型和引用类型的引用，称为浅克隆；对于引用类型需要使用序列化和反序列化的方式进行深克隆。</p>
