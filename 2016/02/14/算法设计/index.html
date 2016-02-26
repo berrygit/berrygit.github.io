@@ -13,20 +13,20 @@
     
     <meta name="description" content="分治分而治之，让问题的规模逐渐对半减少，在末端，然后在合并出结果。优势在于减少了运动的次数，最大深度为对数级变化。
 一般分为三个步骤：Divide,Conquer,Combine.先将问题拆分，然后解决子问题，最后根据子问题的结果合并出最终结果。
-扫描将一个大问题逐渐缩小为同等规模的小问题求解。">
+动态规划动态规划一般从底向上计算，避免了不必要的重复计算。为了实现从底向上计算，需要利用递归，一般在递归函数的第一行指定结束的条件，下面是对所有情况的计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法设计">
 <meta property="og:url" content="http://yoursite.com/2016/02/14/算法设计/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="分治分而治之，让问题的规模逐渐对半减少，在末端，然后在合并出结果。优势在于减少了运动的次数，最大深度为对数级变化。
 一般分为三个步骤：Divide,Conquer,Combine.先将问题拆分，然后解决子问题，最后根据子问题的结果合并出最终结果。
-扫描将一个大问题逐渐缩小为同等规模的小问题求解。">
-<meta property="og:updated_time" content="2016-02-16T14:54:35.000Z">
+动态规划动态规划一般从底向上计算，避免了不必要的重复计算。为了实现从底向上计算，需要利用递归，一般在递归函数的第一行指定结束的条件，下面是对所有情况的计">
+<meta property="og:updated_time" content="2016-02-25T13:46:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法设计">
 <meta name="twitter:description" content="分治分而治之，让问题的规模逐渐对半减少，在末端，然后在合并出结果。优势在于减少了运动的次数，最大深度为对数级变化。
 一般分为三个步骤：Divide,Conquer,Combine.先将问题拆分，然后解决子问题，最后根据子问题的结果合并出最终结果。
-扫描将一个大问题逐渐缩小为同等规模的小问题求解。">
+动态规划动态规划一般从底向上计算，避免了不必要的重复计算。为了实现从底向上计算，需要利用递归，一般在递归函数的第一行指定结束的条件，下面是对所有情况的计">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -102,12 +102,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分治"><span class="toc-number">1.</span> <span class="toc-text">分治</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描"><span class="toc-number">2.</span> <span class="toc-text">扫描</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分治"><span class="toc-number">1.</span> <span class="toc-text">分治</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">2.</span> <span class="toc-text">动态规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描"><span class="toc-number">3.</span> <span class="toc-text">扫描</span></a></li></ol>
 		
 		</div>
 		
 		<h2 id="分治">分治</h2><p>分而治之，让问题的规模逐渐对半减少，在末端，然后在合并出结果。优势在于减少了运动的次数，最大深度为对数级变化。</p>
 <p>一般分为三个步骤：Divide,Conquer,Combine.<br>先将问题拆分，然后解决子问题，最后根据子问题的结果合并出最终结果。</p>
+<h2 id="动态规划">动态规划</h2><p>动态规划一般从底向上计算，避免了不必要的重复计算。为了实现从底向上计算，需要利用递归，一般在递归函数的第一行指定结束的条件，下面是对所有情况的计算，而最后做最优选择（正是这一步避免了重复计算）。在递归执行时，也是遵循着将问题规模不断变小，直到最简单的情形。</p>
+<p>动态规划是一类非常适合由计算机来计算的问题，因其与递归相结合我们只需列出同一思维上的逻辑，而不必在意具体的计算细节。</p>
 <h2 id="扫描">扫描</h2><p>将一个大问题逐渐缩小为同等规模的小问题求解。</p>
   
 	</div>
@@ -161,7 +163,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分治"><span class="toc-number">1.</span> <span class="toc-text">分治</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描"><span class="toc-number">2.</span> <span class="toc-text">扫描</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分治"><span class="toc-number">1.</span> <span class="toc-text">分治</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态规划"><span class="toc-number">2.</span> <span class="toc-text">动态规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扫描"><span class="toc-number">3.</span> <span class="toc-text">扫描</span></a></li></ol>
  
   </div>
 

@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Linux系统使用指南 | Hexo</title>
+    <title>hexo博客常用技法 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="文件与目录权限用户/用户组/其它linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。123-rw-rw-r--   1 berry berry     996  1月  6 16:15 无标题文档 3~drwxrwxr-x   2 berry berry    4096  1月  6 16:57 研讨班-r">
+    <meta name="description" content="引用引用本文档中的内容中文乱码问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统使用指南">
-<meta property="og:url" content="http://yoursite.com/2016/01/19/Linux系统使用指南/index.html">
+<meta property="og:title" content="hexo博客常用技法">
+<meta property="og:url" content="http://yoursite.com/2016/02/26/hexo博客常用技法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="文件与目录权限用户/用户组/其它linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。123-rw-rw-r--   1 berry berry     996  1月  6 16:15 无标题文档 3~drwxrwxr-x   2 berry berry    4096  1月  6 16:57 研讨班-r">
-<meta property="og:updated_time" content="2016-02-26T03:28:05.000Z">
+<meta property="og:description" content="引用引用本文档中的内容中文乱码问题">
+<meta property="og:updated_time" content="2016-02-26T03:28:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux系统使用指南">
-<meta name="twitter:description" content="文件与目录权限用户/用户组/其它linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。123-rw-rw-r--   1 berry berry     996  1月  6 16:15 无标题文档 3~drwxrwxr-x   2 berry berry    4096  1月  6 16:57 研讨班-r">
+<meta name="twitter:title" content="hexo博客常用技法">
+<meta name="twitter:description" content="引用引用本文档中的内容中文乱码问题">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/01/19/Linux系统使用指南/" title="Linux系统使用指南" itemprop="url">Linux系统使用指南</a>
+      <a href="/2016/02/26/hexo博客常用技法/" title="hexo博客常用技法" itemprop="url">hexo博客常用技法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2016-01-19T11:51:53.000Z" itemprop="datePublished"> 發表於 2016-01-19</time>
+    <time datetime="2016-02-26T03:21:15.000Z" itemprop="datePublished"> 發表於 2016-02-26</time>
     
   </p>
 </header>
@@ -96,35 +96,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与目录权限"><span class="toc-number">1.</span> <span class="toc-text">文件与目录权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户/用户组/其它"><span class="toc-number">1.1.</span> <span class="toc-text">用户/用户组/其它</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改权限"><span class="toc-number">1.2.</span> <span class="toc-text">修改权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三个重要配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">三个重要配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件与目录的权限"><span class="toc-number">1.4.</span> <span class="toc-text">文件与目录的权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件系统"><span class="toc-number">2.</span> <span class="toc-text">文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inode与block块"><span class="toc-number">2.1.</span> <span class="toc-text">inode与block块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">3.</span> <span class="toc-text">bash的环境配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">4.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">4.1.</span> <span class="toc-text">wget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">4.2.</span> <span class="toc-text">find</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.</span> <span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用本文档中的内容"><span class="toc-number">1.1.</span> <span class="toc-text">引用本文档中的内容</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="文件与目录权限">文件与目录权限</h2><h3 id="用户/用户组/其它">用户/用户组/其它</h3><p>linux下用户有三个概念：用户/用户组与其它用户，用户指一个账号，用户组顾名思义属于一个组的账户，其它是指不在当前用户和用户组之外的所有用户。<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-r--   <span class="number">1</span> <span class="keyword">berry </span><span class="keyword">berry </span>    <span class="number">996</span>  <span class="number">1</span>月  <span class="number">6</span> <span class="number">16</span>:<span class="number">15</span> 无标题文档 <span class="number">3</span>~</span><br><span class="line"><span class="label">drwxrwxr</span>-x   <span class="number">2</span> <span class="keyword">berry </span><span class="keyword">berry </span>   <span class="number">4096</span>  <span class="number">1</span>月  <span class="number">6</span> <span class="number">16</span>:<span class="number">57</span> 研讨班</span><br><span class="line">-rw-rw-r--   <span class="number">1</span> <span class="keyword">berry </span><span class="keyword">berry </span><span class="number">4060800</span>  <span class="number">1</span>月  <span class="number">6</span> <span class="number">16</span>:<span class="number">57</span> 研讨班.zip</span><br></pre></td></tr></table></figure></p>
-<p>如上所示，系统按这个顺序为每一个文件和目录对这三类用户提供权限设置。</p>
-<h3 id="修改权限">修改权限</h3><p>可以分别使用三个命令修改：<code>chgrp</code>，<code>chown</code>，<code>chmod</code>。</p>
-<h3 id="三个重要配置文件">三个重要配置文件</h3><blockquote>
-<p>/etc/passwd #账号信息<br>/etc/shadow #加密后的密码信息<br>/etc/group #组信息</p>
-</blockquote>
-<h3 id="文件与目录的权限">文件与目录的权限</h3><p>文件的rwx分别代表可读取文件内容，可修改文件内容，可执行该文件的权限。<br>目录的rwx分别代表可读取目录下的文件列表，可修改目录下文件结构(删除，复制，移动等)，可以cd到该目录下。</p>
-<h2 id="文件系统">文件系统</h2><h3 id="inode与block块">inode与block块</h3><p>inode记录文件的原信息，包括文件或目录的权限，block记录文件的数据信息。对于文件，inode记录文件的权限，block保存数据；对于目录，inode同样记录权限，但block记录目录下有哪些文件或目录，以及这些文件或目录对应的inode号码数据。</p>
-<h2 id="bash的环境配置文件">bash的环境配置文件</h2><p>用户登陆后，系统会自动的读取环境配置文件，获取一些环境变量和命令的别名。环境配置文件有两种，依据login与non-login区分，login时会读<code>/etc/profile</code>和<code>～/.bashrc</code>，而nog-login只会读<code>~/.bashrc</code>。<code>/etc/profile</code>是系统级别的，<code>～/.bashrc</code>为用户偏好。</p>
-<h2 id="常用命令">常用命令</h2><h3 id="wget">wget</h3><p>wget用来下载网络资源，可以镜像整个网站，也可以下载单个文件。</p>
-<blockquote>
-<p>wget —content-disposition URL</p>
-</blockquote>
-<h3 id="find">find</h3><p>查看某个目录下，文档中是否含有某些内容。</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">find</span> . -name *Helper.java -exec <span class="keyword">grep</span> -l <span class="string">"extends .*Helper"</span> &#123;&#125; \;</span><br></pre></td></tr></table></figure>
-<p>注意路径要是文件夹或者当前路径下有文件夹，否则不会去查找。</p>
+		<h2 id="引用">引用</h2><h3 id="引用本文档中的内容">引用本文档中的内容</h3><p><a href="/2015/07/29/网页中文乱码问题/#服务端解析乱码">中文乱码问题</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Linux/">Linux</a>
-</div>
 
 
 </div>
@@ -133,7 +113,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/01/19/Linux系统使用指南/" data-title="Linux系统使用指南 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/02/26/hexo博客常用技法/" data-title="hexo博客常用技法 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -146,19 +126,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/01/26/大数据处理技术/" title="大数据处理技术">
-  <strong>上一篇：</strong><br/>
-  <span>
-  大数据处理技术</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/12/10/xml与json对比/"  title="xml与json对比">
+<a href="/2016/02/25/面向对象程序设计/"  title="面向对象程序设计">
  <strong>下一篇：</strong><br/> 
- <span>xml与json对比
+ <span>面向对象程序设计
 </span>
 </a>
 </div>
@@ -173,7 +145,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与目录权限"><span class="toc-number">1.</span> <span class="toc-text">文件与目录权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户/用户组/其它"><span class="toc-number">1.1.</span> <span class="toc-text">用户/用户组/其它</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改权限"><span class="toc-number">1.2.</span> <span class="toc-text">修改权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三个重要配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">三个重要配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件与目录的权限"><span class="toc-number">1.4.</span> <span class="toc-text">文件与目录的权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件系统"><span class="toc-number">2.</span> <span class="toc-text">文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#inode与block块"><span class="toc-number">2.1.</span> <span class="toc-text">inode与block块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bash的环境配置文件"><span class="toc-number">3.</span> <span class="toc-text">bash的环境配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">4.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wget"><span class="toc-number">4.1.</span> <span class="toc-text">wget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">4.2.</span> <span class="toc-text">find</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引用"><span class="toc-number">1.</span> <span class="toc-text">引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用本文档中的内容"><span class="toc-number">1.1.</span> <span class="toc-text">引用本文档中的内容</span></a></li></ol></li></ol>
  
   </div>
 
