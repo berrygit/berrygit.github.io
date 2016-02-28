@@ -29,7 +29,7 @@
 
 初始化
 局部变量声明时就必须">
-<meta property="og:updated_time" content="2016-02-26T07:01:25.000Z">
+<meta property="og:updated_time" content="2016-02-28T06:03:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA程序设计">
 <meta name="twitter:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符合向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符合向右移位，空位补零。
@@ -114,7 +114,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">3.3.</span> <span class="toc-text">特例</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">3.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">4.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">5.</span> <span class="toc-text">标记接口</span></a></li></ol>
 		
 		</div>
 		
@@ -144,6 +144,21 @@
 <li>不能克隆final域。</li>
 <li>除非数组或只有基本类型域的copy，尽可能得不去调用clone方法，用静态工厂去实现。</li>
 </ol>
+<h2 id="序列化">序列化</h2><p>首先，序列化是对对象而言的。将一个对象编码成一个<code>字节</code>流，称为该对象序列化；相反的处理过程称为反序列化。序列化的类可以通过网络传输或者保存在磁盘上，供以后反序列化。</p>
+<p><strong>用途：</strong></p>
+<ol>
+<li>RMI用来传输远程方法的调用参数和返回值。</li>
+<li>GUI用来保存JavaBean的状态。</li>
+</ol>
+<p><strong>实现:</strong></p>
+<ol>
+<li>要序列化的对象的类需实现<code>serializable</code>接口。</li>
+<li>以深克隆为例，创建<code>ObjectOutputStream</code>实例，<code>ObjectOutputStream</code>构造器入参为要把对象写入的流（<code>OutputStream</code>子类），比如内存<code>ByteArrayOutputStream</code>，磁盘<code>FileOutputStream</code>，或者网络。序列化类，调用<code>ObjectOutputStream</code>对象的writeObject()方法即可。</li>
+<li>序列化读出来的对象要做强制转换。也就是RMI调用时，客户端/服务端都需要知道对象类的jar包。</li>
+</ol>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function">Point <span class="title">deepClone</span><span class="params">()</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 将对象写到流里</span></span><br><span class="line">	ByteArrayOutputStream bos = <span class="keyword">new</span> ByteArrayOutputStream();<span class="comment">// 写到内存</span></span><br><span class="line">	ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(bos);</span><br><span class="line">	oos.writeObject(<span class="keyword">this</span>);</span><br><span class="line">	<span class="comment">// 从流里读回来</span></span><br><span class="line">	ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(bos.toByteArray());</span><br><span class="line">	ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(bis);</span><br><span class="line">	<span class="keyword">return</span> (Point) ois.readObject();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong><br>对象序列化时会自动将该对象内部涉及到的所有对象序列化。</p>
+<h2 id="标记接口">标记接口</h2><p><code>Serializable</code>，<code>Cloneable</code></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -196,7 +211,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">3.3.</span> <span class="toc-text">特例</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">3.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">4.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">5.</span> <span class="toc-text">标记接口</span></a></li></ol>
  
   </div>
 
@@ -210,7 +225,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>9</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>8</sup></a></li>
 		  
 		
 		  
@@ -235,11 +250,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/XML/" title="XML">XML<sup>2</sup></a></li>
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+				<li><a href="/tags/XML/" title="XML">XML<sup>2</sup></a></li>
 			
 		
 			
@@ -247,7 +262,7 @@
 			
 		
 			
-				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
 			
 		
 			
@@ -255,11 +270,7 @@
 			
 		
 			
-				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/登陆/" title="登陆">登陆<sup>1</sup></a></li>
+				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
 			
 		
 			
@@ -268,10 +279,6 @@
 		
 			
 				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
 			
 		
 			
