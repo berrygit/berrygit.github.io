@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="流程StrutsPrepareAndExcuteFilter为核心调度器，ActionMapper决定该请求是否被struts处理。">
+    <meta name="description" content="流程StrutsPrepareAndExcuteFilter为核心调度器，ActionMapping寻找是否有可以被struts处理的Action，如果没有将请求交给下一个filter；如果有交给StrutsPrepareAndExcuteFilter，下面选择响应的Action去处理，并且不会再调用后续的filter。Action处理先调用生成Action的代理，根据代理调用Action，此处使">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Struts流程解析">
 <meta property="og:url" content="http://yoursite.com/2016/02/28/Struts流程解析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="流程StrutsPrepareAndExcuteFilter为核心调度器，ActionMapper决定该请求是否被struts处理。">
+<meta property="og:description" content="流程StrutsPrepareAndExcuteFilter为核心调度器，ActionMapping寻找是否有可以被struts处理的Action，如果没有将请求交给下一个filter；如果有交给StrutsPrepareAndExcuteFilter，下面选择响应的Action去处理，并且不会再调用后续的filter。Action处理先调用生成Action的代理，根据代理调用Action，此处使">
 <meta property="og:image" content="http://s10.sinaimg.cn/mw690/002vcwZvzy6NYilCD5n49&690">
-<meta property="og:updated_time" content="2016-02-28T08:06:53.000Z">
+<meta property="og:updated_time" content="2016-02-28T09:04:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Struts流程解析">
-<meta name="twitter:description" content="流程StrutsPrepareAndExcuteFilter为核心调度器，ActionMapper决定该请求是否被struts处理。">
+<meta name="twitter:description" content="流程StrutsPrepareAndExcuteFilter为核心调度器，ActionMapping寻找是否有可以被struts处理的Action，如果没有将请求交给下一个filter；如果有交给StrutsPrepareAndExcuteFilter，下面选择响应的Action去处理，并且不会再调用后续的filter。Action处理先调用生成Action的代理，根据代理调用Action，此处使">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -97,12 +97,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">1.</span> <span class="toc-text">流程</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">1.</span> <span class="toc-text">流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action接收参数的三种方法"><span class="toc-number">2.</span> <span class="toc-text">Action接收参数的三种方法</span></a></li></ol>
 		
 		</div>
 		
 		<p><img src="http://s10.sinaimg.cn/mw690/002vcwZvzy6NYilCD5n49&amp;690" alt="流程"></p>
-<h2 id="流程">流程</h2><p><code>StrutsPrepareAndExcuteFilter</code>为核心调度器，<code>ActionMapper</code>决定该请求是否被struts处理。</p>
+<h2 id="流程">流程</h2><p><code>StrutsPrepareAndExcuteFilter</code>为核心调度器，<code>ActionMapping</code>寻找是否有可以被struts处理的Action，如果没有将请求交给下一个filter；如果有交给<code>StrutsPrepareAndExcuteFilter</code>，下面选择响应的Action去处理，并且不会再调用后续的filter。Action处理先调用生成Action的代理，根据代理调用Action，此处使用代理是为了提升灵活性，方便以后添加其它实现。Action被调用后先执行interceptor，interceptor执行完调用Action，Action执行完毕返回Result，struts根据Result找到合适的页面，返回，并再以相反顺序通过拦截器。至此流程结束。</p>
+<h2 id="Action接收参数的三种方法">Action接收参数的三种方法</h2><ol>
+<li>使用Action的属性接收参数：<br> a.定义：在Action类中定义属性，创建get和set方法；<br> b.接收：通过属性接收参数，如：userName；<br> c.发送：使用属性名传递参数，如：user1!add?userName=Magci；<br>2.使用DomainModel接收参数：<br> a.定义：定义Model类，在Action中定义Model类的对象（不需要new，struts自动new），创建该对象的get和set方法；<br> b.接收：通过对象的属性接收参数，如：user.getUserName()；<br> c.发送：使用对象的属性传递参数，如：user2!add?user.userName=MGC；(user为domain名称)<br>3.使用ModelDriven接收参数：<br> a.定义：Action必须要实现ModelDriven<t>泛型接口，定义Model类（T）的对象（必须new），通过getModel方法返回该对象；<br> b.接收：通过对象的属性接收参数，如：user.getUserName()；<br> c.发送：直接使用属性名传递参数，如：user2!add?userName=MGC</t></li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -147,7 +150,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">1.</span> <span class="toc-text">流程</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">1.</span> <span class="toc-text">流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Action接收参数的三种方法"><span class="toc-number">2.</span> <span class="toc-text">Action接收参数的三种方法</span></a></li></ol>
  
   </div>
 
