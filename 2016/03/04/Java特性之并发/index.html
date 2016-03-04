@@ -4,29 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>数据库基础 | Hexo</title>
+    <title>Java特性之并发 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="数据库设计范式表关联主键关联，外键关联。
-数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
-ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Dura">
+    <meta name="description" content="概念提高性能。
+并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
+实现方式继承Runnable接口，覆写run()方法，实现给接口的方法意味着可以以多线程运行，且入口为run方法。
+运行：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库基础">
-<meta property="og:url" content="http://yoursite.com/2015/08/07/数据库基础/index.html">
+<meta property="og:title" content="Java特性之并发">
+<meta property="og:url" content="http://yoursite.com/2016/03/04/Java特性之并发/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数据库设计范式表关联主键关联，外键关联。
-数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
-ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Dura">
-<meta property="og:updated_time" content="2016-02-16T14:58:52.000Z">
+<meta property="og:description" content="概念提高性能。
+并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
+实现方式继承Runnable接口，覆写run()方法，实现给接口的方法意味着可以以多线程运行，且入口为run方法。
+运行：">
+<meta property="og:updated_time" content="2016-03-04T10:43:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据库基础">
-<meta name="twitter:description" content="数据库设计范式表关联主键关联，外键关联。
-数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
-ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Dura">
+<meta name="twitter:title" content="Java特性之并发">
+<meta name="twitter:description" content="概念提高性能。
+并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
+实现方式继承Runnable接口，覆写run()方法，实现给接口的方法意味着可以以多线程运行，且入口为run方法。
+运行：">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -86,14 +92,14 @@ ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/07/数据库基础/" title="数据库基础" itemprop="url">数据库基础</a>
+      <a href="/2016/03/04/Java特性之并发/" title="Java特性之并发" itemprop="url">Java特性之并发</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-07T12:37:45.000Z" itemprop="datePublished"> 發表於 2015-08-07</time>
+    <time datetime="2016-03-04T05:24:31.000Z" itemprop="datePublished"> 發表於 2016-03-04</time>
     
   </p>
 </header>
@@ -102,29 +108,23 @@ ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库设计范式"><span class="toc-number">1.</span> <span class="toc-text">数据库设计范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表关联"><span class="toc-number">2.</span> <span class="toc-text">表关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库事务"><span class="toc-number">3.</span> <span class="toc-text">数据库事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ACID"><span class="toc-number">3.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库事务隔离机制"><span class="toc-number">3.2.</span> <span class="toc-text">数据库事务隔离机制</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="数据库设计范式">数据库设计范式</h2><h2 id="表关联">表关联</h2><p>主键关联，外键关联。</p>
-<h2 id="数据库事务">数据库事务</h2><p>事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。</p>
-<h3 id="ACID">ACID</h3><p>数据库事务正确执行的四个基本要素：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）。</p>
-<ul>
-<li>原子性：事务对数据的修改要么全部执行，要么全都不执行。</li>
-<li>一致性：事务完成时，所有内容必须全部满足数据库的约束。</li>
-<li>隔离性：不同事务间不会相互影响，一个事务读取数据时，要么读取另一个事务更新前的状态，要么读取另一个事务更新后的状态，不会读取另一个事务的中间状态的数据。</li>
-<li>持久性：事务完成后修改是要持久化的。</li>
-</ul>
-<h3 id="数据库事务隔离机制">数据库事务隔离机制</h3><p>数据库事务隔离机制：</p>
-<blockquote>
+		<h2 id="概念">概念</h2><p>提高性能。</p>
+<p>并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。</p>
+<p>java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。</p>
+<h2 id="实现方式">实现方式</h2><p>继承<code>Runnable</code>接口，覆写<code>run()</code>方法，实现给接口的方法意味着可以以多线程运行，且入口为run方法。</p>
+<p><strong>运行：</strong></p>
 <ol>
-<li>read-uncommited</li>
-<li>read-commited</li>
-<li>repeatable</li>
-<li>serializable</li>
+<li>并把这个类的实例交给Thread类构造器，调用start()方法。</li>
+<li>直接继承自<code>Thread</code>。</li>
+<li>交给Executors执行，并调用execute()方法。</li>
 </ol>
-</blockquote>
-<p>一般设置为read-commited。</p>
+<p>方法2使用了命令模式，首先定义方法的执行接口，然后不同的线程对象实现这个接口，每个待调用的线程，交给Executors（相当于receiver），然后Executors在合适的情况下调用线程执行。</p>
+<p>Executors提供了很多种线程池，可以根据需要选择。</p>
+<h2 id="Thread类">Thread类</h2><p>yield()方法，提前退出CPU，将优先级让给别的线程。<br>currentThread().setPriority()</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -137,7 +137,7 @@ ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/07/数据库基础/" data-title="数据库基础 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/04/Java特性之并发/" data-title="Java特性之并发 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -151,18 +151,18 @@ ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）�
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/21/Spring框架/" title="Spring框架">
+ <a href="/2016/03/04/JVM原理/" title="JVM原理">
   <strong>上一篇：</strong><br/>
   <span>
-  Spring框架</span>
+  JVM原理</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/05/JDBC标准/"  title="JDBC标准">
+<a href="/2016/03/04/Java特性之异常/"  title="Java特性之异常">
  <strong>下一篇：</strong><br/> 
- <span>JDBC标准
+ <span>Java特性之异常
 </span>
 </a>
 </div>
@@ -177,7 +177,7 @@ ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库设计范式"><span class="toc-number">1.</span> <span class="toc-text">数据库设计范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表关联"><span class="toc-number">2.</span> <span class="toc-text">表关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库事务"><span class="toc-number">3.</span> <span class="toc-text">数据库事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ACID"><span class="toc-number">3.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库事务隔离机制"><span class="toc-number">3.2.</span> <span class="toc-text">数据库事务隔离机制</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li></ol>
  
   </div>
 
@@ -200,6 +200,10 @@ ACID数据库事务正确执行的四个基本要素：原子性（Atomicity）�
 		
 		  
 			<li><a href="/categories/SSH/" title="SSH">SSH<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
 		  
 		
 		  

@@ -23,7 +23,7 @@
 创建型工厂方法Factory Method显示的new对象是一种耦合，因为如果想修改要new的对象就必须一一修改，使用工厂集中控制对象的创建便于提供代码的可修改性和可扩展性。
 
 参数工">
-<meta property="og:updated_time" content="2016-02-23T11:22:41.000Z">
+<meta property="og:updated_time" content="2016-03-02T06:37:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式">
 <meta name="twitter:description" content="综述设计模式其实是在面向对象编程的思想的指导下，在一些特定的曾经困扰设计人员的问题中，广泛被人们采用的一些设计经验的合集而已。设计模式来源于重构，正是在有一堆糟烂的难于维护的代码存在，才为设计模式的出现提供了契机。
@@ -236,7 +236,7 @@
 </li>
 </ul>
 <h3 id="策略Strategy">策略Strategy</h3><ul>
-<li>目的：定义一系列算法，分别封装，并且可以被client在运行时动态指定。</li>
+<li>目的：定义一系列同一抽象功能但实现有别的算法，分别封装，并且可以被client在运行时动态指定。</li>
 <li>动机：将某个特定算法从客户端代码中分离和封装，以便运行时动态使用。</li>
 <li>适用：许多相关的类，只是行为部分不同；需要隐藏算法的具体实现，让客户端代码关注的更少，代码变得简单；去除过多的条件控制语句，将各个分支封装到相应的策略类里来。</li>
 <li><p>参与者：</p>
@@ -246,7 +246,7 @@
 </li>
 <li><p>效果：</p>
 <blockquote>
-<p>从单一类中提取出繁杂的策略，使代码易于理解，便于维护和扩展。<br>适用多态，消除了过多的条件分支语句。<br>便于client代码灵活选择策略。</p>
+<p>从单一类中提取出繁杂的策略，使代码易于理解，便于维护和扩展。<br>使用多态消除了过多的条件分支语句。<br>便于client代码灵活选择策略。</p>
 </blockquote>
 </li>
 </ul>
@@ -258,7 +258,7 @@
 <p><strong>AbstractClass</strong>：定义基本的算法结构。<br><strong>ConcreteClass</strong>：定制算法的某一步。</p>
 </blockquote>
 </li>
-<li><p>相关模式：<code>策略模式</code>扩展整个算法，而<code>模板方法</code>只扩展算法的一部分；<code>工厂方法</code>与<code>模板方法</code>一致。</p>
+<li><p>相关模式：<code>策略模式</code>将整个算法封装，而<code>模板方法</code>只封装算法的一部分，其余相同的部分由父类实现；<code>工厂方法</code>与<code>模板方法</code>一致。</p>
 </li>
 </ul>
 <h3 id="访问者Visitor">访问者Visitor</h3><ul>
@@ -312,9 +312,9 @@
 
 
 <div class="next">
-<a href="/2015/08/21/Spring框架/"  title="Spring框架">
+<a href="/2015/08/21/spring框架/"  title="spring框架">
  <strong>下一篇：</strong><br/> 
- <span>Spring框架
+ <span>spring框架
 </span>
 </a>
 </div>
@@ -352,6 +352,10 @@
 		
 		  
 			<li><a href="/categories/SSH/" title="SSH">SSH<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
 		  
 		
 		  

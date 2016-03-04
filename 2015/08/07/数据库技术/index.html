@@ -4,24 +4,38 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Spring框架 | Hexo</title>
+    <title>数据库技术 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+    <meta name="description" content="数据库设计范式表关联主键关联，外键关联。
+数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
+ACID数据库事务正确执行的四个基本要素：
+
+原子性(Atomicity)：事务对数据的修改要么全部执行，要么全都不执行。
+一致性(Consistenc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring框架">
-<meta property="og:url" content="http://yoursite.com/2015/08/21/Spring框架/index.html">
+<meta property="og:title" content="数据库技术">
+<meta property="og:url" content="http://yoursite.com/2015/08/07/数据库技术/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
-<meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/spring-overview.png">
-<meta property="og:updated_time" content="2016-02-28T07:29:20.000Z">
+<meta property="og:description" content="数据库设计范式表关联主键关联，外键关联。
+数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
+ACID数据库事务正确执行的四个基本要素：
+
+原子性(Atomicity)：事务对数据的修改要么全部执行，要么全都不执行。
+一致性(Consistenc">
+<meta property="og:updated_time" content="2016-03-03T11:29:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring框架">
-<meta name="twitter:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+<meta name="twitter:title" content="数据库技术">
+<meta name="twitter:description" content="数据库设计范式表关联主键关联，外键关联。
+数据库事务事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。
+ACID数据库事务正确执行的四个基本要素：
+
+原子性(Atomicity)：事务对数据的修改要么全部执行，要么全都不执行。
+一致性(Consistenc">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -81,14 +95,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/08/21/Spring框架/" title="Spring框架" itemprop="url">Spring框架</a>
+      <a href="/2015/08/07/数据库技术/" title="数据库技术" itemprop="url">数据库技术</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-08-21T11:58:30.000Z" itemprop="datePublished"> 發表於 2015-08-21</time>
+    <time datetime="2015-08-07T12:37:45.000Z" itemprop="datePublished"> 發表於 2015-08-07</time>
     
   </p>
 </header>
@@ -97,65 +111,42 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化"><span class="toc-number">2.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">3.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">3.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">3.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">3.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bean属性"><span class="toc-number">4.1.</span> <span class="toc-text">bean属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI依赖注入"><span class="toc-number">4.2.</span> <span class="toc-text">DI依赖注入</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库设计范式"><span class="toc-number">1.</span> <span class="toc-text">数据库设计范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表关联"><span class="toc-number">2.</span> <span class="toc-text">表关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库事务"><span class="toc-number">3.</span> <span class="toc-text">数据库事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ACID"><span class="toc-number">3.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库事务隔离机制"><span class="toc-number">3.2.</span> <span class="toc-text">数据库事务隔离机制</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用<code>new</code>关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的<code>new</code>的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用配置文件通过配置表明，这样需要改动时就只需要更改配置文件而不需要修改代码，这样就很好的符合了开闭原则，降低了软件开发的复杂度并且降低了耦合，spring框架便主要做这方面的工作。</p>
-<h2 id="模块化">模块化</h2><p>spring框架目前支持多种机制，被分成了20个模块。<br><img src="http://7xl9g1.com1.z0.glb.clouddn.com/spring-overview.png" alt="spring模块"></p>
-<h2 id="核心概念">核心概念</h2><h3 id="IOC">IOC</h3><p>Inversion of Control (IoC)也被称作dependency injection (DI)，意思是对象的创建不再是由对象一步步初始化自己的成员变量，而是先初始化好变量，由spring容器注入给对象。</p>
-<h3 id="AOP">AOP</h3><p>Aspect-Oriented Programming (AOP)面向切面编程是面向对象编程的有力补充，意思是在代码的流程中，在某个方法的执行前后插入特定代码（比如日志记录，权限检查，性能监测，事务管理等）。</p>
-<h3 id="核心接口">核心接口</h3><p><code>BeanFactory</code>，<code>ApplicationContext</code>为<code>BeanFactory</code>的子接口。</p>
-<h2 id="使用">使用</h2><h3 id="bean属性">bean属性</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">&emsp;&emsp;属性&emsp;&emsp;</th>
-<th style="text-align:center">&emsp;&emsp;意义&emsp;&emsp;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">class</td>
-<td style="text-align:center">bean对应的类</td>
-</tr>
-<tr>
-<td style="text-align:center">name/id</td>
-<td style="text-align:center">bean的名称</td>
-</tr>
-<tr>
-<td style="text-align:center">scope</td>
-<td style="text-align:center">bean的有效范围</td>
-</tr>
-<tr>
-<td style="text-align:center">constructor arguments</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">properties</td>
-<td style="text-align:center">bean中的属性</td>
-</tr>
-<tr>
-<td style="text-align:center">autowiring mode</td>
-<td style="text-align:center">自动装配</td>
-</tr>
-<tr>
-<td style="text-align:center">lazy-initialization mode</td>
-<td style="text-align:center">懒加载</td>
-</tr>
-<tr>
-<td style="text-align:center">initialization method</td>
-<td style="text-align:center">初始化方法</td>
-</tr>
-<tr>
-<td style="text-align:center">destruction method</td>
-<td style="text-align:center">销毁方法</td>
-</tr>
-</tbody>
-</table>
-<h3 id="DI依赖注入">DI依赖注入</h3><ul>
-<li>通过构造器注入</li>
-<li>通过Setter方法注入</li>
+		<h2 id="数据库设计范式">数据库设计范式</h2><h2 id="表关联">表关联</h2><p>主键关联，外键关联。</p>
+<h2 id="数据库事务">数据库事务</h2><p>事务是指作为单个逻辑工作单元执行的一系列操作。可以保证除非单元内的操作全部完成否则不会对数据持久化。即将一组操作组合为一个，要么全部成功要么全部失败的单元。可以简化错误恢复，使应用程序更加可靠。</p>
+<h3 id="ACID">ACID</h3><p><strong>数据库事务正确执行的四个基本要素：</strong></p>
+<ul>
+<li><code>原子性(Atomicity)</code>：事务对数据的修改要么全部执行，要么全都不执行。</li>
+<li><code>一致性(Consistency)</code>：事务完成时，所有内容必须全部满足数据库的约束。</li>
+<li><code>隔离性(Isolation)</code>：不同事务间不会相互影响，一个事务读取数据时，要么读取另一个事务更新前的状态，要么读取另一个事务更新后的状态，不会读取另一个事务的中间状态的数据。</li>
+<li><code>持久性(Durability)</code>：事务完成后修改是要持久化的。</li>
 </ul>
+<h3 id="数据库事务隔离机制">数据库事务隔离机制</h3><p><strong>数据库事务中的四个数据不一致情况：</strong></p>
+<ol>
+<li><code>丢失更新</code>：两个事务同时更新数据，先提交的修改被后提交的修改覆盖掉，造成更新丢失。</li>
+<li><code>脏读（未提交读）</code>：一个事务读到的数据，是另一个事务未提交的临时数据，当另一个事务回滚后，该事务读到的数据是脏的。</li>
+<li><code>不可重复读</code>：一个事务中，读了多次但每次读到的数据不一致。</li>
+<li><code>幻读</code>：一个事务去查询数据，每次返回数据的条数不一致。</li>
+</ol>
+<p><strong>四种锁：</strong></p>
+<p>对数据库系统而言：</p>
+<ol>
+<li><code>排他锁</code>：只能被持有锁的事务读取和修改。<br>select,update,delete时数据库会自动上排他锁。</li>
+<li><code>共享锁</code>：可以被持有锁的事务读取，但不能修改，其它事务可以继续在该对象上加共享锁（所以叫共享），被加共享锁的对象不能被任何事务修改。<br>对程序员而言：</li>
+<li><code>悲观锁</code>：每次读都对数据上锁，其它人不能操作，事务隔离性好。性能差，适合写多读少的场景。</li>
+<li><code>乐观锁</code>：每次读并不对数据上锁，但读完提交数据时，要检查下版本号，如果版本号不匹配当前事务失败。性能好，适合读多写少的场景。</li>
+</ol>
+<p><strong>数据库事务隔离机制：</strong></p>
+<ol>
+<li><code>read-uncommited</code>，有所有问题。</li>
+<li><code>read-commited</code>，避免脏读。</li>
+<li><code>repeatable</code>，</li>
+<li><code>serializable</code></li>
+</ol>
+<p>一般设置为read-commited。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -168,7 +159,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/08/21/Spring框架/" data-title="Spring框架 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/08/07/数据库技术/" data-title="数据库技术 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -182,18 +173,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/30/设计模式/" title="设计模式">
+ <a href="/2015/08/21/spring框架/" title="spring框架">
   <strong>上一篇：</strong><br/>
   <span>
-  设计模式</span>
+  spring框架</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/08/07/数据库基础/"  title="数据库基础">
+<a href="/2015/08/05/JDBC标准/"  title="JDBC标准">
  <strong>下一篇：</strong><br/> 
- <span>数据库基础
+ <span>JDBC标准
 </span>
 </a>
 </div>
@@ -208,7 +199,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化"><span class="toc-number">2.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">3.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">3.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">3.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">3.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bean属性"><span class="toc-number">4.1.</span> <span class="toc-text">bean属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI依赖注入"><span class="toc-number">4.2.</span> <span class="toc-text">DI依赖注入</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库设计范式"><span class="toc-number">1.</span> <span class="toc-text">数据库设计范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表关联"><span class="toc-number">2.</span> <span class="toc-text">表关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库事务"><span class="toc-number">3.</span> <span class="toc-text">数据库事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ACID"><span class="toc-number">3.1.</span> <span class="toc-text">ACID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库事务隔离机制"><span class="toc-number">3.2.</span> <span class="toc-text">数据库事务隔离机制</span></a></li></ol></li></ol>
  
   </div>
 
@@ -231,6 +222,10 @@
 		
 		  
 			<li><a href="/categories/SSH/" title="SSH">SSH<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
 		  
 		
 		  

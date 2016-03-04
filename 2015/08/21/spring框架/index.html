@@ -1,0 +1,600 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>spring框架 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Berry">
+    
+
+    
+    <meta name="description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring框架">
+<meta property="og:url" content="http://yoursite.com/2015/08/21/spring框架/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+<meta property="og:updated_time" content="2016-03-03T07:41:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring框架">
+<meta name="twitter:description" content="概念spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用new关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的new的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/21/spring框架/" title="spring框架" itemprop="url">spring框架</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-21T11:58:30.000Z" itemprop="datePublished"> 發表於 2015-08-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">2.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">2.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">2.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">2.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化流程"><span class="toc-number">3.</span> <span class="toc-text">初始化流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bean属性"><span class="toc-number">4.1.</span> <span class="toc-text">bean属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI依赖注入"><span class="toc-number">4.2.</span> <span class="toc-text">DI依赖注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置方式"><span class="toc-number">5.</span> <span class="toc-text">配置方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注解"><span class="toc-number">5.1.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml"><span class="toc-number">5.2.</span> <span class="toc-text">xml</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="概念">概念</h2><p>spring框架主要用来解对象创建的耦和，由于java代码要使用一个对象时，需要代码中显示的用<code>new</code>关键字来实例化一个对象，这样日后如果想更改对象的实例，就需要再次改动代码，如果这样的<code>new</code>的地方不止一处，这样就形成了一种耦合（重复耦合是其中的一部分）；另外，对象的生存周期，何时创建何时销毁，对象是单例还是多例都需要开发者去维护，这样会给开发代码增加复杂度。如果我们把对象创建和生命周期问题，用配置文件通过配置表明，这样需要改动时就只需要更改配置文件而不需要修改代码，这样就很好的符合了开闭原则，降低了软件开发的复杂度并且降低了耦合，spring框架便主要做这方面的工作。</p>
+<h2 id="核心概念">核心概念</h2><h3 id="IOC">IOC</h3><p>Inversion of Control (IoC)也被称作dependency injection (DI)，意思是对象的创建不再是由对象一步步初始化自己的成员变量，而是先初始化好变量，由spring容器注入给对象。</p>
+<h3 id="AOP">AOP</h3><p>Aspect-Oriented Programming (AOP)面向切面编程是面向对象编程的有力补充，意思是在代码的流程中，在某个方法的执行前后插入特定代码（比如日志记录，权限检查，性能监测，事务管理等）。</p>
+<h3 id="核心接口">核心接口</h3><p><code>BeanFactory</code>，<code>ApplicationContext</code>为<code>BeanFactory</code>的子接口。</p>
+<h2 id="初始化流程">初始化流程</h2><p>web.xml中配置监听器与初始化配置文件目录，容器启动后初始化监听器，根据配置文件调用监听器初始化spring容器。</p>
+<h2 id="使用">使用</h2><h3 id="bean属性">bean属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">&emsp;&emsp;属性&emsp;&emsp;</th>
+<th style="text-align:center">&emsp;&emsp;意义&emsp;&emsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">class</td>
+<td style="text-align:center">bean对应的类</td>
+</tr>
+<tr>
+<td style="text-align:center">name/id</td>
+<td style="text-align:center">bean的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">scope</td>
+<td style="text-align:center">bean的有效范围</td>
+</tr>
+<tr>
+<td style="text-align:center">constructor arguments</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">properties</td>
+<td style="text-align:center">bean中的属性</td>
+</tr>
+<tr>
+<td style="text-align:center">autowiring mode</td>
+<td style="text-align:center">自动装配</td>
+</tr>
+<tr>
+<td style="text-align:center">lazy-initialization mode</td>
+<td style="text-align:center">懒加载</td>
+</tr>
+<tr>
+<td style="text-align:center">initialization method</td>
+<td style="text-align:center">初始化方法</td>
+</tr>
+<tr>
+<td style="text-align:center">destruction method</td>
+<td style="text-align:center">销毁方法</td>
+</tr>
+</tbody>
+</table>
+<h3 id="DI依赖注入">DI依赖注入</h3><ul>
+<li>通过构造器注入</li>
+<li>通过Setter方法注入</li>
+</ul>
+<h2 id="配置方式">配置方式</h2><h3 id="注解">注解</h3><p>配置扫描包的范围。</p>
+<h3 id="xml">xml</h3>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/框架/">框架</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/08/21/spring框架/" data-title="spring框架 | Hexo" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/30/设计模式/" title="设计模式">
+  <strong>上一篇：</strong><br/>
+  <span>
+  设计模式</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/07/数据库技术/"  title="数据库技术">
+ <strong>下一篇：</strong><br/> 
+ <span>数据库技术
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心概念"><span class="toc-number">2.</span> <span class="toc-text">核心概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">2.1.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">2.2.</span> <span class="toc-text">AOP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心接口"><span class="toc-number">2.3.</span> <span class="toc-text">核心接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化流程"><span class="toc-number">3.</span> <span class="toc-text">初始化流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bean属性"><span class="toc-number">4.1.</span> <span class="toc-text">bean属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI依赖注入"><span class="toc-number">4.2.</span> <span class="toc-text">DI依赖注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置方式"><span class="toc-number">5.</span> <span class="toc-text">配置方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注解"><span class="toc-number">5.1.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xml"><span class="toc-number">5.2.</span> <span class="toc-text">xml</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SSH/" title="SSH">SSH<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/网络/" title="网络">网络<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书笔记/" title="读书笔记">读书笔记<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/XML/" title="XML">XML<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/效率/" title="效率">效率<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JDBC/" title="JDBC">JDBC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Berry">Berry</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

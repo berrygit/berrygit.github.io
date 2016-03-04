@@ -1,0 +1,561 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Java特性之IO | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Berry">
+    
+
+    
+    <meta name="description" content="File文件类用于处理目录或者目录下的文件。
+IO简而言之：流。
+流分输入流和输出流，输入/输出一端均是对内存而言，另一端可以是各式各样的来源。
+原本流都是面向字节的，所有流的父类是InputStream和OutputStram，而后发现这种流在面对文档等字符型场景为支持Unicode和性能，又有了面向字符的流的父类Reader和Writer。
+装饰者IO类使用装饰者模式构造，避免了类爆炸，但由于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java特性之IO">
+<meta property="og:url" content="http://yoursite.com/2016/03/02/Java特性之IO/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="File文件类用于处理目录或者目录下的文件。
+IO简而言之：流。
+流分输入流和输出流，输入/输出一端均是对内存而言，另一端可以是各式各样的来源。
+原本流都是面向字节的，所有流的父类是InputStream和OutputStram，而后发现这种流在面对文档等字符型场景为支持Unicode和性能，又有了面向字符的流的父类Reader和Writer。
+装饰者IO类使用装饰者模式构造，避免了类爆炸，但由于">
+<meta property="og:updated_time" content="2016-03-02T10:11:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java特性之IO">
+<meta name="twitter:description" content="File文件类用于处理目录或者目录下的文件。
+IO简而言之：流。
+流分输入流和输出流，输入/输出一端均是对内存而言，另一端可以是各式各样的来源。
+原本流都是面向字节的，所有流的父类是InputStream和OutputStram，而后发现这种流在面对文档等字符型场景为支持Unicode和性能，又有了面向字符的流的父类Reader和Writer。
+装饰者IO类使用装饰者模式构造，避免了类爆炸，但由于">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/02/Java特性之IO/" title="Java特性之IO" itemprop="url">Java特性之IO</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-02T06:15:17.000Z" itemprop="datePublished"> 發表於 2016-03-02</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">2.</span> <span class="toc-text">IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者"><span class="toc-number">2.1.</span> <span class="toc-text">装饰者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向字符的流"><span class="toc-number">2.2.</span> <span class="toc-text">面向字符的流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">2.3.</span> <span class="toc-text">适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-number">3.</span> <span class="toc-text">NIO</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="File">File</h2><p>文件类用于处理目录或者目录下的文件。</p>
+<h2 id="IO">IO</h2><p>简而言之：流。</p>
+<p>流分输入流和输出流，输入/输出一端均是对内存而言，另一端可以是各式各样的来源。</p>
+<p>原本流都是面向字节的，所有流的父类是<code>InputStream</code>和<code>OutputStram</code>，而后发现这种流在面对文档等字符型场景为支持Unicode和性能，又有了面向字符的流的父类<code>Reader</code>和<code>Writer</code>。</p>
+<h3 id="装饰者">装饰者</h3><p>IO类使用装饰者模式构造，避免了类爆炸，但由于有许多类也对使用者提出了较高要求。</p>
+<p>装饰者模式的好处，具体以<code>InputStrem</code>为例，它有<code>FileInputStream</code>，<code>ByteArrayInputStream</code>等子类对应多种输入来源的流，如果在这些流的基础上，我们增加了一些额外的功能，比如带缓冲的流读入，特定类型数据的读入，一般想法我们在上一层流的输入基础上，再加一层特定的方法即可。为了区分层次，一层代表流的来源，另一层代表我们可以对流做的操作，这一层我们定义一个子类<code>FilterInputStream</code>，所有继承自<code>FilterInputStream</code>的类初始化时入参为<code>InputStrem</code>，可以对该入参的流基础上做特定的操作。</p>
+<p><strong>特别的流</strong><br><code>DataInputStream</code>用于从流中读取特定类型的数据。<br><code>BufferedInputStream</code>一次写一个字节太累，为流加上缓冲区，批量写提高性能。</p>
+<h3 id="面向字符的流">面向字符的流</h3><p>父类<code>Reader</code>，<code>Writer</code>，其它与面向字节的流类似。面向字符的流的装饰者类并不是<code>FilterReader</code>而是<code>Reader</code>。</p>
+<h3 id="适配器">适配器</h3><p>类<code>InputStreamReader</code>将<code>InputStream</code>转化为<code>Reader</code>。<br>类<code>OutputStreamWriter</code>将<code>OutputStream</code>转化为<code>Writer</code>。</p>
+<h2 id="NIO">NIO</h2><p>NIO是为了性能而设计的，它与IO的差别在于非阻塞（read时如果没读到数据不阻塞线程），不再为每个单独的流分配一个线程。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/03/02/Java特性之IO/" data-title="Java特性之IO | Hexo" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/03/Java特性之泛型/" title="Java特性之泛型">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Java特性之泛型</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/03/01/hadoop之MapReduce/"  title="hadoop之MapReduce">
+ <strong>下一篇：</strong><br/> 
+ <span>hadoop之MapReduce
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">2.</span> <span class="toc-text">IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者"><span class="toc-number">2.1.</span> <span class="toc-text">装饰者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向字符的流"><span class="toc-number">2.2.</span> <span class="toc-text">面向字符的流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">2.3.</span> <span class="toc-text">适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-number">3.</span> <span class="toc-text">NIO</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SSH/" title="SSH">SSH<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/网络/" title="网络">网络<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书笔记/" title="读书笔记">读书笔记<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/servlet/" title="servlet">servlet<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/XML/" title="XML">XML<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/抓包/" title="抓包">抓包<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/乱码/" title="乱码">乱码<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/struts2/" title="struts2">struts2<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/freemarker/" title="freemarker">freemarker<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/效率/" title="效率">效率<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tcpdump/" title="tcpdump">tcpdump<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JDBC/" title="JDBC">JDBC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/filter/" title="filter">filter<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/listener/" title="listener">listener<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GET/" title="GET">GET<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/POST/" title="POST">POST<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情鏈接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Berry">Berry</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

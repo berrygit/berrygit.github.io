@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="基本概念J2EE标准J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201301/29/1359428942_1310.png">
-<meta property="og:updated_time" content="2016-02-25T08:14:02.000Z">
+<meta property="og:updated_time" content="2016-03-03T07:18:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="J2EE核心概念">
 <meta name="twitter:description" content="基本概念J2EE标准J2EE是当年的SUN公司在JAVA的基础上提出来的一套标准（现在卖给了Oracle）。这套标准提出的必要性是，之前的软件开发虽然都是在编程语言的基础上去做，但是有很多公司软件中的基础编程（比如WEB的服务器，怎样解析HTTP协议的报文，数据库的连接等）是各自有各自的实现的，这样导致每个公司重复去实现其实可以重用的基础功能，而且一旦软件开发完成，再想迁移平台几乎不可能（比如想把">
@@ -137,7 +137,8 @@
 <h2 id="web-xml中的几个概念">web.xml中的几个概念</h2><h3 id="filter">filter</h3><blockquote>
 <p>过滤器，使用责任链模式实现，对所有的请求进行过滤，多个过滤器之间相互独立。</p>
 </blockquote>
-<p>实现接口<code>javax.servlet.Filter</code><br>web.xml配置<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;filter&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-name&gt;</span>EncodingFilter<span class="variable">&lt;/filter-name&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-class&gt;</span>filter.EncodingFilter<span class="variable">&lt;/filter-class&gt;</span></span><br><span class="line">	<span class="variable">&lt;init-param&gt;</span></span><br><span class="line">		<span class="variable">&lt;param-name&gt;</span>encoding<span class="variable">&lt;/param-name&gt;</span></span><br><span class="line">		<span class="variable">&lt;param-value&gt;</span>utf-8<span class="variable">&lt;/param-value&gt;</span></span><br><span class="line">	<span class="variable">&lt;/init-param&gt;</span></span><br><span class="line"><span class="variable">&lt;/filter&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">&lt;filter-mapping&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-name&gt;</span>EncodingFilter<span class="variable">&lt;/filter-name&gt;</span></span><br><span class="line">	<span class="variable">&lt;url-pattern&gt;</span>/<span class="keyword">*</span><span class="variable">&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="variable">&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>实现接口<code>javax.servlet.Filter</code>，web.xml配置：</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;filter&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-name&gt;</span>EncodingFilter<span class="variable">&lt;/filter-name&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-class&gt;</span>filter.EncodingFilter<span class="variable">&lt;/filter-class&gt;</span></span><br><span class="line">	<span class="variable">&lt;init-param&gt;</span></span><br><span class="line">		<span class="variable">&lt;param-name&gt;</span>encoding<span class="variable">&lt;/param-name&gt;</span></span><br><span class="line">		<span class="variable">&lt;param-value&gt;</span>utf-8<span class="variable">&lt;/param-value&gt;</span></span><br><span class="line">	<span class="variable">&lt;/init-param&gt;</span></span><br><span class="line"><span class="variable">&lt;/filter&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="variable">&lt;filter-mapping&gt;</span></span><br><span class="line">	<span class="variable">&lt;filter-name&gt;</span>EncodingFilter<span class="variable">&lt;/filter-name&gt;</span></span><br><span class="line">	<span class="variable">&lt;url-pattern&gt;</span>/<span class="keyword">*</span><span class="variable">&lt;/url-pattern&gt;</span></span><br><span class="line"><span class="variable">&lt;/filter-mapping&gt;</span></span><br></pre></td></tr></table></figure>
 <ol>
 <li>多个filter之间相互独立，初始化化顺序按照<code>web.xml</code>中<code>&lt;filter&gt;</code>配置顺序，过滤请求按照<code>web.xml</code>中<code>&lt;filter-mapping&gt;</code>顺序，如果所有的filter都通过,交给servlet处理请求。</li>
 <li>过滤器的dofilter方法中<code>chain.doFilter(request, response);</code>将请求传递下去，如果没有该代码，所有的请求都将在该过滤器中被终止。</li>
@@ -147,10 +148,10 @@
 <p>servlet是一种运行服务器端的java应用程序，并且可以动态的生成web页面，工作在客户端请求与服务器响应的中间层，具体见<a href="/2015/07/24/Servlet浅析及使用/">servlet介绍</a>。</p>
 </blockquote>
 <h3 id="listener">listener</h3><blockquote>
-<p>监听器,使用观察者模式实现，主要用来监听。当application，session，request三个对象创建消亡或者往其中添加修改删除属性时自动执行代码。</p>
+<p>监听器，使用观察者模式实现，主要用来监听。当application，session，request三个对象创建消亡或者往其中添加修改删除属性时自动执行代码。</p>
 </blockquote>
 <h3 id="生命周期">生命周期</h3><p>filter类在web服务器启动初始化时即被加载，实例化时会执行<code>init</code>方法，在web服务器关闭时会执行<code>destroy</code>方法。</p>
-<p>总体初始化顺序：context-param &gt; Listener &gt; Filter &gt; Servlet。 </p>
+<p>初始化顺序：context-param &gt; Listener &gt; Filter &gt; Servlet。 </p>
 <hr>
   
 	</div>
@@ -229,6 +230,10 @@
 		
 		  
 			<li><a href="/categories/SSH/" title="SSH">SSH<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
 		  
 		
 		  
