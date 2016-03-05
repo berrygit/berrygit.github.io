@@ -25,7 +25,7 @@ IO简而言之：流。
 流分输入流和输出流，输入/输出一端均是对内存而言，另一端可以是各式各样的来源。
 原本流都是面向字节的，所有流的父类是InputStream和OutputStram，而后发现这种流在面对文档等字符型场景为支持Unicode和性能，又有了面向字符的流的父类Reader和Writer。
 装饰者IO类使用装饰者模式构造，避免了类爆炸，但由于">
-<meta property="og:updated_time" content="2016-03-02T10:11:28.000Z">
+<meta property="og:updated_time" content="2016-03-05T05:28:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java特性之IO">
 <meta name="twitter:description" content="File文件类用于处理目录或者目录下的文件。
@@ -108,7 +108,7 @@ IO简而言之：流。
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">2.</span> <span class="toc-text">IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者"><span class="toc-number">2.1.</span> <span class="toc-text">装饰者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向字符的流"><span class="toc-number">2.2.</span> <span class="toc-text">面向字符的流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">2.3.</span> <span class="toc-text">适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-number">3.</span> <span class="toc-text">NIO</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">2.</span> <span class="toc-text">IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者"><span class="toc-number">2.1.</span> <span class="toc-text">装饰者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向字符的流"><span class="toc-number">2.2.</span> <span class="toc-text">面向字符的流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">2.3.</span> <span class="toc-text">适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-number">3.</span> <span class="toc-text">NIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标准IO"><span class="toc-number">4.</span> <span class="toc-text">标准IO</span></a></li></ol>
 		
 		</div>
 		
@@ -122,6 +122,7 @@ IO简而言之：流。
 <h3 id="面向字符的流">面向字符的流</h3><p>父类<code>Reader</code>，<code>Writer</code>，其它与面向字节的流类似。面向字符的流的装饰者类并不是<code>FilterReader</code>而是<code>Reader</code>。</p>
 <h3 id="适配器">适配器</h3><p>类<code>InputStreamReader</code>将<code>InputStream</code>转化为<code>Reader</code>。<br>类<code>OutputStreamWriter</code>将<code>OutputStream</code>转化为<code>Writer</code>。</p>
 <h2 id="NIO">NIO</h2><p>NIO是为了性能而设计的，它与IO的差别在于非阻塞（read时如果没读到数据不阻塞线程），不再为每个单独的流分配一个线程。</p>
+<h2 id="标准IO">标准IO</h2><p>类似于操作系统，java有三种标准IO：标准输入，标准输出，标准错误。通过指定不同的流的实现，我们可以使流重定向。其中<code>System.in</code>为<code>InputStream</code>，一般要包装为<code>BufferedReader</code>；<code>System.out</code>和<code>System.err</code>为<code>PrintStream</code>可以直接使用。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -174,7 +175,7 @@ IO简而言之：流。
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">2.</span> <span class="toc-text">IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者"><span class="toc-number">2.1.</span> <span class="toc-text">装饰者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向字符的流"><span class="toc-number">2.2.</span> <span class="toc-text">面向字符的流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">2.3.</span> <span class="toc-text">适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-number">3.</span> <span class="toc-text">NIO</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO"><span class="toc-number">2.</span> <span class="toc-text">IO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰者"><span class="toc-number">2.1.</span> <span class="toc-text">装饰者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向字符的流"><span class="toc-number">2.2.</span> <span class="toc-text">面向字符的流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器"><span class="toc-number">2.3.</span> <span class="toc-text">适配器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO"><span class="toc-number">3.</span> <span class="toc-text">NIO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标准IO"><span class="toc-number">4.</span> <span class="toc-text">标准IO</span></a></li></ol>
  
   </div>
 

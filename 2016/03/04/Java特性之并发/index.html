@@ -25,7 +25,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
 java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
 实现方式继承Runnable接口，覆写run()方法，实现给接口的方法意味着可以以多线程运行，且入口为run方法。
 运行：">
-<meta property="og:updated_time" content="2016-03-04T10:43:19.000Z">
+<meta property="og:updated_time" content="2016-03-05T08:40:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java特性之并发">
 <meta name="twitter:description" content="概念提高性能。
@@ -108,7 +108,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">4.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">4.2.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock对象"><span class="toc-number">4.3.</span> <span class="toc-text">lock对象</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -122,9 +122,20 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
 <li>直接继承自<code>Thread</code>。</li>
 <li>交给Executors执行，并调用execute()方法。</li>
 </ol>
-<p>方法2使用了命令模式，首先定义方法的执行接口，然后不同的线程对象实现这个接口，每个待调用的线程，交给Executors（相当于receiver），然后Executors在合适的情况下调用线程执行。</p>
+<p>方法3使用了命令模式，首先定义方法的执行接口，然后不同的线程对象实现这个接口，每个待调用的线程，交给Executors（相当于receiver），然后Executors在合适的情况下调用线程执行。</p>
 <p>Executors提供了很多种线程池，可以根据需要选择。</p>
 <h2 id="Thread类">Thread类</h2><p>yield()方法，提前退出CPU，将优先级让给别的线程。<br>currentThread().setPriority()</p>
+<h2 id="锁">锁</h2><p>线程只有在使用共享资源（一般是对象）时才会发生并发问题，所以在需要保持原子性的地方加锁即可。</p>
+<h3 id="synchronized">synchronized</h3><p>该关键字意味着加锁，该锁机制依赖于一个概念叫对象锁，所有类方法中如果出现<code>synchronized</code>关键字的对象JVM都会给它们一把属于这个对象的唯一的锁，当一个线程想使用<code>synchronized</code>方法或者代码块必须先取得这个对象的锁，其它后来的线程必须等待。</p>
+<p><strong>需要注意：</strong></p>
+<ol>
+<li><code>synchronized</code>可以修饰方法或者代码块，修饰方法叫做方法锁，被修饰的代码块的部分就是临界区。</li>
+<li>在方法锁中，如果该线程又调用了其它的同步方法，会有个计数器计数，直到该线程推出所有同步方法，计数器清零后对象锁才被释放。需要注意，方法锁使用的对象锁是该方法所在的对象，如果想保证有效，该对象必须要是单例的。</li>
+<li>对于静态方法的方法锁，它对应的对象是JVM加载类时的类对象，它是唯一的。</li>
+<li>对于临界区，锁对象就是锁指定的对象。</li>
+</ol>
+<h3 id="volatile">volatile</h3><p><code>volatile</code>保证可见性和原子性。可见性指在多核处理器环境下，每个线程所在的核可能有自己的缓存，这样会有数据不一致的问题，该关键字使当前字段一旦有线程修改，立马所有相关线程可见。原子性指一些64位的数据，在读取时可能是分两步进行的，如果中间中断，也会带来数据不一致问题，该关键字保证这些操作保持原子性（然而也并不非常可靠）。</p>
+<h3 id="lock对象">lock对象</h3><p>一些特殊情况可以考虑lock对象锁，这种锁可以给我们更大的控制权，在锁不可达时不必一直阻塞，可以做其它工作。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -177,7 +188,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">4.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">4.2.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock对象"><span class="toc-number">4.3.</span> <span class="toc-text">lock对象</span></a></li></ol></li></ol>
  
   </div>
 
