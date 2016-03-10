@@ -27,7 +27,7 @@ ACID数据库事务正确执行的四个基本要素：
 
 原子性(Atomicity)：事务对数据的修改要么全部执行，要么全都不执行。
 一致性(Consistenc">
-<meta property="og:updated_time" content="2016-03-03T11:29:25.000Z">
+<meta property="og:updated_time" content="2016-03-07T07:21:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库技术">
 <meta name="twitter:description" content="数据库设计范式表关联主键关联，外键关联。
@@ -135,22 +135,31 @@ ACID数据库事务正确执行的四个基本要素：
 <p>对数据库系统而言：</p>
 <ol>
 <li><code>排他锁</code>：只能被持有锁的事务读取和修改。<br>select,update,delete时数据库会自动上排他锁。</li>
-<li><code>共享锁</code>：可以被持有锁的事务读取，但不能修改，其它事务可以继续在该对象上加共享锁（所以叫共享），被加共享锁的对象不能被任何事务修改。<br>对程序员而言：</li>
+<li><code>共享锁</code>：可以被持有锁的事务读取，但不能修改，其它事务可以继续在该对象上加共享锁（所以叫共享），被加共享锁的对象不能被任何事务修改。</li>
+</ol>
+<p>对程序员而言：</p>
+<ol>
 <li><code>悲观锁</code>：每次读都对数据上锁，其它人不能操作，事务隔离性好。性能差，适合写多读少的场景。</li>
 <li><code>乐观锁</code>：每次读并不对数据上锁，但读完提交数据时，要检查下版本号，如果版本号不匹配当前事务失败。性能好，适合读多写少的场景。</li>
 </ol>
 <p><strong>数据库事务隔离机制：</strong></p>
+<p>一个事务与其他事务隔离的程度称为隔离级别。数据库规定了多种事务隔离级别，不同隔离级别对应不同的干扰程度，隔离级别越高，数据一致性就越好，但并发性越弱。</p>
 <ol>
-<li><code>read-uncommited</code>，有所有问题。</li>
-<li><code>read-commited</code>，避免脏读。</li>
-<li><code>repeatable</code>，</li>
-<li><code>serializable</code></li>
+<li><code>read-uncommited</code>，允许事务读取未被其他事务提交的变更，脏读、不可重复读和幻读的问题都会出现。</li>
+<li><code>read-commited</code>，只允许事务读取已经被其他事务提交的变更，可以避免脏读，但不可重复读和幻读问题仍然会出现。</li>
+<li><code>repeatable</code>，确保事务可以多次从一个字段中读取相同的值，在这个事务持续期间，禁止其他事务对这个字段进行<code>更新</code>只允许读，可以避免脏读和不可重复读，但幻读的问题依然存在。</li>
+<li><code>serializable</code>，确保事务可以从一个表中读取相同的行，在这个事务持续期间，禁止其他事务对该表执行<code>插入、更新和删除操作</code>，所有并发问题都可以避免，但性能十分低。</li>
 </ol>
-<p>一般设置为read-commited。</p>
+<p>Oracle支持的2 种事务隔离级别：read-commited, serializable，Oracle 默认的事务隔离级别为: read-commited（用乐观锁解决更新丢失）。<br>Mysql 支持 4 中事务隔离级别，Mysql 默认的事务隔离级别为: repeatable read。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/数据库/">数据库</a>
+</div>
 
 
 </div>
@@ -213,7 +222,11 @@ ACID数据库事务正确执行的四个基本要素：
 		<ul>
 		
 		  
-			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>8</sup></a></li>
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>7</sup></a></li>
 		  
 		
 		  
@@ -221,15 +234,15 @@ ACID数据库事务正确执行的四个基本要素：
 		  
 		
 		  
-			<li><a href="/categories/SSH/" title="SSH">SSH<sup>1</sup></a></li>
+			<li><a href="/categories/数据库/" title="数据库">数据库<sup>2</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
+			<li><a href="/categories/框架/" title="框架">框架<sup>5</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/网络/" title="网络">网络<sup>1</sup></a></li>
+			<li><a href="/categories/网络/" title="网络">网络<sup>2</sup></a></li>
 		  
 		
 		  
