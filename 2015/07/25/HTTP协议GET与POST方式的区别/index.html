@@ -4,26 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>HTTP协议GET与POST方式的区别 | Hexo</title>
+    <title>HTTP协议 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	username: &amp;lt;input type=&quot;">
+    <meta name="description" content="长连接与短连接首先这里的连接是指TCP的连接，短连接指每次HTTP请求结束后马上断开连接，HTTP协议最迟这么设计的初衷是为了减少服务器的压力，但是现在的网页经常一个HTML页面过来后里面又有很多的URL，如果采用短连接的方式反复连接也会很耗资源。所有有了长连接（Keep-Alive），每次不马上释放连接。
+get与postHTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP协议GET与POST方式的区别">
+<meta property="og:title" content="HTTP协议">
 <meta property="og:url" content="http://yoursite.com/2015/07/25/HTTP协议GET与POST方式的区别/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	username: &amp;lt;input type=&quot;">
-<meta property="og:updated_time" content="2016-03-07T07:24:18.000Z">
+<meta property="og:description" content="长连接与短连接首先这里的连接是指TCP的连接，短连接指每次HTTP请求结束后马上断开连接，HTTP协议最迟这么设计的初衷是为了减少服务器的压力，但是现在的网页经常一个HTML页面过来后里面又有很多的URL，如果采用短连接的方式反复连接也会很耗资源。所有有了长连接（Keep-Alive），每次不马上释放连接。
+get与postHTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里">
+<meta property="og:updated_time" content="2016-03-11T11:54:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP协议GET与POST方式的区别">
-<meta name="twitter:description" content="概念HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到。GET用于请求服务器资源，POST用于更新服务器的某些资源。
-具体查看我们有页面表单1234567登陆系统&amp;lt;form action=&quot;/test/HeroLogin&quot; method=&quot;get&quot;&amp;gt;	username: &amp;lt;input type=&quot;">
+<meta name="twitter:title" content="HTTP协议">
+<meta name="twitter:description" content="长连接与短连接首先这里的连接是指TCP的连接，短连接指每次HTTP请求结束后马上断开连接，HTTP协议最迟这么设计的初衷是为了减少服务器的压力，但是现在的网页经常一个HTML页面过来后里面又有很多的URL，如果采用短连接的方式反复连接也会很耗资源。所有有了长连接（Keep-Alive），每次不马上释放连接。
+get与postHTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -83,7 +83,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/25/HTTP协议GET与POST方式的区别/" title="HTTP协议GET与POST方式的区别" itemprop="url">HTTP协议GET与POST方式的区别</a>
+      <a href="/2015/07/25/HTTP协议GET与POST方式的区别/" title="HTTP协议" itemprop="url">HTTP协议</a>
   </h1>
   <p class="article-author">By
        
@@ -99,12 +99,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#长连接与短连接"><span class="toc-number">1.</span> <span class="toc-text">长连接与短连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get与post"><span class="toc-number">2.</span> <span class="toc-text">get与post</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体查看"><span class="toc-number">2.1.</span> <span class="toc-text">具体查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.2.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.3.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p>HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
-<h2 id="具体查看">具体查看</h2><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">	username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">	password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">		<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">		value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
+		<h2 id="长连接与短连接">长连接与短连接</h2><p>首先这里的连接是指TCP的连接，短连接指每次HTTP请求结束后马上断开连接，HTTP协议最迟这么设计的初衷是为了减少服务器的压力，但是现在的网页经常一个HTML页面过来后里面又有很多的URL，如果采用短连接的方式反复连接也会很耗资源。所有有了长连接（Keep-Alive），每次不马上释放连接。</p>
+<h2 id="get与post">get与post</h2><p>HTTP协议是我们平时上网，浏览器经常使用的协议，其中HTTP请求的提交里有GET和POST两种方式，在java Web开发中经常遇到。<br>GET用于请求服务器资源，POST用于更新服务器的某些资源。</p>
+<h3 id="具体查看">具体查看</h3><p>我们有页面表单<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">登陆系统</span><br><span class="line">&lt;<span class="keyword">form</span> action=<span class="string">"/test/HeroLogin"</span> method=<span class="string">"get"</span>&gt;</span><br><span class="line">	username: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"text"</span> name=<span class="string">"username"</span>&gt;&lt;<span class="keyword">br</span>&gt;</span><br><span class="line">	password: &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"password"</span> name=<span class="string">"password"</span>&gt;&lt;<span class="keyword">br</span>&gt; &lt;<span class="keyword">input</span></span><br><span class="line">		<span class="keyword">type</span>=<span class="string">"submit"</span> value=<span class="string">"submit"</span>&gt; &lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"reset"</span></span><br><span class="line">		value=<span class="string">"reset"</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">form</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <p>即</p>
 <blockquote>
 <p>登陆系统</p>
@@ -152,7 +153,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/25/HTTP协议GET与POST方式的区别/" data-title="HTTP协议GET与POST方式的区别 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/07/25/HTTP协议GET与POST方式的区别/" data-title="HTTP协议 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -192,7 +193,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体查看"><span class="toc-number">2.</span> <span class="toc-text">具体查看</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.1.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.2.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#长连接与短连接"><span class="toc-number">1.</span> <span class="toc-text">长连接与短连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get与post"><span class="toc-number">2.</span> <span class="toc-text">get与post</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#具体查看"><span class="toc-number">2.1.</span> <span class="toc-text">具体查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GET方式"><span class="toc-number">2.2.</span> <span class="toc-text">GET方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#POST方式"><span class="toc-number">2.3.</span> <span class="toc-text">POST方式</span></a></li></ol></li></ol>
  
   </div>
 
@@ -226,7 +227,7 @@
 		  
 		
 		  
-			<li><a href="/categories/网络/" title="网络">网络<sup>2</sup></a></li>
+			<li><a href="/categories/网络/" title="网络">网络<sup>3</sup></a></li>
 		  
 		
 		  
