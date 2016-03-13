@@ -25,7 +25,8 @@
 数字签名，将一些关键信息做数学运算，得出的串与源信息具有相同的效力又能隐藏">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/security01.JPG">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/cecurity02.JPG">
-<meta property="og:updated_time" content="2016-03-11T13:54:36.000Z">
+<meta property="og:image" content="http://www.liaoxuefeng.com/files/attachments/001399415038305edba53df7d784a7fa76c6b7f6526873b000">
+<meta property="og:updated_time" content="2016-03-13T17:32:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="加密系统及算法">
 <meta name="twitter:description" content="必要性
@@ -107,7 +108,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加解密模型"><span class="toc-number">2.1.</span> <span class="toc-text">加解密模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密码体制"><span class="toc-number">2.2.</span> <span class="toc-text">密码体制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公钥密码体制"><span class="toc-number">2.3.</span> <span class="toc-text">公钥密码体制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加密算法"><span class="toc-number">3.</span> <span class="toc-text">加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希算法"><span class="toc-number">3.1.</span> <span class="toc-text">哈希算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对称加密"><span class="toc-number">3.2.</span> <span class="toc-text">对称加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非对称加密"><span class="toc-number">3.3.</span> <span class="toc-text">非对称加密</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加解密模型"><span class="toc-number">2.1.</span> <span class="toc-text">加解密模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密码体制"><span class="toc-number">2.2.</span> <span class="toc-text">密码体制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公钥密码体制"><span class="toc-number">2.3.</span> <span class="toc-text">公钥密码体制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加密算法"><span class="toc-number">3.</span> <span class="toc-text">加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编码转换"><span class="toc-number">3.1.</span> <span class="toc-text">编码转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希算法"><span class="toc-number">3.2.</span> <span class="toc-text">哈希算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对称加密"><span class="toc-number">3.3.</span> <span class="toc-text">对称加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非对称加密"><span class="toc-number">3.4.</span> <span class="toc-text">非对称加密</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -115,6 +116,7 @@
 <li>通过互联网传输消息，存在三个风险：截获，篡改，冒充。为了保证数据能在互联网上安全的传输，可以使用一些加密算法传输前将数据加密，接受端再予以解密。</li>
 <li>用户的私密信息保存在数据库中并不安全，容易被维护的人或者其它的人通过非正常手段获取到。为了保证安全性，可以<code>根据特定的加密算法</code>将这些信息加密后存在库里，有必要时再予以解密。</li>
 <li>数字签名，将一些关键信息做数学运算，得出的串与源信息具有相同的效力又能隐藏原信息，如数据库中保存的MD5加密的密码。</li>
+<li>一些编码在某个传输系统中不能识别或不想明文传输，必须在发送前对编码做转换（如base64），也可以看成是一种加密方式。</li>
 </ol>
 <h2 id="概念">概念</h2><h3 id="加解密模型">加解密模型</h3><p>数据加密总一般要涉及到加密和解密，以网络传输为例，我们在一端以一种加密算法和秘钥加密，在另一端以一种解密算法和秘钥解密。</p>
 <p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/security01.JPG" alt=""></p>
@@ -125,7 +127,14 @@
 </ol>
 <h3 id="公钥密码体制">公钥密码体制</h3><p>公钥密码体制是一种广泛应用的非对称秘钥体制，其中加密秘钥是公开的，而解密密钥是需要保密的，机密算法和解密算也都是公开的。私钥是无法通过公钥推算出来的，同时公钥方加密的东西私钥方可以解密，私钥方加密的东西公钥方也可以解密出来，但公钥加密的东西不能用公钥来解密。</p>
 <p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/cecurity02.JPG" alt=""></p>
-<h2 id="加密算法">加密算法</h2><h3 id="哈希算法">哈希算法</h3><p>哈希算法是一种单向密码体制，它只支持从明文到密文的加密，没有解密过程。它可以将任意长度的输入经过变化以后得到固定长度的输出，一般用来验证数据的完整性。</p>
+<h2 id="加密算法">加密算法</h2><h3 id="编码转换">编码转换</h3><p><strong>base64</strong></p>
+<p>对于二进制数据在用HTTP协议传输时，一些编码需要做转换成能接受的字符集，此时可以使用base64。</p>
+<p>所谓的base64其实是找64个通用的字符，一般字母的大小写共52个，10个阿拉伯数字和<code>+</code>，<code>/</code>。对输入的字节数组每次取三个，一共24个比特，然后分割成四组，每组有6位，刚好有64种可能，与我们的字母表相对应。</p>
+<p><img src="http://www.liaoxuefeng.com/files/attachments/001399415038305edba53df7d784a7fa76c6b7f6526873b000" alt=""></p>
+<ol>
+<li>如果加密的数据长度不刚好是3的倍数，余下的为会用<code>0x00</code>来补，补了几位用几个<code>=</code>在密文末尾表示，解码时根据这个自动脱掉多加的<code>0x00</code>。<br>2.由于<code>+</code>和<code>/</code>在URL中也不能传输，有一种”url safe”的base64，将<code>+</code>和<code>/</code>替换为<code>-</code>和<code>_</code>。</li>
+</ol>
+<h3 id="哈希算法">哈希算法</h3><p>哈希算法是一种单向密码体制，它只支持从明文到密文的加密，没有解密过程。它可以将任意长度的输入经过变化以后得到固定长度的输出，一般用来验证数据的完整性。</p>
 <p><strong>MD5</strong></p>
 <p>MD5（Message-Digest Algorithm 5 信息-摘要算法），生成128位的散列值（32个十六进制数）。</p>
 <p><strong>SHA</strong></p>
@@ -138,8 +147,11 @@
 <li>速度：在相同的硬件上，SHA-1的运行速度比MD5慢。</li>
 </ol>
 <h3 id="对称加密">对称加密</h3><p>该加密算法可以用于将用户的敏感信息使用某种秘钥加密后存入库中，再在日后需要的时候解密。</p>
-<p><strong>AES</strong></p>
 <p><strong>DES</strong></p>
+<p>DES采用对称加密体制，加密和解密使用相同的秘钥，将64位的明文块，加密为64位的密文块。</p>
+<p>DES的安全性相对较低，后来提出3DES，即将一个明文用三个秘钥先后加密三次。</p>
+<p><strong>AES</strong></p>
+<p>DES算法的替代版，速度更快，安全性更高。</p>
 <h3 id="非对称加密">非对称加密</h3><p><strong>RSA</strong></p>
 <p><strong>DSA</strong></p>
   
@@ -194,7 +206,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加解密模型"><span class="toc-number">2.1.</span> <span class="toc-text">加解密模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密码体制"><span class="toc-number">2.2.</span> <span class="toc-text">密码体制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公钥密码体制"><span class="toc-number">2.3.</span> <span class="toc-text">公钥密码体制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加密算法"><span class="toc-number">3.</span> <span class="toc-text">加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希算法"><span class="toc-number">3.1.</span> <span class="toc-text">哈希算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对称加密"><span class="toc-number">3.2.</span> <span class="toc-text">对称加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非对称加密"><span class="toc-number">3.3.</span> <span class="toc-text">非对称加密</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#加解密模型"><span class="toc-number">2.1.</span> <span class="toc-text">加解密模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#密码体制"><span class="toc-number">2.2.</span> <span class="toc-text">密码体制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公钥密码体制"><span class="toc-number">2.3.</span> <span class="toc-text">公钥密码体制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加密算法"><span class="toc-number">3.</span> <span class="toc-text">加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编码转换"><span class="toc-number">3.1.</span> <span class="toc-text">编码转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希算法"><span class="toc-number">3.2.</span> <span class="toc-text">哈希算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对称加密"><span class="toc-number">3.3.</span> <span class="toc-text">对称加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非对称加密"><span class="toc-number">3.4.</span> <span class="toc-text">非对称加密</span></a></li></ol></li></ol>
  
   </div>
 
