@@ -41,7 +41,7 @@
 具有校验机制，一旦被">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/1451524219790.gif">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/6941baebjw1erta7ycyf8j215n0ridmj.jpg">
-<meta property="og:updated_time" content="2016-03-16T07:15:49.000Z">
+<meta property="og:updated_time" content="2016-03-16T07:50:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTPS协议">
 <meta name="twitter:description" content="The First Few Milliseconds of an HTTPS Connection
@@ -131,7 +131,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">3.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client_Hello"><span class="toc-number">3.1.</span> <span class="toc-text">Client Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server_Hello"><span class="toc-number">3.2.</span> <span class="toc-text">Server Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#证书检验"><span class="toc-number">3.3.</span> <span class="toc-text">证书检验</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">3.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client_Hello"><span class="toc-number">3.1.</span> <span class="toc-text">Client Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server_Hello"><span class="toc-number">3.2.</span> <span class="toc-text">Server Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#证书检验"><span class="toc-number">3.3.</span> <span class="toc-text">证书检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#秘钥协商"><span class="toc-number">3.4.</span> <span class="toc-text">秘钥协商</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -161,6 +161,17 @@
 <p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/6941baebjw1erta7ycyf8j215n0ridmj.jpg" alt=""></p>
 <p>到这里我们可以确信，网站发给我们的证书是可信，我们就这样拿到了网站的公钥，在浏览器中我们可以看到一把绿色的锁头。</p>
 <p><strong>注意</strong><br>需要注意的是，一般证书的都有有效期，一般为一年。因为根据公钥我们有可能计算出对应的私钥，如果一个公钥用得越久被破解的可能性就越大。</p>
+<h3 id="秘钥协商">秘钥协商</h3><p>一般需要使用一个随机数做为对称加密的秘钥，但是生成一个完全意义上的随机数是不可能的，而如果随机数不是随机的那么秘钥就并不安全。为了提高秘钥的安全性，SSL使用如下办法：</p>
+<ol>
+<li>Client Hello中生成一个随机数。</li>
+<li>Server Hello中生成一个随机数。</li>
+<li>浏览器端随机生成48字节的Pre-Master Secret。</li>
+<li>浏览器端根据上面的三个随机数生成最后的主秘钥Master Secret。</li>
+<li>浏览器端将Pre-Master Secret做哈希以及用公钥加密后，传给服务器端。</li>
+<li>服务器端解密，并做完整性校验，得到Pre-Master Secret，并按照相同规则生成Master Secret。</li>
+<li>这样两方都有了主秘钥Master Secret。</li>
+</ol>
+<p>秘钥协商结束后，所有的http报文会被SSL/TLS加密后交给TCP传输。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -210,7 +221,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">3.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client_Hello"><span class="toc-number">3.1.</span> <span class="toc-text">Client Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server_Hello"><span class="toc-number">3.2.</span> <span class="toc-text">Server Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#证书检验"><span class="toc-number">3.3.</span> <span class="toc-text">证书检验</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">3.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client_Hello"><span class="toc-number">3.1.</span> <span class="toc-text">Client Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server_Hello"><span class="toc-number">3.2.</span> <span class="toc-text">Server Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#证书检验"><span class="toc-number">3.3.</span> <span class="toc-text">证书检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#秘钥协商"><span class="toc-number">3.4.</span> <span class="toc-text">秘钥协商</span></a></li></ol></li></ol>
  
   </div>
 
