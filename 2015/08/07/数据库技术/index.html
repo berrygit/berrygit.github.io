@@ -27,7 +27,7 @@ ACID数据库事务正确执行的四个基本要素：
 
 原子性(Atomicity)：事务对数据的修改要么全部执行，要么全都不执行。
 一致性(Consistenc">
-<meta property="og:updated_time" content="2016-03-07T07:21:22.000Z">
+<meta property="og:updated_time" content="2016-03-22T11:42:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库技术">
 <meta name="twitter:description" content="数据库设计范式表关联主键关联，外键关联。
@@ -131,12 +131,20 @@ ACID数据库事务正确执行的四个基本要素：
 <li><code>不可重复读</code>：一个事务中，读了多次但每次读到的数据不一致。</li>
 <li><code>幻读</code>：一个事务去查询数据，每次返回数据的条数不一致。</li>
 </ol>
-<p><strong>四种锁：</strong></p>
+<p><strong>六种锁：</strong></p>
 <p>对数据库系统而言：</p>
 <ol>
-<li><code>排他锁</code>：只能被持有锁的事务读取和修改。<br>select,update,delete时数据库会自动上排他锁。</li>
-<li><code>共享锁</code>：可以被持有锁的事务读取，但不能修改，其它事务可以继续在该对象上加共享锁（所以叫共享），被加共享锁的对象不能被任何事务修改。</li>
+<li><code>排他锁</code>：又称写锁或X锁。若事务T对数据对象A加上X锁，事务T可以读A也可以修改A，其他事务不能再对A加任何锁，直到T释放A上的锁。这保证了其他事务在T释放A上的锁之前不能再读取和修改A。</li>
 </ol>
+<p>执行DML语句时可以获得排他锁，并且正在被修改的所有记录都会获得排他锁。在你启动的事务内，排他锁阻止其他用户获得正在处理的数据上的排他锁，直至执行COMMIT或ROLLBACK语句。这样，两个用户就无法同时更新相同的数据。某个用户试图更新被另一个用户锁定的数据时，第一个用户必须等待至去除排他锁后才能进行操作。SELECT语句对正在查询的数据不进行锁定。</p>
+<ol>
+<li><code>共享锁</code>：又称读锁或S锁，若事务T对数据对象A加上S锁，则事务T可以读A但不能修改A，其他事务只能再对A加S锁，而不能加X锁，直到T释放A上的S锁。这保证了其他事务可以读A，但在T释放A上的S锁之前不能对A做任何修改。</li>
+</ol>
+<p>执行SELECT语句时可以获得共享锁。Oracle通过锁定指定表来确保没有人能够在你使用表数据时修改该表的结构，但是，被查询的记录并没有进行锁定。共享锁无法阻止其他用户读取和修改表中的数据，只能阻止其他用户使用ALTER TABLE命令改变指定表的结构或用DROP TABLE命令删除指定表。多个用户可以同时获得相同数据上的共享锁。</p>
+<ol>
+<li>行锁和表锁</li>
+</ol>
+<p>有索引并且使用了该索引当条件的时候就是行锁，没有索引的时候就是表锁。</p>
 <p>对程序员而言：</p>
 <ol>
 <li><code>悲观锁</code>：每次读都对数据上锁，其它人不能操作，事务隔离性好。性能差，适合写多读少的场景。</li>
@@ -231,6 +239,10 @@ ACID数据库事务正确执行的四个基本要素：
 		
 		  
 			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
 		  
 		
 		  

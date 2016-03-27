@@ -12,33 +12,21 @@
 
     
     <meta name="description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符号向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，空位补零。
-类构造器
-类中如果没写构造器，编译器会自动提供一个默认构造器；类中如果提供了构造器，编译器将不会提供任何构造器。
-私有构造器可以使类及其子类无法被实例化，某些只提供静态成员的类需要这么做来防止无意义的实例化。
-
-初始化
-局部变量声明时就必须">
+访问控制类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。
+成员（域，方法，嵌套类，嵌套接口）有四种访问级别：私有，声明该成员的顶层类内部才能访问。包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA程序设计">
 <meta property="og:url" content="http://yoursite.com/2016/02/13/JAVA程序设计/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符号向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，空位补零。
-类构造器
-类中如果没写构造器，编译器会自动提供一个默认构造器；类中如果提供了构造器，编译器将不会提供任何构造器。
-私有构造器可以使类及其子类无法被实例化，某些只提供静态成员的类需要这么做来防止无意义的实例化。
-
-初始化
-局部变量声明时就必须">
-<meta property="og:updated_time" content="2016-03-07T07:24:10.000Z">
+访问控制类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。
+成员（域，方法，嵌套类，嵌套接口）有四种访问级别：私有，声明该成员的顶层类内部才能访问。包">
+<meta property="og:updated_time" content="2016-03-27T05:30:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA程序设计">
 <meta name="twitter:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符号向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，空位补零。
-类构造器
-类中如果没写构造器，编译器会自动提供一个默认构造器；类中如果提供了构造器，编译器将不会提供任何构造器。
-私有构造器可以使类及其子类无法被实例化，某些只提供静态成员的类需要这么做来防止无意义的实例化。
-
-初始化
-局部变量声明时就必须">
+访问控制类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。
+成员（域，方法，嵌套类，嵌套接口）有四种访问级别：私有，声明该成员的顶层类内部才能访问。包">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -114,11 +102,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">3.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">4.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">5.</span> <span class="toc-text">标记接口</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制"><span class="toc-number">2.</span> <span class="toc-text">访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">3.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">3.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">3.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">3.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">4.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">4.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">4.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">4.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">5.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">6.</span> <span class="toc-text">标记接口</span></a></li></ol>
 		
 		</div>
 		
 		<h2 id="基本运算">基本运算</h2><h3 id="移位">移位</h3><p><code>&lt;&lt;</code>向左移位，空位补零；<code>&gt;&gt;</code>有符号向右移位，正数空位补零，负数空位补1；<code>&gt;&gt;&gt;</code>无符号向右移位，空位补零。</p>
+<h2 id="访问控制">访问控制</h2><p>类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。</p>
+<p>成员（域，方法，嵌套类，嵌套接口）有四种访问级别：<br><code>私有</code>，声明该成员的顶层类内部才能访问。<br><code>包私有</code>，同一个包下。<br><code>受保护</code>，同一个包下或者它的子类。<br><code>公有</code>，任何地方。</p>
+<p>子类的成员的可访问性不能低于父类，保证里氏替换原则。</p>
 <h2 id="类">类</h2><h3 id="构造器">构造器</h3><ol>
 <li>类中如果没写构造器，编译器会自动提供一个默认构造器；类中如果提供了构造器，编译器将不会提供任何构造器。</li>
 <li>私有构造器可以使类及其子类无法被实例化，某些只提供静态成员的类需要这么做来防止无意义的实例化。</li>
@@ -226,7 +217,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">2.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">2.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">2.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">3.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">3.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">3.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">3.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">4.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">5.</span> <span class="toc-text">标记接口</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制"><span class="toc-number">2.</span> <span class="toc-text">访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">3.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">3.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">3.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">3.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">4.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">4.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">4.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">4.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">5.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">6.</span> <span class="toc-text">标记接口</span></a></li></ol>
  
   </div>
 
@@ -249,6 +240,10 @@
 		
 		  
 			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
 		  
 		
 		  

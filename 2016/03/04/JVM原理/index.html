@@ -26,7 +26,7 @@
 虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过Xss参数配置每个线程的最小内存。
 本地方法栈，为Native方法服务。也存在Stack">
 <meta property="og:image" content="http://my.csdn.net/uploads/201208/26/1345973537_4943.jpg">
-<meta property="og:updated_time" content="2016-03-09T07:48:54.000Z">
+<meta property="og:updated_time" content="2016-03-22T11:47:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM原理">
 <meta name="twitter:description" content="内存线程独自拥有：
@@ -158,6 +158,7 @@
 </ol>
 <h3 id="类加载器">类加载器</h3><p>类加载器每次要用到类时，首先查找该类是否已经加载，如果没加载调用父类加载器加载，如果父类加载不到再自己加载。所有父类的加载器，最后都会要调用<code>启动类加载器Bootstrap ClassLoader</code>（由C++实现，只会加载特定路径下的特定类文件）。可以定义自己的类加载器，一般通过继承实现，初始化时子类保持父类加载器的引用，加载时优先调用父类的加载器。</p>
 <p><img src="http://my.csdn.net/uploads/201208/26/1345973537_4943.jpg" alt="双亲委派模型"></p>
+<p>自定义类加载器，需要覆写<code>ClassLoader</code>类的<code>findClass</code>方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -233,6 +234,10 @@
 		
 		  
 			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
 		  
 		
 		  

@@ -4,23 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Servlet/JSP页面跳转问题 | Hexo</title>
+    <title>eclipse使用备忘 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="跳转方式在J2EE标准中Servlet/JSP页面可以相互跳转，也可以servlet向servlet跳转，jsp向jsp页面跳转，但跳转的方式只有两种：forward与sendRedirect。二者的区别是forward是将请求在服务器端直接提交给下一个页面，然后服务器给出最后响应；而sendRedirect是将下一个页面地址告诉浏览器，浏览器根据这个页面地址再去请求。这样对于浏览器端forwar">
+    <meta name="description" content="配置eclipse的启动文件需要与对应的配置文件同名，否则配置文件中的jvm等参数将不会被识别。如，启动文件为eclipse-java，那么对应的配置文件必须为eclipse-java.ini。
+-vm指定使用的虚拟机，如-vm/home/berry/develop/jdk1.7.0_80/jre/bin
+ubuntu配置eclipse到dash在路径/usr/share/applications">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Servlet/JSP页面跳转问题">
-<meta property="og:url" content="http://yoursite.com/2015/07/29/Servlet-Jsp页面跳转问题/index.html">
+<meta property="og:title" content="eclipse使用备忘">
+<meta property="og:url" content="http://yoursite.com/2016/03/27/eclipse使用备忘/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="跳转方式在J2EE标准中Servlet/JSP页面可以相互跳转，也可以servlet向servlet跳转，jsp向jsp页面跳转，但跳转的方式只有两种：forward与sendRedirect。二者的区别是forward是将请求在服务器端直接提交给下一个页面，然后服务器给出最后响应；而sendRedirect是将下一个页面地址告诉浏览器，浏览器根据这个页面地址再去请求。这样对于浏览器端forwar">
-<meta property="og:updated_time" content="2016-03-07T07:23:12.000Z">
+<meta property="og:description" content="配置eclipse的启动文件需要与对应的配置文件同名，否则配置文件中的jvm等参数将不会被识别。如，启动文件为eclipse-java，那么对应的配置文件必须为eclipse-java.ini。
+-vm指定使用的虚拟机，如-vm/home/berry/develop/jdk1.7.0_80/jre/bin
+ubuntu配置eclipse到dash在路径/usr/share/applications">
+<meta property="og:updated_time" content="2016-03-27T12:10:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Servlet/JSP页面跳转问题">
-<meta name="twitter:description" content="跳转方式在J2EE标准中Servlet/JSP页面可以相互跳转，也可以servlet向servlet跳转，jsp向jsp页面跳转，但跳转的方式只有两种：forward与sendRedirect。二者的区别是forward是将请求在服务器端直接提交给下一个页面，然后服务器给出最后响应；而sendRedirect是将下一个页面地址告诉浏览器，浏览器根据这个页面地址再去请求。这样对于浏览器端forwar">
+<meta name="twitter:title" content="eclipse使用备忘">
+<meta name="twitter:description" content="配置eclipse的启动文件需要与对应的配置文件同名，否则配置文件中的jvm等参数将不会被识别。如，启动文件为eclipse-java，那么对应的配置文件必须为eclipse-java.ini。
+-vm指定使用的虚拟机，如-vm/home/berry/develop/jdk1.7.0_80/jre/bin
+ubuntu配置eclipse到dash在路径/usr/share/applications">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -80,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/29/Servlet-Jsp页面跳转问题/" title="Servlet/JSP页面跳转问题" itemprop="url">Servlet/JSP页面跳转问题</a>
+      <a href="/2016/03/27/eclipse使用备忘/" title="eclipse使用备忘" itemprop="url">eclipse使用备忘</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-29T04:26:05.000Z" itemprop="datePublished"> 發表於 2015-07-29</time>
+    <time datetime="2016-03-27T11:59:45.000Z" itemprop="datePublished"> 發表於 2016-03-27</time>
     
   </p>
 </header>
@@ -96,15 +102,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转方式"><span class="toc-number">1.</span> <span class="toc-text">跳转方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体实现"><span class="toc-number">2.</span> <span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp跳转"><span class="toc-number">2.1.</span> <span class="toc-text">jsp跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#servlet跳转"><span class="toc-number">2.2.</span> <span class="toc-text">servlet跳转</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">2.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="跳转方式">跳转方式</h2><p>在J2EE标准中Servlet/JSP页面可以相互跳转，也可以servlet向servlet跳转，jsp向jsp页面跳转，但跳转的方式只有两种：<code>forward</code>与<code>sendRedirect</code>。二者的区别是forward是将请求在服务器端直接提交给下一个页面，然后服务器给出最后响应；而sendRedirect是将下一个页面地址告诉浏览器，浏览器根据这个页面地址再去请求。这样对于浏览器端forward方式只提交一次请求，获得一次响应；而sendRedirect方式，浏览器端提交两次请求，得到两次响应。更直观的感受是forward方式，浏览器的地址栏URL一直不变，一直是自己最先输入的地址；而sendRedirect方式，浏览器的地址栏显示的是最后页面的地址路径，跟最开始输入的是不同的。</p>
-<h2 id="具体实现">具体实现</h2><h3 id="jsp跳转">jsp跳转</h3><p>forward方式（地址可以随意填写，所以跳转到jsp和servlet都很容易）。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">jsp:forward</span> <span class="attribute">page</span>=<span class="value">"/WEB-INF/index.html"</span>&gt;</span><span class="tag">&lt;/<span class="title">jsp:forward</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>sendRedirect方式，通过jsp内置对象response。<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="variable">%response</span>.sendRedirect(<span class="string">"/WEB-INF/index.html"</span>); <span class="variable">%&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="servlet跳转">servlet跳转</h3><p>forward方式<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getServletConfig<span class="params">()</span>.getServletContext<span class="params">()</span></span><br><span class="line">		.getRequestDispatcher<span class="params">(<span class="string">"/test/login"</span>)</span>.forward<span class="params">(req, resp)</span>;</span><br></pre></td></tr></table></figure></p>
-<p>sendRedirect方式<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resp.sendRedirect<span class="params">(<span class="string">"/WEB-INF/result/fail.jsp"</span>)</span>;</span><br></pre></td></tr></table></figure></p>
+		<h2 id="配置">配置</h2><p>eclipse的启动文件需要与对应的配置文件同名，否则配置文件中的jvm等参数将不会被识别。如，启动文件为eclipse-java，那么对应的配置文件必须为<code>eclipse-java.ini</code>。</p>
+<p><strong>-vm</strong><br>指定使用的虚拟机，如<br>-vm<br>/home/berry/develop/jdk1.7.0_80/jre/bin</p>
+<h2 id="ubuntu配置eclipse到dash">ubuntu配置eclipse到dash</h2><p>在路径<code>/usr/share/applications</code>新建eclipse.desktop文件，添加如下内容：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[Desktop Entry]</span></span><br><span class="line"><span class="setting">Name=<span class="value">eclipse</span></span></span><br><span class="line"><span class="setting">Comment=<span class="value">java project manage software</span></span></span><br><span class="line"><span class="setting">Exec=<span class="value">/home/berry/develop/eclipse/eclipse</span></span></span><br><span class="line"><span class="setting">Icon=<span class="value">/home/berry/develop/eclipse/icon.xpm</span></span></span><br><span class="line"><span class="setting">Terminal=<span class="value"><span class="keyword">false</span></span></span></span><br><span class="line"><span class="setting">Type=<span class="value">Application</span></span></span><br><span class="line"><span class="setting">Categories=<span class="value">GNOME;GTK;Office;Eclipse</span></span></span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -112,7 +116,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/J2EE/">J2EE</a>
+  <a class="article-category-link" href="/categories/工具/">工具</a>
 </div>
 
 
@@ -122,7 +126,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/07/29/Servlet-Jsp页面跳转问题/" data-title="Servlet/JSP页面跳转问题 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/27/eclipse使用备忘/" data-title="eclipse使用备忘 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +139,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/07/29/网站开发中文乱码问题/" title="网站开发中文乱码问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  网站开发中文乱码问题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/07/28/cookie,session与application/"  title="cookie，session与application">
+<a href="/2016/03/12/HTTPS协议/"  title="HTTPS协议">
  <strong>下一篇：</strong><br/> 
- <span>cookie，session与application
+ <span>HTTPS协议
 </span>
 </a>
 </div>
@@ -162,7 +158,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转方式"><span class="toc-number">1.</span> <span class="toc-text">跳转方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体实现"><span class="toc-number">2.</span> <span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jsp跳转"><span class="toc-number">2.1.</span> <span class="toc-text">jsp跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#servlet跳转"><span class="toc-number">2.2.</span> <span class="toc-text">servlet跳转</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">2.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a></li></ol>
  
   </div>
 
