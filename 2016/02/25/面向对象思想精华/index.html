@@ -11,22 +11,31 @@
     
 
     
-    <meta name="description" content="组合优于继承
-使用继承时要满足里氏替换原则。
-不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。">
+    <meta name="description" content="代码重用组合和继承是实现代码重用的两种方式。
+继承继承的意义在于当多个实现中部分实现是公共的，我们可以把他提取为基类从而写出更精简的代码。
+使用继承时要满足里氏替换原则（子类必须能够通过父类的接口被使用，且使用者无须了解两者之间的差异），即子类和父类提供的是相同语义上的功能，而不是提供了额外的功能。
+组合优于继承
+继承破坏封装，父类中方法的变更会影响到子类的实现。
+不完善的继承会导致扩展类时，覆写">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象思想精华">
 <meta property="og:url" content="http://yoursite.com/2016/02/25/面向对象思想精华/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="组合优于继承
-使用继承时要满足里氏替换原则。
-不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。">
-<meta property="og:updated_time" content="2016-03-07T07:21:33.000Z">
+<meta property="og:description" content="代码重用组合和继承是实现代码重用的两种方式。
+继承继承的意义在于当多个实现中部分实现是公共的，我们可以把他提取为基类从而写出更精简的代码。
+使用继承时要满足里氏替换原则（子类必须能够通过父类的接口被使用，且使用者无须了解两者之间的差异），即子类和父类提供的是相同语义上的功能，而不是提供了额外的功能。
+组合优于继承
+继承破坏封装，父类中方法的变更会影响到子类的实现。
+不完善的继承会导致扩展类时，覆写">
+<meta property="og:updated_time" content="2016-04-01T03:31:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象思想精华">
-<meta name="twitter:description" content="组合优于继承
-使用继承时要满足里氏替换原则。
-不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。">
+<meta name="twitter:description" content="代码重用组合和继承是实现代码重用的两种方式。
+继承继承的意义在于当多个实现中部分实现是公共的，我们可以把他提取为基类从而写出更精简的代码。
+使用继承时要满足里氏替换原则（子类必须能够通过父类的接口被使用，且使用者无须了解两者之间的差异），即子类和父类提供的是相同语义上的功能，而不是提供了额外的功能。
+组合优于继承
+继承破坏封装，父类中方法的变更会影响到子类的实现。
+不完善的继承会导致扩展类时，覆写">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -102,12 +111,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合优于继承"><span class="toc-number">1.</span> <span class="toc-text">组合优于继承</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码重用"><span class="toc-number">1.</span> <span class="toc-text">代码重用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">1.1.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合优于继承"><span class="toc-number">1.2.</span> <span class="toc-text">组合优于继承</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="组合优于继承">组合优于继承</h2><ol>
-<li>使用继承时要满足里氏替换原则。</li>
+		<h2 id="代码重用">代码重用</h2><p>组合和继承是实现代码重用的两种方式。</p>
+<h3 id="继承">继承</h3><p>继承的意义在于当多个实现中部分实现是公共的，我们可以把他提取为基类从而写出更精简的代码。</p>
+<p>使用继承时要满足里氏替换原则（子类必须能够通过父类的接口被使用，且使用者无须了解两者之间的差异），即子类和父类提供的是相同语义上的功能，而不是提供了额外的功能。</p>
+<h3 id="组合优于继承">组合优于继承</h3><ol>
+<li>继承破坏封装，父类中方法的变更会影响到子类的实现。</li>
 <li>不完善的继承会导致扩展类时，覆写的equals方法很难满足对称性和传递性。</li>
 </ol>
   
@@ -162,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#组合优于继承"><span class="toc-number">1.</span> <span class="toc-text">组合优于继承</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码重用"><span class="toc-number">1.</span> <span class="toc-text">代码重用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#继承"><span class="toc-number">1.1.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合优于继承"><span class="toc-number">1.2.</span> <span class="toc-text">组合优于继承</span></a></li></ol></li></ol>
  
   </div>
 

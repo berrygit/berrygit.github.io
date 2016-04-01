@@ -11,25 +11,22 @@
     
 
     
-    <meta name="description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多个任务同时进行；降低编程的复杂度。
+    <meta name="description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
-java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
-实现方式继承Run">
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java特性之并发">
 <meta property="og:url" content="http://yoursite.com/2016/03/04/Java特性之并发/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多个任务同时进行；降低编程的复杂度。
+<meta property="og:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
-java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
-实现方式继承Run">
-<meta property="og:updated_time" content="2016-03-08T08:52:03.000Z">
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对">
+<meta property="og:updated_time" content="2016-03-30T08:03:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java特性之并发">
-<meta name="twitter:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多个任务同时进行；降低编程的复杂度。
+<meta name="twitter:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
-java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
-实现方式继承Run">
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -105,11 +102,11 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#竞争"><span class="toc-number">4.</span> <span class="toc-text">竞争</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">4.2.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock对象"><span class="toc-number">4.3.</span> <span class="toc-text">lock对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">5.</span> <span class="toc-text">同步</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#竞争"><span class="toc-number">4.</span> <span class="toc-text">竞争</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">4.2.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock对象"><span class="toc-number">4.3.</span> <span class="toc-text">lock对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">5.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信"><span class="toc-number">6.</span> <span class="toc-text">进程通信</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p><strong>并发必要性：</strong><br>CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多个任务同时进行；降低编程的复杂度。</p>
+		<h2 id="概念">概念</h2><p><strong>并发必要性：</strong><br>CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。</p>
 <p>并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。</p>
 <p>java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。</p>
 <h2 id="实现方式">实现方式</h2><p>继承<code>Runnable</code>接口，覆写<code>run()</code>方法，实现给接口的方法意味着可以以多线程运行，且入口为run方法。</p>
@@ -135,6 +132,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
 <h3 id="lock对象">lock对象</h3><p>一些特殊情况可以考虑lock对象锁，这种锁可以给我们更大的控制权，在锁不可达时不必一直阻塞，可以做其它工作。</p>
 <h2 id="同步">同步</h2><p>当多个线程同步协作时需要相互配合，使用锁的方式虽然可以解决竞争，但锁会让其它等待线程阻塞，更理想的方式是使用wait和notify，wait只是让线程暂停不会让线程阻塞。</p>
 <p>wait方法会释放当前线程锁占用的锁，并且到当前锁对象的等待队列中等待；notify会通知等待队列中的第一个线程，notifyAll会通知所有线程，当线程被唤醒后从wait方法部分继续向下执行。</p>
+<h2 id="进程通信">进程通信</h2><p>套接字（sockets），共享内存，信号量，共享文件。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -192,7 +190,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#竞争"><span class="toc-number">4.</span> <span class="toc-text">竞争</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">4.2.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock对象"><span class="toc-number">4.3.</span> <span class="toc-text">lock对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">5.</span> <span class="toc-text">同步</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">3.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#竞争"><span class="toc-number">4.</span> <span class="toc-text">竞争</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">4.2.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock对象"><span class="toc-number">4.3.</span> <span class="toc-text">lock对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">5.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信"><span class="toc-number">6.</span> <span class="toc-text">进程通信</span></a></li></ol>
  
   </div>
 

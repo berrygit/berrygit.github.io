@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/03/27/ubuntu使用备忘/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ubuntu配置eclipse到dash在路径/usr/share/applications新建eclipse.desktop文件，添加如下内容：12345678[Desktop Entry]Name=eclipseComment=java project manage softwareExec=/home/berry/develop/eclipse/eclipseIcon=/home/berry">
-<meta property="og:updated_time" content="2016-03-27T13:03:40.000Z">
+<meta property="og:updated_time" content="2016-03-29T03:49:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu使用备忘">
 <meta name="twitter:description" content="ubuntu配置eclipse到dash在路径/usr/share/applications新建eclipse.desktop文件，添加如下内容：12345678[Desktop Entry]Name=eclipseComment=java project manage softwareExec=/home/berry/develop/eclipse/eclipseIcon=/home/berry">
@@ -96,12 +96,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh登陆"><span class="toc-number">2.1.</span> <span class="toc-text">ssh登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程传输"><span class="toc-number">2.2.</span> <span class="toc-text">远程传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户"><span class="toc-number">3.</span> <span class="toc-text">添加用户</span></a></li></ol>
 		
 		</div>
 		
 		<h2 id="ubuntu配置eclipse到dash">ubuntu配置eclipse到dash</h2><p>在路径<code>/usr/share/applications</code>新建eclipse.desktop文件，添加如下内容：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[Desktop Entry]</span></span><br><span class="line"><span class="setting">Name=<span class="value">eclipse</span></span></span><br><span class="line"><span class="setting">Comment=<span class="value">java project manage software</span></span></span><br><span class="line"><span class="setting">Exec=<span class="value">/home/berry/develop/eclipse/eclipse</span></span></span><br><span class="line"><span class="setting">Icon=<span class="value">/home/berry/develop/eclipse/icon.xpm</span></span></span><br><span class="line"><span class="setting">Terminal=<span class="value"><span class="keyword">false</span></span></span></span><br><span class="line"><span class="setting">Type=<span class="value">Application</span></span></span><br><span class="line"><span class="setting">Categories=<span class="value">GNOME;GTK;Office;Eclipse</span></span></span><br></pre></td></tr></table></figure></p>
 <h3 id="清除dash下顽固图标">清除dash下顽固图标</h3><p>将~/.local/share/applications/目录下相关*.desktop文件删除。</p>
+<h2 id="远程操作">远程操作</h2><h3 id="ssh登陆">ssh登陆</h3><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -l <span class="literal">root</span> <span class="literal">ip</span></span><br></pre></td></tr></table></figure>
+<p>参数l指定用户。</p>
+<h3 id="远程传输">远程传输</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /home/daisy/full.tar.gz root<span class="variable">@172</span>.<span class="number">19.2</span>.<span class="number">75</span><span class="symbol">:/home/root</span></span><br></pre></td></tr></table></figure>
+<p>scp指定本地文件，远程用户@IP：远程路径</p>
+<h2 id="添加用户">添加用户</h2><p>不要使用<code>useradd</code>，这个命令只创建用户，不生成主文件夹，也不初始化密码，使用<code>adduser</code>命令会做所有的事。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -159,7 +164,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh登陆"><span class="toc-number">2.1.</span> <span class="toc-text">ssh登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程传输"><span class="toc-number">2.2.</span> <span class="toc-text">远程传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户"><span class="toc-number">3.</span> <span class="toc-text">添加用户</span></a></li></ol>
  
   </div>
 
