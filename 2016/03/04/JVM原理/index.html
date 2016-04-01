@@ -13,27 +13,31 @@
     
     <meta name="description" content="内存线程独自拥有：
 
+
 程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。
 虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过Xss参数配置每个线程的最小内存。
-本地方法栈，为Native方法服务。也存在Stack">
+本地方法栈，为Native方法服务。也存在Stac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM原理">
 <meta property="og:url" content="http://yoursite.com/2016/03/04/JVM原理/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="内存线程独自拥有：
 
+
 程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。
 虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过Xss参数配置每个线程的最小内存。
-本地方法栈，为Native方法服务。也存在Stack">
+本地方法栈，为Native方法服务。也存在Stac">
+<meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/201208212311259458.png">
 <meta property="og:image" content="http://my.csdn.net/uploads/201208/26/1345973537_4943.jpg">
-<meta property="og:updated_time" content="2016-03-22T11:47:16.000Z">
+<meta property="og:updated_time" content="2016-04-01T06:34:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM原理">
 <meta name="twitter:description" content="内存线程独自拥有：
 
+
 程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。
 虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过Xss参数配置每个线程的最小内存。
-本地方法栈，为Native方法服务。也存在Stack">
+本地方法栈，为Native方法服务。也存在Stac">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -114,6 +118,7 @@
 		</div>
 		
 		<h2 id="内存">内存</h2><p><strong>线程独自拥有：</strong></p>
+<p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/201208212311259458.png" alt=""></p>
 <ol>
 <li>程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。</li>
 <li>虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在<code>StackOverflowError</code>和<code>OutOfMemoryError</code>异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过<code>Xss</code>参数配置每个线程的最小内存。</li>
