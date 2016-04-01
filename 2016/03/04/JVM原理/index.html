@@ -29,7 +29,7 @@
 虚拟机栈，线程中每个方法都会对应一个栈帧，方法的执行就是对应方法中的数据在栈内存中入栈和出栈的过程。存在StackOverflowError">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/201208212311259458.png">
 <meta property="og:image" content="http://my.csdn.net/uploads/201208/26/1345973537_4943.jpg">
-<meta property="og:updated_time" content="2016-04-01T11:49:40.000Z">
+<meta property="og:updated_time" content="2016-04-01T12:28:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM原理">
 <meta name="twitter:description" content="内存内存溢出：想要申请内存空间，但系统没有能够满足的空闲内存，会发生内存溢出。内存泄漏：分配了内存空间，但永远无法释放，大量发生内存泄漏最终导致内存溢出。
@@ -150,7 +150,7 @@
 </ol>
 <p><strong>分代回收策略</strong><br>JVM对堆内存使用分代回收的策略。对于生命周期比较短的新生代，由于每次收集时只有少数的对象可以存活，复制代价低，所以可以使用复制算法；对于生命周期较长的老年代，由于对象存活时间久不经常需要回收，使用标记-清理或者标记-整理方法。</p>
 <h3 id="方法区回收">方法区回收</h3><p><strong>字面常量回收</strong><br>如果一个字面常量没有被任何对象引用，在有必要的时刻予以回收。</p>
-<p><strong>类卸载</strong><br>需要同时满足一下三个条件才<code>可以</code>被卸载：</p>
+<p><strong>类卸载</strong><br>需要同时满足以下三个条件才<code>可以</code>被卸载：</p>
 <ol>
 <li>类的所有对象都被回收。</li>
 <li>类对应的加载器已经被回收。</li>
@@ -166,8 +166,8 @@
 </li>
 </ol>
 <h3 id="加载过程">加载过程</h3><ol>
-<li><code>加载</code>，使用<code>ClassLoader</code>加载类的字节码流，分配静态数据的方法区数据结构，在堆内存中放一个该类的Class类型的对象，作为方法区数据的入口。</li>
-<li><code>链接</code>，包括对字节码流的验证，防止不符合规范的代码被执行（java安全机制的重要内容），为静态变量赋初值。</li>
+<li><code>加载</code>，使用<code>ClassLoader</code>加载类的字节码流；分配静态数据的方法区数据结构；在方法区内存中放一个该类的Class类型的对象，作为方法区相关数据的入口。</li>
+<li><code>链接</code>，包括对字节码流的验证，防止不符合规范的代码被执行（java安全机制的重要内容），为静态变量赋初值，解析（如将符号引用转换为直接引用）。</li>
 <li><code>初始化</code>，初始化类变量。</li>
 </ol>
 <h3 id="类加载器">类加载器</h3><p>类加载器每次要用到类时，首先查找该类是否已经加载，如果没加载调用父类加载器加载，如果父类加载不到再自己加载。所有父类的加载器，最后都会要调用<code>启动类加载器Bootstrap ClassLoader</code>（由C++实现，只会加载特定路径下的特定类文件）。可以定义自己的类加载器，一般通过继承实现，初始化时子类保持父类加载器的引用，加载时优先调用父类的加载器。</p>
