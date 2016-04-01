@@ -4,58 +4,50 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>HTTPS协议 | Hexo</title>
+    <title>JVM问题定位思路 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
     
 
     
-    <meta name="description" content="The First Few Milliseconds of an HTTPS Connection
-关于HTTPS协议非常详细的一篇文章，有兴趣可以详细读读，本文只对HTTPS流程做总结。
-必要性http通信通常有三种风险：
+    <meta name="description" content="内存溢出
+确定是哪个区域的内存溢出。
+确定是内存溢出还是内存泄漏。如果是内存泄漏，查看调用链是那个地方导致内存没有释放；如果是内存溢出，查看是否需要加大内存容量，是否某些对象的生存周期过长。
 
-窃听风险。
-篡改风险，如网页中被植入的广告。
-冒充风险。
+CPU占用率高
+使用top命令查看，是哪个进程的cpu使用率高。
+查看是该进程中哪个线程的cpu使用率高。
+ 1top -H -p进程号
 
-于是SSL/TSL相应就采取了如下3种措施来防范这些风险：
-
-所有信息加密传播，防止窃听。
-具有校验机制，一旦被">
+根据线程号，查看线程dump中对应线程的哪个方法过多的使用了cpu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTPS协议">
-<meta property="og:url" content="http://yoursite.com/2016/03/12/HTTPS协议/index.html">
+<meta property="og:title" content="JVM问题定位思路">
+<meta property="og:url" content="http://yoursite.com/2016/04/01/JVM问题定位思路/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="The First Few Milliseconds of an HTTPS Connection
-关于HTTPS协议非常详细的一篇文章，有兴趣可以详细读读，本文只对HTTPS流程做总结。
-必要性http通信通常有三种风险：
+<meta property="og:description" content="内存溢出
+确定是哪个区域的内存溢出。
+确定是内存溢出还是内存泄漏。如果是内存泄漏，查看调用链是那个地方导致内存没有释放；如果是内存溢出，查看是否需要加大内存容量，是否某些对象的生存周期过长。
 
-窃听风险。
-篡改风险，如网页中被植入的广告。
-冒充风险。
+CPU占用率高
+使用top命令查看，是哪个进程的cpu使用率高。
+查看是该进程中哪个线程的cpu使用率高。
+ 1top -H -p进程号
 
-于是SSL/TSL相应就采取了如下3种措施来防范这些风险：
-
-所有信息加密传播，防止窃听。
-具有校验机制，一旦被">
-<meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/1451524219790.gif">
-<meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/6941baebjw1erta7ycyf8j215n0ridmj.jpg">
-<meta property="og:updated_time" content="2016-03-16T07:59:02.000Z">
+根据线程号，查看线程dump中对应线程的哪个方法过多的使用了cpu">
+<meta property="og:updated_time" content="2016-04-01T11:49:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTPS协议">
-<meta name="twitter:description" content="The First Few Milliseconds of an HTTPS Connection
-关于HTTPS协议非常详细的一篇文章，有兴趣可以详细读读，本文只对HTTPS流程做总结。
-必要性http通信通常有三种风险：
+<meta name="twitter:title" content="JVM问题定位思路">
+<meta name="twitter:description" content="内存溢出
+确定是哪个区域的内存溢出。
+确定是内存溢出还是内存泄漏。如果是内存泄漏，查看调用链是那个地方导致内存没有释放；如果是内存溢出，查看是否需要加大内存容量，是否某些对象的生存周期过长。
 
-窃听风险。
-篡改风险，如网页中被植入的广告。
-冒充风险。
+CPU占用率高
+使用top命令查看，是哪个进程的cpu使用率高。
+查看是该进程中哪个线程的cpu使用率高。
+ 1top -H -p进程号
 
-于是SSL/TSL相应就采取了如下3种措施来防范这些风险：
-
-所有信息加密传播，防止窃听。
-具有校验机制，一旦被">
+根据线程号，查看线程dump中对应线程的哪个方法过多的使用了cpu">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -115,14 +107,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/12/HTTPS协议/" title="HTTPS协议" itemprop="url">HTTPS协议</a>
+      <a href="/2016/04/01/JVM问题定位思路/" title="JVM问题定位思路" itemprop="url">JVM问题定位思路</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Berry" target="_blank" itemprop="author">Berry</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-12T06:57:25.000Z" itemprop="datePublished"> 發表於 2016-03-12</time>
+    <time datetime="2016-04-01T08:00:39.000Z" itemprop="datePublished"> 發表於 2016-04-01</time>
     
   </p>
 </header>
@@ -131,56 +123,26 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">3.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client_Hello"><span class="toc-number">3.1.</span> <span class="toc-text">Client Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server_Hello"><span class="toc-number">3.2.</span> <span class="toc-text">Server Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#证书检验"><span class="toc-number">3.3.</span> <span class="toc-text">证书检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#秘钥协商"><span class="toc-number">3.4.</span> <span class="toc-text">秘钥协商</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存溢出"><span class="toc-number">1.</span> <span class="toc-text">内存溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU占用率高"><span class="toc-number">2.</span> <span class="toc-text">CPU占用率高</span></a></li></ol>
 		
 		</div>
 		
-		<p><a href="http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html" target="_blank" rel="external">The First Few Milliseconds of an HTTPS Connection</a></p>
-<p>关于HTTPS协议非常详细的一篇文章，有兴趣可以详细读读，本文只对HTTPS流程做总结。</p>
-<h2 id="必要性">必要性</h2><p><strong>http通信通常有三种风险：</strong></p>
-<ol>
-<li>窃听风险。</li>
-<li>篡改风险，如网页中被植入的广告。</li>
-<li>冒充风险。</li>
+		<h2 id="内存溢出">内存溢出</h2><ol>
+<li>确定是哪个区域的内存溢出。</li>
+<li>确定是内存溢出还是内存泄漏。如果是内存泄漏，查看调用链是那个地方导致内存没有释放；如果是内存溢出，查看是否需要加大内存容量，是否某些对象的生存周期过长。</li>
 </ol>
-<p>于是SSL/TSL相应就采取了如下3种措施来防范这些风险：</p>
-<ol>
-<li>所有信息加密传播，防止窃听。</li>
-<li>具有校验机制，一旦被篡改通信双方会立刻发现。</li>
-<li>配备证书机制，防止身份被冒充。</li>
+<h2 id="CPU占用率高">CPU占用率高</h2><ol>
+<li>使用top命令查看，是哪个进程的cpu使用率高。</li>
+<li><p>查看是该进程中哪个线程的cpu使用率高。</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">top</span> -H -p进程号</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据线程号，查看线程dump中对应线程的哪个方法过多的使用了cpu。</p>
+</li>
 </ol>
-<h2 id="原理">原理</h2><p>要解释HTTPS协议，首先看一张图，可谓一图胜千言！</p>
-<p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/1451524219790.gif" alt=""></p>
-<p>在传统的HTTP与TCP层之间加上TLS/SSL协议，该协议负责将明文报文加密后交给TCP层传输然后接收端解密后给HTTP层，这样在网络中传输都是密文，从而提高安全性。该协议属于会话层，对应用层透明。SSL（Secure Cockets Layer 安全套接层）由网景公司设计，IETF把SSL标准化后改名为TLS（Transport Layer Security 传输层安全协议），所以这两者其实是同一个东西的不同阶段。</p>
-<h2 id="流程">流程</h2><p>首先，浏览器访问https协议的网址会默认访问443端口。在正常的HTTPS协议传输前，会使用TLS/SSL协议与服务器协商待传输HTTPS协议报文的加密方式及具体使用SSL/TLS协议的版本号，使得两方都有对称加密算法的秘钥。一旦协商完成，以后的HTTPS报文便直接加密后交给TCP协议传输。</p>
-<h3 id="Client_Hello">Client Hello</h3><p>浏览器向服务器发起握手请求，在这一阶段发送的报文主要是浏览器方与服务器方确认SSL/TLS协议的版本号以及浏览器方所支持的加密方式的组合，提交给服务端，服务端选择一种加密方式的组合。这里的加密方式一共有三个，首先是对称加密用来加解密以后用来传输HTTP报文的加密算法；其次是用来加密提交给服务器的对称加密的秘钥的非对称加密算法；最后是用来校验传输过程中数据完整性的哈希算法。由于非对称加密需要较大的计算开销，所以使用对称加密方式加密待传输的报文，用非对称加密来加密较短的对称加密的秘钥，即保证安全性，也兼顾性能开销。</p>
-<h3 id="Server_Hello">Server Hello</h3><p>服务端回复浏览器的握手请求，返回对SSL/TLS协议的版本号的确认，以及一种加密方式的组合，同时返回sessionID可以让下次有HTTPS传输时不用再次做昂贵的握手，服务器方也会把自己的证书发给浏览器方。</p>
-<h3 id="证书检验">证书检验</h3><p>对于服务端发来的证书我们去校验它的合法性，一是要保证发来的证书在传输过程中没有被人串改，另外也要保证发来的证书是可信的。那么如何验证？</p>
-<p>这里要涉及到CA证书的<code>信任链</code>以及<code>数字签名</code>。首先对于一个陌生的网站我们无从知晓它是否可信，那么我们就去找一些值得信任的机构，如果陌生网站想要被人信任就去信任机构注册，由信任机构去保证这些网站的可信。信任机构在审核网站的注册请求后，会给这些网站发布一个凭证，这个凭证就是证书。有了证书后，这个网站就是可以被信任的，同时他可以发布自己的信任的网站了，这就是个<code>信任链</code>。</p>
-<p>每次我们使用HTTPS协议的时候，服务器会把这个证书发给我们。那么下面的问题就是如何确定服务器发来的证书是可信的，而不是任意一个人随意生成的。这里涉及到一个<code>数字签名</code>的问题，首先作为信任机构它们生成了自己的根证书，这些根证书在浏览器软件的发布公司默认的放置一些，也可以自己在浏览器中安装（如12306），根证书中有信任机构公钥，这样我们在浏览器端已经有了信任机构的公钥。服务器端如果是正规的证书，是不能自己生成的，它需要网站的相关人员去信任机构注册，信任机构根据你提交的信息，生成证书并对证书做一个哈希算法，生成证书的指纹，同时它用自己的私钥对指纹加密生成签名。<br>神奇的事情就在这里发生，注册好的证书是一个文件，有信任机构的私钥生成的签名，同时证书中记载着哈希算法和签名算法的具体信息。当用户访问网站，网站把证书交给浏览器，浏览器看到证书里的签名算法描述，先用哈希算法对证书生成指纹，同时根据证书中记载的信任机构信息，找到信任机构的公钥，对签名用公钥解密，这样如果解密后的签名与我们自己计算的签名值一致。我们可以确定：1.该证书不是某个人随意生成的，而是信任机构审核过的，证书里的信息真实可信；2.证书在传输过程中没有被人串改。</p>
-<p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/6941baebjw1erta7ycyf8j215n0ridmj.jpg" alt=""></p>
-<p>到这里我们可以确信，网站发给我们的证书是可信，我们就这样拿到了网站的公钥，在浏览器中我们可以看到一把绿色的锁头。</p>
-<p><strong>注意</strong><br>需要注意的是，一般证书的都有有效期，一般为一年。因为根据公钥我们有可能计算出对应的私钥，如果一个公钥用得越久被破解的可能性就越大。</p>
-<h3 id="秘钥协商">秘钥协商</h3><p>一般需要使用一个随机数做为对称加密的秘钥，但是生成一个完全意义上的随机数是不可能的，而如果随机数不是随机的那么秘钥就并不安全。为了提高秘钥的安全性，SSL使用如下办法：</p>
-<ol>
-<li>Client Hello中生成一个随机数。</li>
-<li>Server Hello中生成一个随机数。</li>
-<li>浏览器端随机生成48字节的Pre-Master Secret。</li>
-<li>浏览器端根据上面的三个随机数生成最后的主秘钥Master Secret。</li>
-<li>浏览器端将Pre-Master Secret做哈希以及用公钥加密后，传给服务器端。</li>
-<li>服务器端解密，并做完整性校验，得到Pre-Master Secret，并按照相同规则生成Master Secret。</li>
-<li>这样两方都有了主秘钥Master Secret。</li>
-</ol>
-<p>秘钥协商结束后，所有的http报文会被SSL/TLS加密后交给TCP传输。可以理解为原来的http报文，变为TLS的版本号+加密后的报文+校验码。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/网络/">网络</a>
-</div>
 
 
 </div>
@@ -189,7 +151,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/12/HTTPS协议/" data-title="HTTPS协议 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/04/01/JVM问题定位思路/" data-title="JVM问题定位思路 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -202,19 +164,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/04/01/JVM问题定位思路/" title="JVM问题定位思路">
-  <strong>上一篇：</strong><br/>
-  <span>
-  JVM问题定位思路</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/03/11/加密系统及算法/"  title="加密系统及算法">
+<a href="/2016/03/12/HTTPS协议/"  title="HTTPS协议">
  <strong>下一篇：</strong><br/> 
- <span>加密系统及算法
+ <span>HTTPS协议
 </span>
 </a>
 </div>
@@ -229,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#必要性"><span class="toc-number">1.</span> <span class="toc-text">必要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">3.</span> <span class="toc-text">流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Client_Hello"><span class="toc-number">3.1.</span> <span class="toc-text">Client Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Server_Hello"><span class="toc-number">3.2.</span> <span class="toc-text">Server Hello</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#证书检验"><span class="toc-number">3.3.</span> <span class="toc-text">证书检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#秘钥协商"><span class="toc-number">3.4.</span> <span class="toc-text">秘钥协商</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存溢出"><span class="toc-number">1.</span> <span class="toc-text">内存溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU占用率高"><span class="toc-number">2.</span> <span class="toc-text">CPU占用率高</span></a></li></ol>
  
   </div>
 

@@ -11,33 +11,33 @@
     
 
     
-    <meta name="description" content="内存线程独自拥有：
+    <meta name="description" content="内存内存溢出：想要申请内存空间，但系统没有能够满足的空闲内存，会发生内存溢出。内存泄漏：分配了内存空间，但永远无法释放，大量发生内存泄漏最终导致内存溢出。
+每个线程私有：
 
 
-程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。
-虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过Xss参数配置每个线程的最小内存。
-本地方法栈，为Native方法服务。也存在Stac">
+程序计数器，记录当前线程执行的虚拟机字节码的行号指示器，便于多线程切换时恢复现场。
+虚拟机栈，线程中每个方法都会对应一个栈帧，方法的执行就是对应方法中的数据在栈内存中入栈和出栈的过程。存在StackOverflowError">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM原理">
 <meta property="og:url" content="http://yoursite.com/2016/03/04/JVM原理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="内存线程独自拥有：
+<meta property="og:description" content="内存内存溢出：想要申请内存空间，但系统没有能够满足的空闲内存，会发生内存溢出。内存泄漏：分配了内存空间，但永远无法释放，大量发生内存泄漏最终导致内存溢出。
+每个线程私有：
 
 
-程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。
-虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过Xss参数配置每个线程的最小内存。
-本地方法栈，为Native方法服务。也存在Stac">
+程序计数器，记录当前线程执行的虚拟机字节码的行号指示器，便于多线程切换时恢复现场。
+虚拟机栈，线程中每个方法都会对应一个栈帧，方法的执行就是对应方法中的数据在栈内存中入栈和出栈的过程。存在StackOverflowError">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/201208212311259458.png">
 <meta property="og:image" content="http://my.csdn.net/uploads/201208/26/1345973537_4943.jpg">
-<meta property="og:updated_time" content="2016-04-01T06:34:43.000Z">
+<meta property="og:updated_time" content="2016-04-01T11:49:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM原理">
-<meta name="twitter:description" content="内存线程独自拥有：
+<meta name="twitter:description" content="内存内存溢出：想要申请内存空间，但系统没有能够满足的空闲内存，会发生内存溢出。内存泄漏：分配了内存空间，但永远无法释放，大量发生内存泄漏最终导致内存溢出。
+每个线程私有：
 
 
-程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。
-虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过Xss参数配置每个线程的最小内存。
-本地方法栈，为Native方法服务。也存在Stac">
+程序计数器，记录当前线程执行的虚拟机字节码的行号指示器，便于多线程切换时恢复现场。
+虚拟机栈，线程中每个方法都会对应一个栈帧，方法的执行就是对应方法中的数据在栈内存中入栈和出栈的过程。存在StackOverflowError">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -113,39 +113,48 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存"><span class="toc-number">1.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">2.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#堆内存"><span class="toc-number">2.1.</span> <span class="toc-text">堆内存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载"><span class="toc-number">3.</span> <span class="toc-text">类加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字节码—平台无关性的基石"><span class="toc-number">3.1.</span> <span class="toc-text">字节码—平台无关性的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载-1"><span class="toc-number">3.2.</span> <span class="toc-text">类加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载时机"><span class="toc-number">3.3.</span> <span class="toc-text">加载时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载过程"><span class="toc-number">3.4.</span> <span class="toc-text">加载过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载器"><span class="toc-number">3.5.</span> <span class="toc-text">类加载器</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存"><span class="toc-number">1.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">2.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指针与引用"><span class="toc-number">2.1.</span> <span class="toc-text">指针与引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆内存回收"><span class="toc-number">2.2.</span> <span class="toc-text">堆内存回收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法区回收"><span class="toc-number">2.3.</span> <span class="toc-text">方法区回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载"><span class="toc-number">3.</span> <span class="toc-text">类加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字节码—平台无关性的基石"><span class="toc-number">3.1.</span> <span class="toc-text">字节码—平台无关性的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载-1"><span class="toc-number">3.2.</span> <span class="toc-text">类加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载时机"><span class="toc-number">3.3.</span> <span class="toc-text">加载时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载过程"><span class="toc-number">3.4.</span> <span class="toc-text">加载过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载器"><span class="toc-number">3.5.</span> <span class="toc-text">类加载器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找类信息"><span class="toc-number">4.</span> <span class="toc-text">查找类信息</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="内存">内存</h2><p><strong>线程独自拥有：</strong></p>
+		<h2 id="内存">内存</h2><p>内存溢出：想要申请内存空间，但系统没有能够满足的空闲内存，会发生内存溢出。<br>内存泄漏：分配了内存空间，但永远无法释放，大量发生内存泄漏最终导致内存溢出。</p>
+<p><strong>每个线程私有：</strong></p>
 <p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/201208212311259458.png" alt=""></p>
 <ol>
-<li>程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。</li>
-<li>虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在<code>StackOverflowError</code>和<code>OutOfMemoryError</code>异常。这里栈深度不是固定值，而是由内存的分配情况确定，内存不够，即栈不能再扩展。可以通过<code>Xss</code>参数配置每个线程的最小内存。</li>
+<li>程序计数器，记录当前线程执行的虚拟机字节码的行号指示器，便于多线程切换时恢复现场。</li>
+<li>虚拟机栈，线程中每个方法都会对应一个栈帧，方法的执行就是对应方法中的数据在栈内存中入栈和出栈的过程。存在<code>StackOverflowError</code>和<code>OutOfMemoryError</code>异常。这里栈深度一般是系统设定的固定值；栈内存可以动态扩展，当扩展获得不到充足的空间时，就会抛内存溢出错误，可以通过<code>Xss</code>参数配置每个线程内存的初始大小。<br>栈内存为方法中的局部变量分配存储空间，方法执行结束这些空间即被释放。</li>
 <li>本地方法栈，为Native方法服务。也存在<code>StackOverflowError</code>和<code>OutOfMemoryError</code>异常。</li>
 </ol>
 <p><strong>所有线程共享：</strong></p>
 <ol>
-<li>堆内存，被所有线程共享，存放对象实例以及数组，存在<code>OutOfMemoryError</code>异常。对应错误<code>Java heap space</code>，可以通过JVM参数-Xms512m和-Xmx2048m修改。</li>
-<li>方法区，类似于堆，存放类信息，常量，静态变量等，存在<code>OutOfMemoryError</code>异常。运行时常量池是方法区的一部分。对应错误<code>PermGen space</code>，可以通过参数-XX:PermSize=512m和-XX:MaxPermSize=1024m配置。</li>
-<li>直接内存，不属于虚拟机管理范畴，但与NIO有关，该内存不能超过硬件所能提供的内存。可以通过-XX:MaxDirectMemorySize设定。</li>
+<li>堆内存，存放对象实例和数组，是垃圾回收器的主要工作区域，存在<code>OutOfMemoryError</code>异常。对应错误<code>Java heap space</code>，可以通过JVM参数<code>-Xms512m</code>和<code>-Xmx2048m</code>修改。</li>
+<li>方法区，存放类信息，常量，静态变量等。1.7版本及以前叫永久代（Permanent Generation），目前已经被元空间取代，存在<code>OutOfMemoryError</code>异常，对应错误<code>PermGen space</code>，可以通过参数<code>-XX:PermSize=512m</code>和<code>-XX:MaxPermSize=1024m</code>配置（在JKD1.8及以上版本无法使用）。元空间，只受物理内存的限制，可以通过<code>MaxMetaspaceSize</code>设定最大值，使用超过最大值时会触发垃圾回收。</li>
+<li>直接内存，不属于虚拟机管理范畴，与NIO有关，大小不能超过硬件内存的限制。可以通过<code>-XX:MaxDirectMemorySize</code>设定。</li>
 </ol>
-<h2 id="垃圾回收">垃圾回收</h2><p>应为栈内存随着线程中方法的结束自动清空，所以主要回收堆内存和方法区。</p>
+<h2 id="垃圾回收">垃圾回收</h2><p>因为栈内存随着线程中方法的结束便被清空，所以主要回收堆内存和方法区。</p>
 <ol>
 <li>根搜索算法，判断GC Roots到对象的图是否连通。</li>
 </ol>
 <p><strong>具体回收策略:</strong></p>
 <ol>
-<li>标记-清理算法。核心思想是标记要回收的内存块，在某个时刻同一回收。这种方式会占用额外的空间，造成过多碎片，同时回收也不及时。</li>
-<li>复制算法。将内存中的存活对象复制到一端，然后清空整片无用的内存区域。这种方式效率高，但适用于对象很快凋亡的场景。</li>
-<li>标记-整理算法。标记存活的内存，并将它们移动到内存的一端。该方式适用于对象声明周期较长的情况。</li>
-<li>标准方法。分代回收，新生代使用复制算法，老年代使用标记-清理和标记-整理算法。</li>
+<li>标记-清理算法。标记要回收的内存块，在某个时刻一同回收。这种方式会造成过多的碎片，同时回收也不及时。</li>
+<li>复制算法。将内存中的存活对象复制到一端，然后清空整片无用的内存区域。这种方式一次清空大片区域效率高，适用于对象很快凋亡的场景。</li>
+<li>标记-整理算法。标记存活的内存，并将它们移动到内存的一端，清理掉另一端的内存。该方式适用于对象声明周期较长的情况。</li>
 </ol>
-<h3 id="堆内存">堆内存</h3><p>堆被划分成两个不同的区域：新生代 ( Young )、老年代 ( Old )。新生代 ( Young ) 又被划分为三个区域：Eden、From Survivor、To Survivor。</p>
+<h3 id="指针与引用">指针与引用</h3><p>指针保存的是一个内存地址，引用保存的是一块保存一个内存地址的块的地址。</p>
+<h3 id="堆内存回收">堆内存回收</h3><p>堆被划分成两个不同的区域：新生代 ( Young )、老年代 ( Old )。新生代 ( Young ) 又被划分为三个区域：Eden、From Survivor、To Survivor。</p>
 <p><strong>老年代年龄的判定：</strong></p>
 <ol>
 <li>初始都在新生代，每次存活年龄长一，当年龄达到一定程度，转为老年代。</li>
 <li>动态判定，所有相同年龄大小总和大于Survivor空间一半，年龄大于或等于该年龄的对象就直接进入老年代。</li>
+</ol>
+<p><strong>分代回收策略</strong><br>JVM对堆内存使用分代回收的策略。对于生命周期比较短的新生代，由于每次收集时只有少数的对象可以存活，复制代价低，所以可以使用复制算法；对于生命周期较长的老年代，由于对象存活时间久不经常需要回收，使用标记-清理或者标记-整理方法。</p>
+<h3 id="方法区回收">方法区回收</h3><p><strong>字面常量回收</strong><br>如果一个字面常量没有被任何对象引用，在有必要的时刻予以回收。</p>
+<p><strong>类卸载</strong><br>需要同时满足一下三个条件才<code>可以</code>被卸载：</p>
+<ol>
+<li>类的所有对象都被回收。</li>
+<li>类对应的加载器已经被回收。</li>
+<li>类对应的Class对象没有被任何对象引用，即无法通过反射访问该类。</li>
 </ol>
 <h2 id="类加载">类加载</h2><h3 id="字节码—平台无关性的基石">字节码—平台无关性的基石</h3><p>Java的源代码被编译为字节码，字节码规范是平台无关的基石。虚拟机可以屏蔽平台，但真正的接口是字节码文件的格式，可以理解为不同平台的虚拟机按照字节码文件的格式去设计，而不同语言的代码，经过编译器编译后产生相同格式的字节码文件，所以字节码文件的规范才是中间那个最重要的接口。</p>
 <h3 id="类加载-1">类加载</h3><p>java的字节码文件不是先静态装载再运行的，而是在运行时动态加载，并且JVM没有限定类的字节码的来源，只要是字节码的流，它就能通过调用对应的<code>ClassLoader</code>就能接收并JVM中分配内存，所以Java能实现RMI功能（网络获取字节码流）以及多态机制（动态绑定接口的实现）。</p>
@@ -164,6 +173,9 @@
 <h3 id="类加载器">类加载器</h3><p>类加载器每次要用到类时，首先查找该类是否已经加载，如果没加载调用父类加载器加载，如果父类加载不到再自己加载。所有父类的加载器，最后都会要调用<code>启动类加载器Bootstrap ClassLoader</code>（由C++实现，只会加载特定路径下的特定类文件）。可以定义自己的类加载器，一般通过继承实现，初始化时子类保持父类加载器的引用，加载时优先调用父类的加载器。</p>
 <p><img src="http://my.csdn.net/uploads/201208/26/1345973537_4943.jpg" alt="双亲委派模型"></p>
 <p>自定义类加载器，需要覆写<code>ClassLoader</code>类的<code>findClass</code>方法。</p>
+<h2 id="查找类信息">查找类信息</h2><p>如果一个类已经被加载到内存中，每次我们使用<code>new</code>关键字创建该类的实例时，先去方法区的常量池找到这个类的符号引用，如果找不到再使用加载器加载。</p>
+<p>JVM中一个类用其全名和一个加载类ClassLoader的实例作为唯一标识，不同类加载器加载的类将被置于不同的命名空间。</p>
+<p>类的信息保存在方法区，包括类中的非静态方法，非静态方法调用需要先实例化，并用this等指向他的类中的非静态方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -216,7 +228,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存"><span class="toc-number">1.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">2.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#堆内存"><span class="toc-number">2.1.</span> <span class="toc-text">堆内存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载"><span class="toc-number">3.</span> <span class="toc-text">类加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字节码—平台无关性的基石"><span class="toc-number">3.1.</span> <span class="toc-text">字节码—平台无关性的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载-1"><span class="toc-number">3.2.</span> <span class="toc-text">类加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载时机"><span class="toc-number">3.3.</span> <span class="toc-text">加载时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载过程"><span class="toc-number">3.4.</span> <span class="toc-text">加载过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载器"><span class="toc-number">3.5.</span> <span class="toc-text">类加载器</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内存"><span class="toc-number">1.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垃圾回收"><span class="toc-number">2.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指针与引用"><span class="toc-number">2.1.</span> <span class="toc-text">指针与引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆内存回收"><span class="toc-number">2.2.</span> <span class="toc-text">堆内存回收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法区回收"><span class="toc-number">2.3.</span> <span class="toc-text">方法区回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类加载"><span class="toc-number">3.</span> <span class="toc-text">类加载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字节码—平台无关性的基石"><span class="toc-number">3.1.</span> <span class="toc-text">字节码—平台无关性的基石</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载-1"><span class="toc-number">3.2.</span> <span class="toc-text">类加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载时机"><span class="toc-number">3.3.</span> <span class="toc-text">加载时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载过程"><span class="toc-number">3.4.</span> <span class="toc-text">加载过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载器"><span class="toc-number">3.5.</span> <span class="toc-text">类加载器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找类信息"><span class="toc-number">4.</span> <span class="toc-text">查找类信息</span></a></li></ol>
  
   </div>
 

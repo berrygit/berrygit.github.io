@@ -78,6 +78,32 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2016/04/01/JVM问题定位思路/" title="JVM问题定位思路" itemprop="url">
+  
+    <h1 itemprop="name">JVM问题定位思路</h1>
+    
+     
+           <p itemprop="description" >内存溢出
+确定是哪个区域的内存溢出。
+确定是内存溢出还是内存泄漏。如果是内存泄漏，查看调用链是那个地方导致内存没有释放；如果是内存溢出，查看是否需要加大内存容量，是否某些对象的生存周期过长。
+
+CPU占用率高
+使用top命令查看，是哪个进程的cpu使用率高。
+查看是该进程中哪个线</p>
+        
+    
+    <time datetime="2016-04-01T08:00:39.000Z" itemprop="datePublished">2016-04-01</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2016/03/12/HTTPS协议/" title="HTTPS协议" itemprop="url">
   
     <h1 itemprop="name">HTTPS协议</h1>
@@ -152,11 +178,12 @@
     <h1 itemprop="name">JVM原理</h1>
     
      
-           <p itemprop="description" >内存线程独自拥有：
+           <p itemprop="description" >内存内存溢出：想要申请内存空间，但系统没有能够满足的空闲内存，会发生内存溢出。内存泄漏：分配了内存空间，但永远无法释放，大量发生内存泄漏最终导致内存溢出。
+每个线程私有：
 
 
-程序计数器，每个线程都有一个，记录当前线程执行的虚拟机字节码指令的地址。
-虚拟机栈，线程私有，方法执行时的入栈和出栈，即栈内存。存在StackOverflowError和OutOfMemoryError异常。这里栈深度不是固定值，而是由内存的分配情况确定，</p>
+程序计数器，记录当前线程执行的虚拟机字节码的行号指示器，便于多线程切换时恢复现场。
+虚拟机栈，线程中每个</p>
         
     
     <time datetime="2016-03-04T10:43:57.000Z" itemprop="datePublished">2016-03-04</time>
@@ -275,26 +302,6 @@ Queue，先进先出。</p>
         
     
     <time datetime="2016-03-03T02:24:47.000Z" itemprop="datePublished">2016-03-03</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/03/03/Java特性之泛型/" title="Java特性之泛型" itemprop="url">
-  
-    <h1 itemprop="name">Java特性之泛型</h1>
-    
-     
-           <p itemprop="description" >好处集合中使用泛型，将放入不合适类型的导致的错误由运行时提前到编译器发现，提高了程序的健壮性。取数据时自动做类型转换，使代码更加整洁。</p>
-        
-    
-    <time datetime="2016-03-03T02:21:29.000Z" itemprop="datePublished">2016-03-03</time>
   </a>
 </section>
 
