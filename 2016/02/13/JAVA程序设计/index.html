@@ -11,22 +11,19 @@
     
 
     
-    <meta name="description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符号向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，空位补零。
-访问控制类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。
-成员（域，方法，嵌套类，嵌套接口）有四种访问级别：私有，声明该成员的顶层类内部才能访问。包">
+    <meta name="description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;向右移位，移位时符号位不动。正数空位补零，移出的1直接舍去；负数空位也补零，移出的1舍去后再加在原数字的最低位上；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，对于负数，首先符号位不变，向右移动一个单位，空位补零，之后将所有位取反，将负数变为正数，之后按照正数的移位方式进行。
+访问控制类和接口只有public和private两种可访问级别，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA程序设计">
 <meta property="og:url" content="http://yoursite.com/2016/02/13/JAVA程序设计/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符号向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，空位补零。
-访问控制类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。
-成员（域，方法，嵌套类，嵌套接口）有四种访问级别：私有，声明该成员的顶层类内部才能访问。包">
-<meta property="og:updated_time" content="2016-04-01T02:26:03.000Z">
+<meta property="og:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;向右移位，移位时符号位不动。正数空位补零，移出的1直接舍去；负数空位也补零，移出的1舍去后再加在原数字的最低位上；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，对于负数，首先符号位不变，向右移动一个单位，空位补零，之后将所有位取反，将负数变为正数，之后按照正数的移位方式进行。
+访问控制类和接口只有public和private两种可访问级别，">
+<meta property="og:updated_time" content="2016-04-03T16:25:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA程序设计">
-<meta name="twitter:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;有符号向右移位，正数空位补零，负数空位补1；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，空位补零。
-访问控制类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。
-成员（域，方法，嵌套类，嵌套接口）有四种访问级别：私有，声明该成员的顶层类内部才能访问。包">
+<meta name="twitter:description" content="基本运算移位&amp;lt;&amp;lt;向左移位，空位补零；&amp;gt;&amp;gt;向右移位，移位时符号位不动。正数空位补零，移出的1直接舍去；负数空位也补零，移出的1舍去后再加在原数字的最低位上；&amp;gt;&amp;gt;&amp;gt;无符号向右移位，对于负数，首先符号位不变，向右移动一个单位，空位补零，之后将所有位取反，将负数变为正数，之后按照正数的移位方式进行。
+访问控制类和接口只有public和private两种可访问级别，">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -102,11 +99,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制"><span class="toc-number">2.</span> <span class="toc-text">访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">3.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">4.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">4.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">4.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">4.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">5.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">5.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">5.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">5.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">6.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">7.</span> <span class="toc-text">标记接口</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制"><span class="toc-number">2.</span> <span class="toc-text">访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">3.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">4.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">4.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">4.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">4.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">5.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">5.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">5.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">5.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">6.</span> <span class="toc-text">标记接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">7.</span> <span class="toc-text">继承</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="基本运算">基本运算</h2><h3 id="移位">移位</h3><p><code>&lt;&lt;</code>向左移位，空位补零；<code>&gt;&gt;</code>有符号向右移位，正数空位补零，负数空位补1；<code>&gt;&gt;&gt;</code>无符号向右移位，空位补零。</p>
+		<h2 id="基本运算">基本运算</h2><h3 id="移位">移位</h3><p><code>&lt;&lt;</code>向左移位，空位补零；<br><code>&gt;&gt;</code>向右移位，移位时符号位不动。正数空位补零，移出的1直接舍去；负数空位也补零，移出的1舍去后再加在原数字的最低位上；<br><code>&gt;&gt;&gt;</code>无符号向右移位，对于负数，首先符号位不变，向右移动一个单位，空位补零，之后将所有位取反，将负数变为正数，之后按照正数的移位方式进行。</p>
 <h2 id="访问控制">访问控制</h2><p>类和接口只有public和private两种可访问级别，如果没有public修饰，就是private的。私有意味着只能被同一个包下的类访问。</p>
 <p>成员（域，方法，嵌套类，嵌套接口）有四种访问级别：<br><code>私有</code>，声明该成员的顶层类内部才能访问。<br><code>包私有</code>，同一个包下。<br><code>受保护</code>，同一个包下或者它的子类。<br><code>公有</code>，任何地方。</p>
 <p>子类的成员的可访问性不能低于父类，保证里氏替换原则。</p>
@@ -136,31 +133,9 @@
 <li>不能克隆final域。</li>
 <li>除非数组或只有基本类型域的copy，尽可能得不去调用clone方法，用静态工厂去实现。</li>
 </ol>
-<h2 id="序列化">序列化</h2><p>首先，序列化是对对象而言的。将一个对象编码成一个<code>字节</code>流，称为该对象序列化；相反的处理过程称为反序列化。序列化的类可以通过网络传输或者保存在磁盘上，供以后反序列化。</p>
-<p><strong>用途：</strong></p>
-<ol>
-<li>RMI用来传输远程方法的调用参数和返回值。</li>
-<li>GUI用来保存JavaBean的状态。</li>
-<li><code>Throwable</code>实现序列化接口以使得RMI可以返回异常，<code>Component</code>实现序列化使得组件可以被存储和读出，<code>HttpServlet</code>实现序列化使得它可以被缓存。</li>
-</ol>
-<p><strong>实现:</strong></p>
-<ol>
-<li>要序列化的对象的类需实现<code>Serializable</code>接口。</li>
-<li>以深克隆为例，创建<code>ObjectOutputStream</code>实例，<code>ObjectOutputStream</code>构造器入参为要把对象写入的流（<code>OutputStream</code>子类），比如内存<code>ByteArrayOutputStream</code>，磁盘<code>FileOutputStream</code>，或者网络。序列化类，调用<code>ObjectOutputStream</code>对象的writeObject()方法即可。</li>
-<li>序列化读出来的对象要做强制转换。也就是RMI调用时，客户端/服务端都需要知道对象类的类文件。</li>
-</ol>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function">Point <span class="title">deepClone</span><span class="params">()</span> <span class="keyword">throws</span> IOException, ClassNotFoundException </span>&#123;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// ！出于简洁，流没关闭</span></span><br><span class="line">	<span class="comment">// 将对象写到流里</span></span><br><span class="line">	ByteArrayOutputStream bos = <span class="keyword">new</span> ByteArrayOutputStream();<span class="comment">// 写到内存</span></span><br><span class="line">	ObjectOutputStream oos = <span class="keyword">new</span> ObjectOutputStream(bos);</span><br><span class="line">	oos.writeObject(<span class="keyword">this</span>);</span><br><span class="line">	<span class="comment">// 从流里读回来</span></span><br><span class="line">	ByteArrayInputStream bis = <span class="keyword">new</span> ByteArrayInputStream(bos.toByteArray());</span><br><span class="line">	ObjectInputStream ois = <span class="keyword">new</span> ObjectInputStream(bis);</span><br><span class="line">	<span class="keyword">return</span> (Point) ois.readObject();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong></p>
-<ol>
-<li>对于GUI等程序要谨慎使用序列化，因为如果一个类的成员发生变化会导致，以前序列化在磁盘上的对象无法再恢复。而RMI对于该问题并不敏感，因为通过网络传输序列化与反序列化的时间周期短。</li>
-<li>需要明确指定序列化ID，如果不指定运行时系统会根据对象内容自动生成，如果类的结构改变，每次生成的UID会不同，这回引起<code>InvalidClassException</code>异常（序列化ID用来标示类的版本，如果反序列化时ID不同则类肯定将不能被反序列化，直接抛异常）。</li>
-<li>对象序列化时会自动将该对象内部涉及到的所有对象序列化（要求它们必须都实现<code>Serializable</code>接口）。</li>
-<li>关键字<code>transient</code>可以过滤不想序列化的字段，反序列化时该字段为空值，该关键字只对<code>Serializable</code>接口对象有效。（安全考虑，即便把这些字段设为私有的也要防止利用反射机制读出）</li>
-<li>实现<code>Externalizable</code>接口覆写方法<code>writeExternal</code>和<code>readExternal</code>可以定制序列化。实现该接口，除了反序列化时会自动初始化成员变量和调用默认构造器不会做任何事，需要自己手动定制需要序列化和反序列化的字段。</li>
-<li>另一种定制方法：在<code>Serializable</code>接口对象中<code>添加</code>两个私有方法<code>writeObject</code>和<code>readObject</code>，在序列化时<code>ObjectOutputStream</code>会通过反射自动调用取代默认生成的方法。在定制方法中，可以调用<code>ObjectOutputStream</code>类的<code>defaultReadObject</code>和<code>defaultWriteObject</code>方法完成原来的默认序列化过程。</li>
-</ol>
-<p><code>Serializable</code>接口对象中定制序列化方法的签名如下:<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">writeObject</span><span class="params">(ObjectOutputStream stream)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">readobject</span><span class="params">(ObjectInputStream stream)</span>  <span class="keyword">throws</span> IOException, ClassNotFoundException</span>;</span><br></pre></td></tr></table></figure></p>
 <h2 id="标记接口">标记接口</h2><p><code>Serializable</code>，<code>Cloneable</code><br>不提供任何方法，只是一个标识，供以后识别方便。</p>
+<h2 id="继承">继承</h2><p>java使用接口来实现多重继承，一个类只能继承一个类，而接口可以同时继承多个接口。</p>
+<p>使一个类不可子类化有两种方式：使用final修饰；类所有的构造器用private修饰。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -218,7 +193,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制"><span class="toc-number">2.</span> <span class="toc-text">访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">3.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">4.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">4.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">4.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">4.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">5.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">5.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">5.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">5.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#序列化"><span class="toc-number">6.</span> <span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">7.</span> <span class="toc-text">标记接口</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-number">1.</span> <span class="toc-text">基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移位"><span class="toc-number">1.1.</span> <span class="toc-text">移位</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问控制"><span class="toc-number">2.</span> <span class="toc-text">访问控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">3.</span> <span class="toc-text">final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">4.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">4.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">4.2.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类"><span class="toc-number">4.3.</span> <span class="toc-text">Object类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-number">5.</span> <span class="toc-text">克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">5.1.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深克隆与浅克隆"><span class="toc-number">5.2.</span> <span class="toc-text">深克隆与浅克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特例"><span class="toc-number">5.3.</span> <span class="toc-text">特例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标记接口"><span class="toc-number">6.</span> <span class="toc-text">标记接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">7.</span> <span class="toc-text">继承</span></a></li></ol>
  
   </div>
 
