@@ -11,22 +11,22 @@
     
 
     
-    <meta name="description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。
+    <meta name="description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；公平性，使多个程序可以同时执行；降低编程的复杂度，使复杂的代码逻辑变得简单。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
-java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对">
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java特性之并发">
 <meta property="og:url" content="http://yoursite.com/2016/03/04/Java特性之并发/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。
+<meta property="og:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；公平性，使多个程序可以同时执行；降低编程的复杂度，使复杂的代码逻辑变得简单。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
-java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对">
-<meta property="og:updated_time" content="2016-03-30T08:03:19.000Z">
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两">
+<meta property="og:updated_time" content="2016-04-08T14:49:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java特性之并发">
-<meta name="twitter:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。
+<meta name="twitter:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；公平性，使多个程序可以同时执行；降低编程的复杂度，使复杂的代码逻辑变得简单。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
-java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对">
+java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两">
 
     
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -106,7 +106,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成�
 		
 		</div>
 		
-		<h2 id="概念">概念</h2><p><strong>并发必要性：</strong><br>CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；降低编程的复杂度，使复杂的代码逻辑变得简单。</p>
+		<h2 id="概念">概念</h2><p><strong>并发必要性：</strong><br>CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；公平性，使多个程序可以同时执行；降低编程的复杂度，使复杂的代码逻辑变得简单。</p>
 <p>并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。</p>
 <p>java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。</p>
 <h2 id="实现方式">实现方式</h2><p>继承<code>Runnable</code>接口，覆写<code>run()</code>方法，实现给接口的方法意味着可以以多线程运行，且入口为run方法。</p>

@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/07/28/cookie,session与application/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概念WEB开发中经常遇到cookie,session和application的概念，那么这几个名称到底意味着什么呢？故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请">
-<meta property="og:updated_time" content="2016-03-11T11:37:32.000Z">
+<meta property="og:updated_time" content="2016-04-11T03:39:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cookie，session与application">
 <meta name="twitter:description" content="概念WEB开发中经常遇到cookie,session和application的概念，那么这几个名称到底意味着什么呢？故事还要从HTTP协议开始说起，HTTP协议可以在互联网上简单高效的传输超文本，其中一个必要的特性叫做无状态性。什么叫无状态性呢，就是浏览器与服务器交互时，不是你所访问的网站的服务器与本地一直保持连接，而是每次请求服务器后发给浏览器一个页面，然后断掉连接，用户浏览网页，点击某个触发请">
@@ -96,7 +96,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">1.1.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-number">2.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session"><span class="toc-number">3.</span> <span class="toc-text">session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#session失效时间配置"><span class="toc-number">3.1.</span> <span class="toc-text">session失效时间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证"><span class="toc-number">3.2.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#application"><span class="toc-number">4.</span> <span class="toc-text">application</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">1.1.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-number">2.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session"><span class="toc-number">3.</span> <span class="toc-text">session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#session失效时间配置"><span class="toc-number">3.1.</span> <span class="toc-text">session失效时间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证"><span class="toc-number">3.2.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#application"><span class="toc-number">4.</span> <span class="toc-text">application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">5.</span> <span class="toc-text">注意</span></a></li></ol>
 		
 		</div>
 		
@@ -146,6 +146,7 @@
 <blockquote>
 <p>使用任何人的任何浏览器，后台按序打印计数。</p>
 </blockquote>
+<h2 id="注意">注意</h2><p>session和application都是相对于客户端而言的，不论使用哪个Servlet来访问都是一样的，即使不同的Servlet只要SessionID相同得到结果也相同，即使不同的Servlet访问，得到的application都是一样的。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -203,7 +204,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">1.1.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-number">2.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session"><span class="toc-number">3.</span> <span class="toc-text">session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#session失效时间配置"><span class="toc-number">3.1.</span> <span class="toc-text">session失效时间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证"><span class="toc-number">3.2.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#application"><span class="toc-number">4.</span> <span class="toc-text">application</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">1.1.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-number">2.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session"><span class="toc-number">3.</span> <span class="toc-text">session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#session失效时间配置"><span class="toc-number">3.1.</span> <span class="toc-text">session失效时间配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验证"><span class="toc-number">3.2.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#application"><span class="toc-number">4.</span> <span class="toc-text">application</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number">5.</span> <span class="toc-text">注意</span></a></li></ol>
  
   </div>
 
