@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java特性之并发 | Hexo</title>
+    <title>Java并发编程 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Berry">
@@ -15,15 +15,15 @@
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
 java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java特性之并发">
+<meta property="og:title" content="Java并发编程">
 <meta property="og:url" content="http://yoursite.com/2016/03/04/Java特性之并发/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；公平性，使多个程序可以同时执行；降低编程的复杂度，使复杂的代码逻辑变得简单，减少耦合。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
 java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成">
-<meta property="og:updated_time" content="2016-08-03T15:11:21.000Z">
+<meta property="og:updated_time" content="2016-08-06T15:53:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java特性之并发">
+<meta name="twitter:title" content="Java并发编程">
 <meta name="twitter:description" content="概念并发必要性：CPU运算速度很快，但外设速度不匹配，程序存在大量阻塞等待的状态；多核cpu越来越普遍，多个任务同时进行可以极大提高性能；公平性，使多个程序可以同时执行；降低编程的复杂度，使复杂的代码逻辑变得简单，减少耦合。
 并发错误很难测试，它们可能在某个场景下发生，然而你无法准确得模拟这种创建，所以这种问题只会时而不时的发生。
 java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成">
@@ -86,7 +86,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成"
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/04/Java特性之并发/" title="Java特性之并发" itemprop="url">Java特性之并发</a>
+      <a href="/2016/03/04/Java特性之并发/" title="Java并发编程" itemprop="url">Java并发编程</a>
   </h1>
   <p class="article-author">By
        
@@ -102,7 +102,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成"
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全"><span class="toc-number">3.</span> <span class="toc-text">线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#锁"><span class="toc-number">3.1.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronized"><span class="toc-number">3.1.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示锁"><span class="toc-number">3.1.2.</span> <span class="toc-text">显示锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可见性"><span class="toc-number">3.2.</span> <span class="toc-text">可见性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile"><span class="toc-number">3.2.1.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronized-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">synchronized</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">4.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信"><span class="toc-number">5.</span> <span class="toc-text">进程通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池"><span class="toc-number">6.</span> <span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调优"><span class="toc-number">7.</span> <span class="toc-text">调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">8.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态"><span class="toc-number">9.</span> <span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活跃度问题"><span class="toc-number">10.</span> <span class="toc-text">活跃度问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">10.1.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弱响应"><span class="toc-number">10.2.</span> <span class="toc-text">弱响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#饥饿"><span class="toc-number">10.3.</span> <span class="toc-text">饥饿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活锁"><span class="toc-number">10.4.</span> <span class="toc-text">活锁</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全"><span class="toc-number">3.</span> <span class="toc-text">线程安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">4.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示锁"><span class="toc-number">4.2.</span> <span class="toc-text">显示锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可见性"><span class="toc-number">5.</span> <span class="toc-text">可见性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">5.1.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-1"><span class="toc-number">5.2.</span> <span class="toc-text">synchronized</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">6.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信"><span class="toc-number">7.</span> <span class="toc-text">进程通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池"><span class="toc-number">8.</span> <span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调优"><span class="toc-number">9.</span> <span class="toc-text">调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">10.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态"><span class="toc-number">11.</span> <span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活跃度问题"><span class="toc-number">12.</span> <span class="toc-text">活跃度问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">12.1.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弱响应"><span class="toc-number">12.2.</span> <span class="toc-text">弱响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#饥饿"><span class="toc-number">12.3.</span> <span class="toc-text">饥饿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活锁"><span class="toc-number">12.4.</span> <span class="toc-text">活锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原子变量"><span class="toc-number">13.</span> <span class="toc-text">原子变量</span></a></li></ol>
 		
 		</div>
 		
@@ -119,8 +119,8 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成"
 <p>方法3使用了命令模式，首先定义方法的执行接口，然后不同的线程对象实现这个接口，每个待调用的线程，交给Executors（相当于receiver），然后Executors在合适的情况下调用线程执行。</p>
 <p>Executors提供了很多种线程池，可以根据需要选择。</p>
 <h2 id="线程安全">线程安全</h2><p>线程安全是指程序在多线程下，程序中的状态不会被并发修改而导致问题。线程安全类是指类提供了必要的同步机制，而不需要客户程序自己再做额外的工作。</p>
-<h3 id="锁">锁</h3><p>线程只有在使用共享资源（一般是对象）时才会发生并发问题，所以在需要保持原子性的地方加锁即可。</p>
-<h4 id="synchronized">synchronized</h4><p>该关键字意味着加锁，该锁机制依赖于一个概念叫内置锁，所有类方法中如果出现<code>synchronized</code>关键字的对象JVM都会给它们一把属于这个对象的唯一的锁，当一个线程想使用<code>synchronized</code>方法或者代码块必须先取得这个对象的锁，其它后来的线程将无法使用这个对象中任何其它的同步方法或同步块，直到锁被释放。同时需要注意对于其它非<code>synchronized</code>方法是不受对象锁控制的。</p>
+<h2 id="锁">锁</h2><p>线程只有在使用共享资源（一般是对象）时才会发生并发问题，所以在需要保持原子性的地方加锁即可。</p>
+<h3 id="synchronized">synchronized</h3><p>该关键字意味着加锁，该锁机制依赖于一个概念叫内置锁，所有类方法中如果出现<code>synchronized</code>关键字的对象JVM都会给它们一把属于这个对象的唯一的锁，当一个线程想使用<code>synchronized</code>方法或者代码块必须先取得这个对象的锁，其它后来的线程将无法使用这个对象中任何其它的同步方法或同步块，直到锁被释放。同时需要注意对于其它非<code>synchronized</code>方法是不受对象锁控制的。</p>
 <p><strong>需要注意：</strong></p>
 <ol>
 <li><code>synchronized</code>可以修饰方法或者代码块，修饰方法叫做方法锁，被修饰的代码块的部分就是临界区。</li>
@@ -128,16 +128,16 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成"
 <li>对于静态方法的方法锁，它对应的对象是JVM加载类时的类对象，它是唯一的。</li>
 <li>对于临界区，锁对象就是锁指定的对象。</li>
 </ol>
-<h4 id="显示锁">显示锁</h4><p>Lock接口的实现类必须提供与synchronized相同的互斥与可见性保证。</p>
+<h3 id="显示锁">显示锁</h3><p>按照规范Lock接口的实现类必须提供与synchronized相同的互斥与可见性保证。</p>
 <ul>
-<li><p>优点<br>一些特殊情况可以考虑lock对象锁，这种锁（如tryLock）可以给我们更大的控制权，在锁不可达时不必一直阻塞，可以做其它工作，等下再来拿锁；ReentrantLock与synchronized相比可以中断正在等待锁的线程；可以异常处理；提供公平锁（默认非公平，需要指定为公平）；更细粒度的锁控制（Condition）。</p>
+<li><p>优点<br>一些特殊情况可以考虑lock对象锁替代synchronized，这种锁（如tryLock方法）可以给我们更大的控制权，在锁不可达时不必一直阻塞，可以先做其它工作等下再来拿锁。ReentrantLock与synchronized相比：可以中断正在等待锁的线程；可以有机会做异常处理；提供公平锁（默认非公平，需要在对象构造器中指定为公平）；更细粒度的锁控制（Condition）。</p>
 </li>
-<li><p>缺点<br>不提供线程转储。千万不要忘记在finally里释放锁。</p>
+<li><p>缺点<br>不提供线程转储不利于定位问题；有风险，一旦忘记在finally里释放锁，除了重启锁就永远不会被释放。</p>
 </li>
 </ul>
-<h3 id="可见性">可见性</h3><p>cpu有多个核，跑在不同核上的线程有着各自的cache缓存，如果没有很好的同步，一些数据会不一致，通过添加volatile或synchronized可以解决数据不一致的问题。</p>
-<h4 id="volatile">volatile</h4><p><code>volatile</code>保证可见性和相对的原子性。可见性通过告诉JVM不要把该变量的值缓存到寄存器上。原子性指一些64位的数据，在读取时可能是分两步进行的，如果中间中断，也会带来数据不一致问题，该关键字保证这些操作保持原子性（JDK1.5以前版本并不非常可靠）。</p>
-<h4 id="synchronized-1">synchronized</h4><p>内置锁所保护的代码具有可见性，显示锁没有这样的作用。</p>
+<h2 id="可见性">可见性</h2><p>cpu有多个核，跑在不同核上的线程有着各自的cache缓存，如果没有很好的同步，一些数据会不一致，通过添加volatile或synchronized可以解决数据不一致的问题。</p>
+<h3 id="volatile">volatile</h3><p><code>volatile</code>保证可见性和相对的原子性。可见性通过告诉JVM不要把该变量的值缓存到寄存器上。原子性指一些64位的数据，在读取时可能是分两步进行的，如果中间中断，也会带来数据不一致问题，该关键字保证这些操作保持原子性（JDK1.5以前版本并不非常可靠）。</p>
+<h3 id="synchronized-1">synchronized</h3><p>内置锁所保护的代码具有可见性，显示锁没有这样的作用。</p>
 <h2 id="同步">同步</h2><p>当多个线程同步协作时需要相互配合，使用锁的方式虽然可以解决竞争，但锁会让其它等待线程阻塞，更理想的方式是使用wait和notify，wait只是让线程暂停不会让线程阻塞。</p>
 <p>wait方法会释放当前线程锁占用的锁，并且到当前锁对象的等待队列中等待；notify会通知等待队列中的第一个线程，notifyAll会通知所有线程，当线程被唤醒后从wait方法部分继续向下执行。</p>
 <h2 id="进程通信">进程通信</h2><p>套接字（sockets），共享内存，信号量，共享文件。</p>
@@ -146,11 +146,14 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成"
 <p>细化锁的粒度，不同的变量操作组合使用不同的锁来维护操作的原子性。</p>
 <p>使用不可变对象替代锁提高性能，频繁创建和回收对象并没有想象的那么重量级。</p>
 <h2 id="Thread类">Thread类</h2><p>yield()方法，提前退出CPU，将优先级让给别的线程。<br>currentThread().setPriority()</p>
-<h2 id="线程状态">线程状态</h2><p><strong>阻塞:</strong>该状态下，调度器不会在该线程上花任何时间片，直到变为可运行态。<br>引起阻塞的场景：sleep，wait，等待IO，等待锁释放。</p>
+<h2 id="线程状态">线程状态</h2><p><strong>阻塞:</strong>该状态下，调度器不会在该线程上花任何时间片，直到变为可运行态。虽然如此但阻塞也是不佳的，因为频繁的阻塞意味着昂贵的切换上下文代价。<br>引起阻塞的场景：sleep，wait，等待IO，等待锁释放。</p>
 <h2 id="活跃度问题">活跃度问题</h2><h3 id="死锁">死锁</h3><ul>
-<li>避免<br>保证顺序；超时锁（如ReentrantLock的tryLock可以设定等待时间，破坏死锁的无限等待条件）；开放调用（调用外部方法时，自身不持有锁）。<h3 id="弱响应">弱响应</h3>线程优先级<h3 id="饥饿">饥饿</h3>公平性<h3 id="活锁">活锁</h3>永无休止的让路，糟糕的错误恢复程序，无法恢复的却偏要恢复。<br>解决：引入一定的随机性。（如：以太网广播冲突）</li>
+<li>避免<br>顺序拿锁；超时锁（如ReentrantLock的tryLock可以设定等待时间，破坏死锁的无限等待条件）；开放调用（调用外部方法时，自身不持有锁，因为外部方法也有可能持有锁）。</li>
 </ul>
-  
+<h3 id="弱响应">弱响应</h3><p>线程优先级</p>
+<h3 id="饥饿">饥饿</h3><p>公平锁（见ReentrantLock）</p>
+<h3 id="活锁">活锁</h3><p>永无休止的让路，程序没有智能性按照死的规则很容易陷入类似死循环的无限谦让状态。<br>解决：引入一定的随机性（如：以太网广播冲突CSMA/CD）。</p>
+<h2 id="原子变量">原子变量</h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -167,7 +170,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成"
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/04/Java特性之并发/" data-title="Java特性之并发 | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/03/04/Java特性之并发/" data-title="Java并发编程 | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -207,7 +210,7 @@ java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成"
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全"><span class="toc-number">3.</span> <span class="toc-text">线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#锁"><span class="toc-number">3.1.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronized"><span class="toc-number">3.1.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#显示锁"><span class="toc-number">3.1.2.</span> <span class="toc-text">显示锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可见性"><span class="toc-number">3.2.</span> <span class="toc-text">可见性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#volatile"><span class="toc-number">3.2.1.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#synchronized-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">synchronized</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">4.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信"><span class="toc-number">5.</span> <span class="toc-text">进程通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池"><span class="toc-number">6.</span> <span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调优"><span class="toc-number">7.</span> <span class="toc-text">调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">8.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态"><span class="toc-number">9.</span> <span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活跃度问题"><span class="toc-number">10.</span> <span class="toc-text">活跃度问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">10.1.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弱响应"><span class="toc-number">10.2.</span> <span class="toc-text">弱响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#饥饿"><span class="toc-number">10.3.</span> <span class="toc-text">饥饿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活锁"><span class="toc-number">10.4.</span> <span class="toc-text">活锁</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现方式"><span class="toc-number">2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程安全"><span class="toc-number">3.</span> <span class="toc-text">线程安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">4.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-number">4.1.</span> <span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示锁"><span class="toc-number">4.2.</span> <span class="toc-text">显示锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可见性"><span class="toc-number">5.</span> <span class="toc-text">可见性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-number">5.1.</span> <span class="toc-text">volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized-1"><span class="toc-number">5.2.</span> <span class="toc-text">synchronized</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">6.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程通信"><span class="toc-number">7.</span> <span class="toc-text">进程通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池"><span class="toc-number">8.</span> <span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调优"><span class="toc-number">9.</span> <span class="toc-text">调优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread类"><span class="toc-number">10.</span> <span class="toc-text">Thread类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态"><span class="toc-number">11.</span> <span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#活跃度问题"><span class="toc-number">12.</span> <span class="toc-text">活跃度问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">12.1.</span> <span class="toc-text">死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弱响应"><span class="toc-number">12.2.</span> <span class="toc-text">弱响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#饥饿"><span class="toc-number">12.3.</span> <span class="toc-text">饥饿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#活锁"><span class="toc-number">12.4.</span> <span class="toc-text">活锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原子变量"><span class="toc-number">13.</span> <span class="toc-text">原子变量</span></a></li></ol>
  
   </div>
 
