@@ -23,7 +23,7 @@
 弊端：并发错误很难测">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/executor.jpg">
 <meta property="og:image" content="http://7xl9g1.com1.z0.glb.clouddn.com/future.jpg">
-<meta property="og:updated_time" content="2016-08-07T08:16:49.000Z">
+<meta property="og:updated_time" content="2016-08-07T08:20:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java并发编程">
 <meta name="twitter:description" content="概念java并发有两层实现，一是一个单核CPU，把CPU的使用时间分成很多片，两个线程依次使用时间片；另一个是对于多核CPU，每个线程在独立的核上并行计算。
@@ -145,7 +145,7 @@
 <h2 id="线程池">线程池</h2><p>反复创建线程代价很高，可以将线程放在池中以复用，提高系统性能。<code>Executors</code>中有三种线程池，分别是<code>CachedThreadPool</code>（每个任务一个线程，存在过度消耗内存等资源的问题），<code>FixedThreadPool</code>（固定数量的线程池），<code>SingleThreadExecutor</code>（单线程，避免同步问题）。</p>
 <p>所有线程池都实现ExecutorService接口，可以看到该接口定义了一些规范，如shutdown代表不允许新的任务再被加入到线程池中，而shutdownNow代表强行中断正在执行的线程。isShutdown和isTerminated与此相对应。需要注意的是Callable，它与Runnable其实是相似的概念，只不过Runnable是不支持任务执行完后返回结果的。</p>
 <p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/executor.jpg" alt="Executor框架"></p>
-<p>这里需要关注的是Future接口，它是一种线程执行的异步规范，我们不必等待任务执行完毕而是在需要结果的时候调用get方法，返回需要的结果。Future会维护单独的线程等待结果的返回，当我们调用get方法，如果结果已经得到就直接返回，如果还没get方法会阻塞等待结果。</p>
+<p>这里需要关注的是Future接口，它是一种线程执行的异步规范，可以很好的提升并发编程的性能，我们不必等待任务执行完毕而是在需要结果的时候调用get方法返回需要的结果，Future会维护单独的线程等待结果的返回。当我们调用get方法，如果结果已经得到就直接返回，如果还没get方法会阻塞等待结果。</p>
 <p><img src="http://7xl9g1.com1.z0.glb.clouddn.com/future.jpg" alt="Future规范"></p>
 <h2 id="Thread类">Thread类</h2><p>yield()方法，提前退出CPU，将优先级让给别的线程。<br>currentThread().setPriority()</p>
 <h2 id="线程状态">线程状态</h2><p><strong>阻塞:</strong>该状态下，调度器不会在该线程上花任何时间片，直到变为可运行态。虽然如此但阻塞也是不佳的，因为频繁的阻塞意味着昂贵的上下文切换代价。<br>引起阻塞的场景：sleep，wait，等待IO，等待锁释放。</p>
