@@ -16,12 +16,12 @@
 垃圾回收不要忘记清空不使用的引用，造成内存无法释放，导致内存溢出等系统上线很久后才被发现的问题（如实现栈，如果弹出的位置的引用未被置NULL，会造成引用永不释放，一个引用不释放还会导致其引用的其它对象无法释放，最后占用大量内存）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective Java">
-<meta property="og:url" content="http://yoursite.com/2016/02/24/Effective_Java/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/02/24/effective Java/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="类建造者使用建造者模式初始化多个入参的对象，特别是很多参数是可选参数。
 内存尽量使用不可变对象，减少不必要的内存和性能开销，例如享元模式。可以使用静态工厂控制对象的创建。
 垃圾回收不要忘记清空不使用的引用，造成内存无法释放，导致内存溢出等系统上线很久后才被发现的问题（如实现栈，如果弹出的位置的引用未被置NULL，会造成引用永不释放，一个引用不释放还会导致其引用的其它对象无法释放，最后占用大量内存）">
-<meta property="og:updated_time" content="2016-03-07T07:24:36.000Z">
+<meta property="og:updated_time" content="2016-08-07T10:44:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective Java">
 <meta name="twitter:description" content="类建造者使用建造者模式初始化多个入参的对象，特别是很多参数是可选参数。
@@ -86,7 +86,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/02/24/Effective_Java/" title="Effective Java" itemprop="url">Effective Java</a>
+      <a href="/2016/02/24/effective Java/" title="Effective Java" itemprop="url">Effective Java</a>
   </h1>
   <p class="article-author">By
        
@@ -102,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">1.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者"><span class="toc-number">1.1.</span> <span class="toc-text">建造者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存"><span class="toc-number">1.2.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">1.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者"><span class="toc-number">1.1.</span> <span class="toc-text">建造者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存"><span class="toc-number">1.2.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#覆写equals方法一定要同时覆写hashcode方法"><span class="toc-number">3.</span> <span class="toc-text">覆写equals方法一定要同时覆写hashcode方法</span></a></li></ol>
 		
 		</div>
 		
@@ -110,6 +110,7 @@
 <h3 id="内存">内存</h3><p>尽量使用不可变对象，减少不必要的内存和性能开销，例如享元模式。可以使用静态工厂控制对象的创建。</p>
 <h3 id="垃圾回收">垃圾回收</h3><p>不要忘记清空不使用的引用，造成内存无法释放，导致内存溢出等系统上线很久后才被发现的问题（如实现栈，如果弹出的位置的引用未被置NULL，会造成引用永不释放，一个引用不释放还会导致其引用的其它对象无法释放，最后占用大量内存）。</p>
 <h2 id="注解">注解</h2><p>坚持使用@Override注解，它能防止我们想覆盖一个方法却实现为重载。</p>
+<h2 id="覆写equals方法一定要同时覆写hashcode方法">覆写equals方法一定要同时覆写hashcode方法</h2><p>否则会导致基于hash的容器无法正常使用，因为可能两个对象用equals比较是相等，但是没覆写hashcode导致放入了不同桶内，更加key去get时可能hash到不存在的桶，导致没法找到本该有的元素；也有可能破坏诸如set中元素唯一的特性。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -127,7 +128,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/02/24/Effective_Java/" data-title="Effective Java | Hexo" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/02/24/effective Java/" data-title="Effective Java | Hexo" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -167,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">1.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者"><span class="toc-number">1.1.</span> <span class="toc-text">建造者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存"><span class="toc-number">1.2.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-number">1.</span> <span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者"><span class="toc-number">1.1.</span> <span class="toc-text">建造者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存"><span class="toc-number">1.2.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.3.</span> <span class="toc-text">垃圾回收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解"><span class="toc-number">2.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#覆写equals方法一定要同时覆写hashcode方法"><span class="toc-number">3.</span> <span class="toc-text">覆写equals方法一定要同时覆写hashcode方法</span></a></li></ol>
  
   </div>
 
