@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/03/27/ubuntu使用备忘/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ubuntu配置eclipse到dash在路径/usr/share/applications新建eclipse.desktop文件，添加如下内容：12345678[Desktop Entry]Name=eclipseComment=java project manage softwareExec=/home/berry/develop/eclipse/eclipseIcon=/home/berry">
-<meta property="og:updated_time" content="2016-03-29T03:49:24.000Z">
+<meta property="og:updated_time" content="2016-09-01T10:01:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu使用备忘">
 <meta name="twitter:description" content="ubuntu配置eclipse到dash在路径/usr/share/applications新建eclipse.desktop文件，添加如下内容：12345678[Desktop Entry]Name=eclipseComment=java project manage softwareExec=/home/berry/develop/eclipse/eclipseIcon=/home/berry">
@@ -96,7 +96,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh登陆"><span class="toc-number">2.1.</span> <span class="toc-text">ssh登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程传输"><span class="toc-number">2.2.</span> <span class="toc-text">远程传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户"><span class="toc-number">3.</span> <span class="toc-text">添加用户</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh登陆"><span class="toc-number">2.1.</span> <span class="toc-text">ssh登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程传输"><span class="toc-number">2.2.</span> <span class="toc-text">远程传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户"><span class="toc-number">3.</span> <span class="toc-text">添加用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘"><span class="toc-number">4.</span> <span class="toc-text">磁盘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自动挂载"><span class="toc-number">4.1.</span> <span class="toc-text">自动挂载</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -107,14 +107,14 @@
 <h3 id="远程传输">远程传输</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp /home/daisy/full.tar.gz root<span class="variable">@172</span>.<span class="number">19.2</span>.<span class="number">75</span><span class="symbol">:/home/root</span></span><br></pre></td></tr></table></figure>
 <p>scp指定本地文件，远程用户@IP：远程路径</p>
 <h2 id="添加用户">添加用户</h2><p>不要使用<code>useradd</code>，这个命令只创建用户，不生成主文件夹，也不初始化密码，使用<code>adduser</code>命令会做所有的事。</p>
-  
+<h2 id="磁盘">磁盘</h2><h3 id="自动挂载">自动挂载</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi <span class="regexp">/etc/</span>fstab</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/工具/">工具</a>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
 </div>
 
 
@@ -164,7 +164,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh登陆"><span class="toc-number">2.1.</span> <span class="toc-text">ssh登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程传输"><span class="toc-number">2.2.</span> <span class="toc-text">远程传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户"><span class="toc-number">3.</span> <span class="toc-text">添加用户</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu配置eclipse到dash"><span class="toc-number">1.</span> <span class="toc-text">ubuntu配置eclipse到dash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#清除dash下顽固图标"><span class="toc-number">1.1.</span> <span class="toc-text">清除dash下顽固图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程操作"><span class="toc-number">2.</span> <span class="toc-text">远程操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh登陆"><span class="toc-number">2.1.</span> <span class="toc-text">ssh登陆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程传输"><span class="toc-number">2.2.</span> <span class="toc-text">远程传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加用户"><span class="toc-number">3.</span> <span class="toc-text">添加用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘"><span class="toc-number">4.</span> <span class="toc-text">磁盘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自动挂载"><span class="toc-number">4.1.</span> <span class="toc-text">自动挂载</span></a></li></ol></li></ol>
  
   </div>
 
@@ -186,11 +186,11 @@
 		  
 		
 		  
-			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>3</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/工具/" title="工具">工具<sup>2</sup></a></li>
+			<li><a href="/categories/工具/" title="工具">工具<sup>1</sup></a></li>
 		  
 		
 		  
